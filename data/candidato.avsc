@@ -1,0 +1,946 @@
+{
+  "namespace": "openpolitica.jne.elecciones",
+  "type": "record",
+  "name": "Candidato",
+  "fields": [
+    {
+      "name": "hoja_vida_id",
+      "type": "int",
+      "doc": "IDHOJAVIDA"
+    },
+    {
+      "name": "id_dni",
+      "type": [
+        "string",
+        "null"
+      ],
+      "doc": "TXDOCUMENTOIDENTIDAD"
+    },
+    {
+      "name": "id_ce",
+      "type": [
+        "string",
+        "null"
+      ],
+      "doc": "TXCARNEEXTRANJERIA"
+    },
+    {
+      "name": "id_nombres",
+      "type": "string",
+      "doc": "Nombres. TXNOMBRES"
+    },
+    {
+      "name": "id_apellido_paterno",
+      "type": "string",
+      "doc": "Nombres. TXAPELLIDOPATERNO"
+    },
+    {
+      "name": "id_apellido_materno",
+      "type": "string",
+      "doc": "Nombres. TXAPELLIDOMATERNO"
+    },
+    {
+      "name": "id_sexo",
+      "type": "string",
+      "doc": "Masculino/Femenino. TXSEXO"
+    },
+    {
+      "name": "nacimiento_fecha",
+      "type": "string",
+      "doc": "dd/mm/yyyy. FENACIMIENTO"
+    },
+    {
+      "name": "nacimiento_pais",
+      "type": "string",
+      "doc": "TXPAISNACIMIENTO"
+    },
+    {
+      "name": "nacimiento_ubigeo",
+      "type": "string"
+    },
+    {
+      "name": "nacimiento_departamento",
+      "type": "string",
+      "doc": "TXNACIDEPARTAMENTO"
+    },
+    {
+      "name": "nacimiento_provincia",
+      "type": "string",
+      "doc": "TXNACIPROVINCIA"
+    },
+    {
+      "name": "nacimiento_distrito",
+      "type": "string",
+      "doc": "TXNACIDISTRITO"
+    },
+    {
+      "name": "domicilio_direccion",
+      "type": "string"
+    },
+    {
+      "name": "domicilio_ubigeo",
+      "type": "string"
+    },
+    {
+      "name": "domicilio_departamento",
+      "type": "string"
+    },
+    {
+      "name": "domicilio_provincia",
+      "type": "string"
+    },
+    {
+      "name": "domicilio_distrito",
+      "type": "string"
+    },
+    {
+      "name": "postula_ubigeo",
+      "type": "string",
+      "doc": "TXUBIGEOPOSTULA"
+    },
+    {
+      "name": "postula_departamento",
+      "type": "string",
+      "doc": "TXPOSTULADEPARTAMENTO"
+    },
+    {
+      "name": "postula_provincia",
+      "type": "string",
+      "doc": "TXPOSTULAPROVINCIA"
+    },
+    {
+      "name": "postula_distrito",
+      "type": "string",
+      "doc": "TXPOSTULADISTRITO"
+    },
+    {
+      "name": "postula_anio",
+      "type": "int"
+    },
+    {
+      "name": "cargo_id",
+      "type": "int",
+      "doc": "IDCARGOELECCION"
+    },
+    {
+      "name": "cargo_nombre",
+      "type": "string",
+      "doc": "TXCARGOELECCION"
+    },
+    {
+      "name": "candidato_id",
+      "type": "int"
+    },
+    {
+      "name": "proceso_electoral_id",
+      "type": "int"
+    },
+    {
+      "name": "org_politica_id",
+      "type": "int",
+      "doc": "IDORGANIZACIONPOLITICA"
+    },
+    {
+      "name": "org_politica_nombre",
+      "type": "string",
+      "doc": "TXORGANIZACIONPOLITICA"
+    },
+    {
+      "name": "estado_nombre",
+      "type": "string"
+    },
+    {
+      "name": "estado_id",
+      "type": "int"
+    },
+    {
+      "name": "hoja_vida",
+      "type": "string"
+    },
+    {
+      "name": "expediente",
+      "type": {
+        "type": "record",
+        "name": "Expediente",
+        "fields": [
+          {
+            "name": "expediente_id",
+            "type": "int",
+            "doc": "idExpediente"
+          },
+          {
+            "name": "tipo_eleccion_id",
+            "type": "int"
+          },
+          {
+            "name": "expediente_codigo",
+            "type": "string"
+          },
+          {
+            "name": "expediente_codigo_padre",
+            "type": ["string", "null"]
+          },
+          {
+            "name": "ubigeo",
+            "type": "string"
+          },
+          {
+            "name": "region",
+            "type": "string"
+          },
+          {
+            "name": "provincia",
+            "type": "string"
+          },
+          {
+            "name": "distrito",
+            "type": "string"
+          },
+          {
+            "name": "org_politica_id",
+            "type": "int"
+          },
+          {
+            "name": "org_politica_nombre",
+            "type": "string"
+          },
+          {
+            "name": "org_politica_tipo",
+            "type": "string"
+          },
+          {
+            "name": "lista_solicitud_id",
+            "type": "int"
+          },
+          {
+            "name": "lista_solicitud_estado",
+            "type": "string"
+          },
+          {
+            "name": "jurado_electoral_id",
+            "type": "int"
+          },
+          {
+            "name": "jurado_electoral_nombre",
+            "type": "string"
+          },
+          {
+            "name": "candidatos_hombres",
+            "type": "int"
+          },
+          {
+            "name": "candidatos_mujeres",
+            "type": "int"
+          },
+          {
+            "name": "ubicacion_jurado_id",
+            "type": "int"
+          },
+          {
+            "name": "distrito_electoral",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "educacion",
+      "type": {
+        "name": "Educacion",
+        "type": "record",
+        "fields": [
+          {
+            "name": "basica",
+            "type": {
+              "name": "EducacionBasica",
+              "type": "record",
+              "doc": "Educacion Primaria, Secundaria. EDUCACIONBASICAS",
+              "fields": [
+                {
+                  "name": "tiene_basica",
+                  "type": "boolean",
+                  "doc": "SI/NO, TXTIENEBASICA"
+                },
+                {
+                  "name": "tiene_primaria",
+                  "type": "boolean",
+                  "doc": "SI/NO, TXTIENEPRIMARIA"
+                },
+                {
+                  "name": "primaria_concluida",
+                  "type": "boolean",
+                  "doc": "SI/NO, TXCONCLUYOPRIMARIA"
+                },
+                {
+                  "name": "tiene_secundaria",
+                  "type": "boolean",
+                  "doc": "SI/NO, TXTIENESECUNDARIA"
+                },
+                {
+                  "name": "secundaria_concluida",
+                  "type": "boolean",
+                  "doc": "SI/NO, TXCONCLUYOSECUNDARIA"
+                }
+              ]
+            }
+          },
+          {
+            "name": "tecnica",
+            "doc": "EDUCACIONTECNICAS",
+            "type": {
+              "type": "array",
+              "items": {
+                "name": "EducacionTecnica",
+                "type": "record",
+                "fields": [
+                  {
+                    "name": "centro_estudio",
+                    "type": "string",
+                    "doc": "TXCENESTUDIOTECNICO"
+                  },
+                  {
+                    "name": "carrera",
+                    "type": "string",
+                    "doc": "TXCARRERATECNICO"
+                  },
+                  {
+                    "name": "concluida",
+                    "type": [
+                      "boolean",
+                      "null"
+                    ],
+                    "doc": "SI/NO, TXCONCLUYO"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "no_universitaria",
+            "doc": "EDUCACIONNOUNIVERSITARIAS",
+            "type": {
+              "type": "array",
+              "items": {
+                "name": "EducacionNoUniversitaria",
+                "type": "record",
+                "fields": [
+                  {
+                    "name": "centro_estudio",
+                    "type": "string",
+                    "doc": "TXCENTROESTUDIONOUNI"
+                  },
+                  {
+                    "name": "carrera",
+                    "type": "string"
+                  },
+                  {
+                    "name": "concluida",
+                    "type": [
+                      "boolean",
+                      "null"
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "universitaria",
+            "doc": "EDUCACIONUNIVERSITARIAS",
+            "type": {
+              "type": "array",
+              "items": {
+                "name": "EducacionUniversitaria",
+                "type": "record",
+                "fields": [
+                  {
+                    "name": "centro_estudio",
+                    "type": "string",
+                    "doc": "TXUNIVERSIDAD"
+                  },
+                  {
+                    "name": "carrera",
+                    "type": "string",
+                    "doc": "TXCARRERAUNI"
+                  },
+                  {
+                    "name": "concluida",
+                    "type": "boolean",
+                    "doc": "SI/NO, TXCONCLUYO"
+                  },
+                  {
+                    "name": "bachiller",
+                    "type": "boolean",
+                    "doc": "SI/NO, TXBACHILLER"
+                  },
+                  {
+                    "name": "bachiller_anio",
+                    "type": ["int", "null"]
+                  },
+                  {
+                    "name": "titulo",
+                    "type": "boolean",
+                    "doc": "SI/NO, TXTITULO"
+                  },
+                  {
+                    "name": "titulo_anio",
+                    "type": ["int", "null"]
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "postgrado",
+            "doc": "EDUCACIONPOSTGRADOS",
+            "type": {
+              "type": "array",
+              "items": {
+                "name": "EducacionPostgrado",
+                "type": "record",
+                "fields": [
+                  {
+                    "name": "centro_estudio",
+                    "type": "string",
+                    "doc": "TXCENESTUDIOPOSGRADO"
+                  },
+                  {
+                    "name": "especialidad",
+                    "type": "string",
+                    "doc": "TXESPECIALIDADPOSGRADO"
+                  },
+                  {
+                    "name": "postgrado_anio",
+                    "type": ["int", "null"]
+                  },
+                  {
+                    "name": "concluida",
+                    "type": [
+                      "boolean",
+                      "null"
+                    ],
+                    "doc": "SI/NO, TXCONCLUYO"
+                  },
+                  {
+                    "name": "egresado",
+                    "type": [
+                      "boolean",
+                      "null"
+                    ],
+                    "doc": "SI/NO, TXEGRESADO"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "experiencia",
+      "type": {
+        "name": "Experiencia",
+        "type": "record",
+        "fields": [
+          {
+            "name": "laboral",
+            "doc": "EXPERIENCIAS",
+            "type": {
+              "type": "array",
+              "items": {
+                "name": "ExperienciaLaboral",
+                "type": "record",
+                "fields": [
+                  {
+                    "name": "item",
+                    "type": "int"
+                  },
+                  {
+                    "name": "centro_trabajo",
+                    "type": "string",
+                    "doc": "TXCENTROTRABAJO"
+                  },
+                  {
+                    "name": "ocupacion_profesion",
+                    "type": "string",
+                    "doc": "TXOCUPACIONPROFESION"
+                  },
+                  {
+                    "name": "anio_desde",
+                    "type": ["int", "null"],
+                    "doc": "TXANIOTRABAJODESDE"
+                  },
+                  {
+                    "name": "anio_hasta",
+                    "type": [
+                      "int",
+                      "null"
+                    ],
+                    "doc": "TXANIOTRABAJOHASTA"
+                  },
+                  {
+                    "name": "hasta_actualidad",
+                    "type": "boolean"
+                  },
+                  {
+                    "name": "ubicacion_pais",
+                    "type": "string"
+                  },
+                  {
+                    "name": "ubicacion_departamento",
+                    "type": "string"
+                  },
+                  {
+                    "name": "ubicacion_provincia",
+                    "type": "string"
+                  },
+                  {
+                    "name": "ubicacion_distrito",
+                    "type": "string"
+                  },
+                  {
+                    "name": "ubicacion_direccion",
+                    "type": "string"
+                  },
+                  {
+                    "name": "ruc",
+                    "type": "string"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "cargos_elecciones",
+            "doc": "CARGOELECCIONS",
+            "type": {
+              "type": "array",
+              "items": {
+                "name": "CargoEleccion",
+                "type": "record",
+                "fields": [
+                  {
+                    "name": "org_politica",
+                    "type": "string",
+                    "doc": "TXORGPOLCARGOELEC"
+                  },
+                  {
+                    "name": "cargo",
+                    "type": "string",
+                    "doc": "TXCARGOELECCION2"
+                  },
+                  {
+                    "name": "anio_desde",
+                    "type": ["int", "null"],
+                    "doc": "TXANIOCARGOELECDESDE"
+                  },
+                  {
+                    "name": "anio_hasta",
+                    "type": [
+                      "int",
+                      "null"
+                    ],
+                    "doc": "TXANIOCARGOPARTIHASTA"
+                  },
+                  {
+                    "name": "hasta_actualidad",
+                    "type": "boolean"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "cargos_partidarios",
+            "doc": "CARGOPARTIDARIOS",
+            "type": {
+              "type": "array",
+              "items": {
+                "name": "CargoPartidario",
+                "type": "record",
+                "fields": [
+                  {
+                    "name": "org_politica",
+                    "type": "string",
+                    "doc": "TXORGPOLCARGOPARTIDARIO"
+                  },
+                  {
+                    "name": "cargo",
+                    "type": "string",
+                    "doc": "TXCARGOPARTIDARIO"
+                  },
+                  {
+                    "name": "anio_desde",
+                    "type": ["int", "null"],
+                    "doc": "TXANIOCARGOPARTIDESDE"
+                  },
+                  {
+                    "name": "anio_hasta",
+                    "type": [
+                      "int",
+                      "null"
+                    ],
+                    "doc": "TXANIOCARGOPARTIHASTA"
+                  },
+                  {
+                    "name": "hasta_actualidad",
+                    "type": "boolean"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "renuncias",
+            "doc": "RENUNCIAS",
+            "type": {
+              "type": "array",
+              "items": {
+                "name": "Renuncia",
+                "type": "record",
+                "fields": [
+                  {
+                    "name": "org_politica",
+                    "type": "string"
+                  },
+                  {
+                    "name": "anio",
+                    "type": "int"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "sentencias",
+      "type": {
+        "type": "record",
+        "name": "Sentencias",
+        "fields": [
+          {
+            "name": "sentencias_penales",
+            "type": {
+              "type": "array",
+              "items": {
+                "name": "SentenciaPenal",
+                "type": "record",
+                "fields": [
+                  {
+                    "name": "expediente_penal",
+                    "type": "string"
+                  },
+                  {
+                    "name": "organo_judicial_penal",
+                    "type": "string"
+                  },
+                  {
+                    "name": "delito_penal",
+                    "type": "string"
+                  },
+                  {
+                    "name": "fallo_penal",
+                    "type": "string"
+                  },
+                  {
+                    "name": "modalidad",
+                    "type": "string"
+                  },
+                  {
+                    "name": "fallo_cumple",
+                    "type": "string"
+                  },
+                  {
+                    "name": "sentencia_fecha",
+                    "type": "string"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "sentencias_civiles",
+            "type": {
+              "type": "array",
+              "items": {
+                "name": "SentenciaCivil",
+                "type": "record",
+                "fields": [
+                  {
+                    "name": "materia_sentencia",
+                    "type": "string"
+                  },
+                  {
+                    "name": "expediente_obliga",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "doc": "TXEXPEDIENTEOBLIGA"
+                  },
+                  {
+                    "name": "organo_judicial_obliga",
+                    "type": [
+                      "string",
+                      "null"
+                    ],
+                    "doc": "TXORGANOJURIDICIALOBLIGA"
+                  },
+                  {
+                    "name": "fallo_obliga",
+                    "type": "string"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "ingresos",
+      "doc": "INGRESOS",
+      "type": {
+          "name": "Ingreso",
+          "type": "record",
+          "fields": [
+            {
+              "name": "anio",
+              "type": ["int", "null"]
+            },
+            {
+              "name": "remuneracion_bruta_publico",
+              "type": "double",
+              "doc": "FLREMUBRUTAPUBLICO"
+            },
+            {
+              "name": "remuneracion_bruta_privado",
+              "type": "double",
+              "doc": "FLREMUBRUTAPRIVADO"
+            },
+            {
+              "name": "renta_individual_publico",
+              "type": "double",
+              "doc": "FLRENTAINDIVIDUALPUBLICO"
+            },
+            {
+              "name": "renta_individual_privado",
+              "type": "double",
+              "doc": "FLRENTAINDIVIDUALPRIVADO"
+            },
+            {
+              "name": "otro_ingreso_publico",
+              "type": "double",
+              "doc": "FLOTROINGRESOPUBLICO"
+            },
+            {
+              "name": "otro_ingreso_privado",
+              "type": "double",
+              "doc": "FLOTROINGRESOPRIVADO"
+            },
+            {
+              "name": "total_remuneracion_bruta",
+              "type": "double",
+              "doc": "TOTALREMBRUTA"
+            },
+            {
+              "name": "total_renta",
+              "type": "double",
+              "doc": "TOTALRENTA"
+            },
+            {
+              "name": "total_otro",
+              "type": "double",
+              "doc": "TOTALOTRO"
+            },
+            {
+              "name": "total",
+              "type": "double",
+              "doc": "TOTAL"
+            },
+            {
+              "name": "total_privado",
+              "type": "double",
+              "doc": "TOTALPRIVADO"
+            },
+            {
+              "name": "total_publico",
+              "type": "double",
+              "doc": "TOTALPUBLICO"
+            }
+          ]
+      }
+    },
+    {
+      "name": "bienes",
+      "type": {
+        "name": "Bienes",
+        "type": "record",
+        "fields": [
+          {
+            "name": "bienes_otros",
+            "doc": "TODO",
+            "type": {
+              "type": "array",
+              "items": {
+                "name": "BienOtro",
+                "type": "record",
+                "fields": [
+                  {
+                    "name": "tipo_bien",
+                    "type": "string",
+                    "doc": "TXOTROBIEN"
+                  },
+                  {
+                    "name": "description",
+                    "type": ["string", "null"],
+                    "doc": "TXDESCRIPCION"
+                  },
+                  {
+                    "name": "valor",
+                    "type": "double",
+                    "doc": "FLVALOR"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "bienes_muebles",
+            "doc": "BIENMUEBLES",
+            "type": {
+              "type": "array",
+              "items": {
+                "name": "BienMueble",
+                "type": "record",
+                "fields": [
+                  {
+                    "name": "tipo_vehiculo",
+                    "type": "string",
+                    "doc": "TXVEHICULO"
+                  },
+                  {
+                    "name": "marca",
+                    "type": "string",
+                    "doc": "TXPLACA"
+                  },
+                  {
+                    "name": "modelo",
+                    "type": "string",
+                    "doc": "TXPLACA"
+                  },
+                  {
+                    "name": "anio",
+                    "type": ["int", "null"],
+                    "doc": "TXPLACA"
+                  },
+                  {
+                    "name": "placa",
+                    "type": "string",
+                    "doc": "TXPLACA"
+                  },
+                  {
+                    "name": "valor",
+                    "type": "double",
+                    "doc": "FLVALOR"
+                  },
+                  {
+                    "name": "caracteristica",
+                    "type": "string"
+                  },
+                  {
+                    "name": "comentario",
+                    "type": "string"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "bienes_inmuebles",
+            "doc": "BIENINMUEBLES",
+            "type": {
+              "type": "array",
+              "items": {
+                "name": "BienInmueble",
+                "type": "record",
+                "fields": [
+                  {
+                    "name": "tipo_bien",
+                    "type": "string",
+                    "doc": "TXTIPOBIENINMUEBLE"
+                  },
+                  {
+                    "name": "ubicacion_ubigeo",
+                    "type": "string"
+                  },
+                  {
+                    "name": "ubicacion_pais",
+                    "type": "string"
+                  },
+                  {
+                    "name": "ubicacion_departamento",
+                    "type": "string"
+                  },
+                  {
+                    "name": "ubicacion_provincia",
+                    "type": "string"
+                  },
+                  {
+                    "name": "ubicacion_distrito",
+                    "type": "string"
+                  },
+                  {
+                    "name": "ubicacion_direccion",
+                    "type": "string"
+                  },
+                  {
+                    "name": "sunarp_tiene",
+                    "type": "boolean"
+                  },
+                  {
+                    "name": "sunarp_partida",
+                    "type": "string"
+                  },
+                  {
+                    "name": "comentario",
+                    "type": "string"
+                  },
+                  {
+                    "name": "auto_valuo",
+                    "type": "double",
+                    "doc": "FLAUTOVALUO"
+                  },
+                  {
+                    "name": "uit",
+                    "type": "double"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "info_adicional",
+      "doc": "INFORMACIONADICIONAL",
+      "type": {
+        "type": "array",
+        "items": {
+          "name": "InfoAdicional",
+          "type": "record",
+          "fields": [
+            {
+              "name": "info",
+              "type": "string",
+              "doc": "TXINFOADICIONAL"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
