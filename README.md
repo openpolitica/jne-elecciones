@@ -1,5 +1,7 @@
 # JNE - Elecciones
 
+![extract](https://github.com/openpolitica/jne-elecciones/workflows/extract/badge.svg)
+
 ## 2021
 
 ### Congresales
