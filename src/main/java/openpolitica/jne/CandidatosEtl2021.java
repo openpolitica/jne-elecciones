@@ -27,16 +27,19 @@ public class CandidatosEtl2021 {
     var expInputPresidenciales = rawDir.resolve("expedientes-presidenciales.json");
     var tp = new CandidatoTransform(inputPresidenciales, expInputPresidenciales);
     var presidencialesAvro = baseDir.resolve("2021-candidatos-presidenciales.avro");
-    tp.save(presidencialesAvro, tp.load());
+
+    var export = new CandidatosLoadSqlite();
+    if (tp.save(presidencialesAvro, tp.load())) {
+      export.save(presidencialesAvro, baseDir.resolve("2021-candidatos-presidenciales.db"));
+    }
 
     var inputCongresales = rawDir.resolve("candidatos-congresales");
     var expInputCongresales = rawDir.resolve("expedientes-congresales.json");
     var tc = new CandidatoTransform(inputCongresales, expInputCongresales);
     var congresalesAvro = baseDir.resolve("2021-candidatos-congresales.avro");
-    tc.save(congresalesAvro, tc.load());
 
-    var export = new CandidatosLoadSqlite();
-    export.save(presidencialesAvro, baseDir.resolve("2021-candidatos-presidenciales.db"));
-    export.save(congresalesAvro, baseDir.resolve("2021-candidatos-congresales.db"));
+    if (tc.save(congresalesAvro, tc.load())) {
+      export.save(congresalesAvro, baseDir.resolve("2021-candidatos-congresales.db"));
+    }
   }
 }

@@ -60,7 +60,7 @@ public class CandidatoTransform {
     this.expInput = expInput;
   }
 
-  protected void save(Path output, List<Candidato> candidatos) throws IOException {
+  boolean save(Path output, List<Candidato> candidatos) throws IOException {
     var current = new ArrayList<Candidato>();
     if (Files.isRegularFile(output)) {
       var reader = load(output);
@@ -73,27 +73,26 @@ public class CandidatoTransform {
 
       if (current.equals(candidatos)) {
         LOG.info("Candidatos obtenidos no han cambiado");
-        return;
+        return false;
+      } else {
+        var datumWriter = new SpecificDatumWriter<>(Candidato.class);
+        try (var writer = new DataFileWriter<>(datumWriter)) {
+          writer.setCodec(CodecFactory.zstandardCodec(CodecFactory.DEFAULT_ZSTANDARD_LEVEL));
+          writer.create(Candidato.SCHEMA$, output.toFile());
+
+          candidatos.forEach(s -> {
+            try {
+              writer.append(s);
+            } catch (IOException e) {
+              e.printStackTrace();
+            }
+          });
+        }
+        LOG.info("Candidatos: "+ candidatosCount);
+        return true;
       }
     }
-
-    var datumWriter = new SpecificDatumWriter<>(Candidato.class);
-    try (var writer = new DataFileWriter<>(datumWriter)) {
-      writer.setCodec(CodecFactory.zstandardCodec(CodecFactory.DEFAULT_ZSTANDARD_LEVEL));
-      writer.create(Candidato.SCHEMA$, output.toFile());
-
-      candidatos.forEach(s -> {
-        try {
-          writer.append(s);
-        } catch (IOException e) {
-          e.printStackTrace();
-        }
-      });
-    }
-    LOG.info("Candidatos: "+ candidatosCount);
-    LOG.info("Exp Laboral: " + expLaboralCount);
-    LOG.info("Carg Part: " + cargoPartCount);
-    LOG.info("Carg Elecc: " + cargoElecCount);
+    return false;
   }
 
   DataFileReader<Candidato> load(Path input) throws IOException {
