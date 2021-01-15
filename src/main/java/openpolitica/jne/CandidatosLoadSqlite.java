@@ -111,29 +111,30 @@ public class CandidatosLoadSqlite {
       ps.setInt(23, candidato.getPostulaAnio());
       ps.setInt(24, candidato.getProcesoElectoralId());
       ps.setInt(25, candidato.getCandidatoId());
-      ps.setInt(26, candidato.getCargoId());
-      ps.setString(27, candidato.getCargoNombre());
-      ps.setInt(28, candidato.getOrgPoliticaId());
-      ps.setString(29, candidato.getOrgPoliticaNombre());
-      ps.setString(30, candidato.getExpediente().getOrgPoliticaTipo());
-      ps.setString(31, candidato.getHojaVida());
-      ps.setInt(32, candidato.getEstadoId());
-      ps.setString(33, candidato.getEstadoNombre());
-      ps.setInt(34, candidato.getExpediente().getExpedienteId());
-      ps.setInt(35, candidato.getExpediente().getTipoEleccionId());
-      ps.setString(36, candidato.getExpediente().getExpedienteCodigo());
-      ps.setString(37, candidato.getExpediente().getUbigeo());
-      ps.setString(38, candidato.getExpediente().getRegion());
-      ps.setString(39, candidato.getExpediente().getProvincia());
-      ps.setString(40, candidato.getExpediente().getDistrito());
-      ps.setInt(41, candidato.getExpediente().getListaSolicitudId());
-      ps.setString(42, candidato.getExpediente().getListaSolicitudEstado());
-      ps.setInt(43, candidato.getExpediente().getJuradoElectoralId());
-      ps.setString(44, candidato.getExpediente().getJuradoElectoralNombre());
-      ps.setInt(45, candidato.getExpediente().getCandidatosMujeres());
-      ps.setInt(46, candidato.getExpediente().getCandidatosHombres());
-      ps.setInt(47, candidato.getExpediente().getUbicacionJuradoId());
-      ps.setString(48, candidato.getExpediente().getDistritoElectoral());
+      ps.setInt(26, candidato.getPosicion());
+      ps.setInt(27, candidato.getCargoId());
+      ps.setString(28, candidato.getCargoNombre());
+      ps.setInt(29, candidato.getOrgPoliticaId());
+      ps.setString(30, candidato.getOrgPoliticaNombre());
+      ps.setString(31, candidato.getExpediente().getOrgPoliticaTipo());
+      ps.setString(32, candidato.getHojaVida());
+      ps.setInt(33, candidato.getEstadoId());
+      ps.setString(34, candidato.getEstadoNombre());
+      ps.setInt(35, candidato.getExpediente().getExpedienteId());
+      ps.setInt(36, candidato.getExpediente().getTipoEleccionId());
+      ps.setString(37, candidato.getExpediente().getExpedienteCodigo());
+      ps.setString(38, candidato.getExpediente().getUbigeo());
+      ps.setString(39, candidato.getExpediente().getRegion());
+      ps.setString(40, candidato.getExpediente().getProvincia());
+      ps.setString(41, candidato.getExpediente().getDistrito());
+      ps.setInt(42, candidato.getExpediente().getListaSolicitudId());
+      ps.setString(43, candidato.getExpediente().getListaSolicitudEstado());
+      ps.setInt(44, candidato.getExpediente().getJuradoElectoralId());
+      ps.setString(45, candidato.getExpediente().getJuradoElectoralNombre());
+      ps.setInt(46, candidato.getExpediente().getCandidatosMujeres());
+      ps.setInt(47, candidato.getExpediente().getCandidatosHombres());
+      ps.setInt(48, candidato.getExpediente().getUbicacionJuradoId());
+      ps.setString(49, candidato.getExpediente().getDistritoElectoral());
 
       ps.addBatch();
     }
@@ -167,6 +168,7 @@ public class CandidatosLoadSqlite {
             postula_anio int,
             proceso_electoral_id int,
             candidato_id int,
+            posicion int,
             cargo_id int,
             cargo_nombre string,
             org_politica_id int,
@@ -201,7 +203,7 @@ public class CandidatosLoadSqlite {
             ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
             ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
             ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
-            ?, ?, ?, ?, ?, ?, ?, ?
+            ?, ?, ?, ?, ?, ?, ?, ?, ?
           )
           """.formatted(tableName);
     }

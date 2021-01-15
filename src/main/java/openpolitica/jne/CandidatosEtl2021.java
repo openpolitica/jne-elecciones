@@ -25,7 +25,7 @@ public class CandidatosEtl2021 {
 
     var inputPresidenciales = rawDir.resolve("candidatos-presidenciales");
     var expInputPresidenciales = rawDir.resolve("expedientes-presidenciales.json");
-    var tp = new CandidatoTransform(inputPresidenciales, expInputPresidenciales);
+    var tp = new CandidatosTransform(inputPresidenciales, expInputPresidenciales);
     var presidencialesAvro = baseDir.resolve("2021-candidatos-presidenciales.avro");
 
     var export = new CandidatosLoadSqlite();
@@ -35,7 +35,7 @@ public class CandidatosEtl2021 {
 
     var inputCongresales = rawDir.resolve("candidatos-congresales");
     var expInputCongresales = rawDir.resolve("expedientes-congresales.json");
-    var tc = new CandidatoTransform(inputCongresales, expInputCongresales);
+    var tc = new CandidatosTransform(inputCongresales, expInputCongresales);
     var congresalesAvro = baseDir.resolve("2021-candidatos-congresales.avro");
 
     if (tc.save(congresalesAvro, tc.load())) {

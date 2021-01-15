@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class Candidato extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 7745769617579994426L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Candidato\",\"namespace\":\"openpolitica.jne.elecciones\",\"fields\":[{\"name\":\"hoja_vida_id\",\"type\":\"int\",\"doc\":\"IDHOJAVIDA\"},{\"name\":\"id_dni\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"doc\":\"TXDOCUMENTOIDENTIDAD\"},{\"name\":\"id_ce\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"doc\":\"TXCARNEEXTRANJERIA\"},{\"name\":\"id_nombres\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Nombres. TXNOMBRES\"},{\"name\":\"id_apellido_paterno\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Nombres. TXAPELLIDOPATERNO\"},{\"name\":\"id_apellido_materno\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Nombres. TXAPELLIDOMATERNO\"},{\"name\":\"id_sexo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Masculino/Femenino. TXSEXO\"},{\"name\":\"nacimiento_fecha\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"dd/mm/yyyy. FENACIMIENTO\"},{\"name\":\"nacimiento_pais\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXPAISNACIMIENTO\"},{\"name\":\"nacimiento_ubigeo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"nacimiento_departamento\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXNACIDEPARTAMENTO\"},{\"name\":\"nacimiento_provincia\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXNACIPROVINCIA\"},{\"name\":\"nacimiento_distrito\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXNACIDISTRITO\"},{\"name\":\"domicilio_direccion\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"domicilio_ubigeo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"domicilio_departamento\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"domicilio_provincia\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"domicilio_distrito\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"postula_ubigeo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXUBIGEOPOSTULA\"},{\"name\":\"postula_departamento\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXPOSTULADEPARTAMENTO\"},{\"name\":\"postula_provincia\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXPOSTULAPROVINCIA\"},{\"name\":\"postula_distrito\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXPOSTULADISTRITO\"},{\"name\":\"postula_anio\",\"type\":\"int\"},{\"name\":\"cargo_id\",\"type\":\"int\",\"doc\":\"IDCARGOELECCION\"},{\"name\":\"cargo_nombre\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXCARGOELECCION\"},{\"name\":\"candidato_id\",\"type\":\"int\"},{\"name\":\"proceso_electoral_id\",\"type\":\"int\"},{\"name\":\"org_politica_id\",\"type\":\"int\",\"doc\":\"IDORGANIZACIONPOLITICA\"},{\"name\":\"org_politica_nombre\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXORGANIZACIONPOLITICA\"},{\"name\":\"estado_nombre\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"estado_id\",\"type\":\"int\"},{\"name\":\"hoja_vida\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"expediente\",\"type\":{\"type\":\"record\",\"name\":\"Expediente\",\"fields\":[{\"name\":\"expediente_id\",\"type\":\"int\",\"doc\":\"idExpediente\"},{\"name\":\"tipo_eleccion_id\",\"type\":\"int\"},{\"name\":\"expediente_codigo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"expediente_codigo_padre\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"]},{\"name\":\"ubigeo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"region\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"provincia\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"distrito\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"org_politica_id\",\"type\":\"int\"},{\"name\":\"org_politica_nombre\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"org_politica_tipo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"lista_solicitud_id\",\"type\":\"int\"},{\"name\":\"lista_solicitud_estado\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"jurado_electoral_id\",\"type\":\"int\"},{\"name\":\"jurado_electoral_nombre\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"candidatos_hombres\",\"type\":\"int\"},{\"name\":\"candidatos_mujeres\",\"type\":\"int\"},{\"name\":\"ubicacion_jurado_id\",\"type\":\"int\"},{\"name\":\"distrito_electoral\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"educacion\",\"type\":{\"type\":\"record\",\"name\":\"Educacion\",\"fields\":[{\"name\":\"basica\",\"type\":{\"type\":\"record\",\"name\":\"EducacionBasica\",\"doc\":\"Educacion Primaria, Secundaria. EDUCACIONBASICAS\",\"fields\":[{\"name\":\"tiene_basica\",\"type\":\"boolean\",\"doc\":\"SI/NO, TXTIENEBASICA\"},{\"name\":\"tiene_primaria\",\"type\":\"boolean\",\"doc\":\"SI/NO, TXTIENEPRIMARIA\"},{\"name\":\"primaria_concluida\",\"type\":\"boolean\",\"doc\":\"SI/NO, TXCONCLUYOPRIMARIA\"},{\"name\":\"tiene_secundaria\",\"type\":\"boolean\",\"doc\":\"SI/NO, TXTIENESECUNDARIA\"},{\"name\":\"secundaria_concluida\",\"type\":\"boolean\",\"doc\":\"SI/NO, TXCONCLUYOSECUNDARIA\"}]}},{\"name\":\"tecnica\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"EducacionTecnica\",\"fields\":[{\"name\":\"centro_estudio\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXCENESTUDIOTECNICO\"},{\"name\":\"carrera\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXCARRERATECNICO\"},{\"name\":\"concluida\",\"type\":[\"boolean\",\"null\"],\"doc\":\"SI/NO, TXCONCLUYO\"}]}},\"doc\":\"EDUCACIONTECNICAS\"},{\"name\":\"no_universitaria\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"EducacionNoUniversitaria\",\"fields\":[{\"name\":\"centro_estudio\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXCENTROESTUDIONOUNI\"},{\"name\":\"carrera\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"concluida\",\"type\":[\"boolean\",\"null\"]}]}},\"doc\":\"EDUCACIONNOUNIVERSITARIAS\"},{\"name\":\"universitaria\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"EducacionUniversitaria\",\"fields\":[{\"name\":\"centro_estudio\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXUNIVERSIDAD\"},{\"name\":\"carrera\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXCARRERAUNI\"},{\"name\":\"concluida\",\"type\":\"boolean\",\"doc\":\"SI/NO, TXCONCLUYO\"},{\"name\":\"bachiller\",\"type\":\"boolean\",\"doc\":\"SI/NO, TXBACHILLER\"},{\"name\":\"bachiller_anio\",\"type\":[\"int\",\"null\"]},{\"name\":\"titulo\",\"type\":\"boolean\",\"doc\":\"SI/NO, TXTITULO\"},{\"name\":\"titulo_anio\",\"type\":[\"int\",\"null\"]}]}},\"doc\":\"EDUCACIONUNIVERSITARIAS\"},{\"name\":\"postgrado\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"EducacionPostgrado\",\"fields\":[{\"name\":\"centro_estudio\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXCENESTUDIOPOSGRADO\"},{\"name\":\"especialidad\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXESPECIALIDADPOSGRADO\"},{\"name\":\"postgrado_anio\",\"type\":[\"int\",\"null\"]},{\"name\":\"concluida\",\"type\":[\"boolean\",\"null\"],\"doc\":\"SI/NO, TXCONCLUYO\"},{\"name\":\"egresado\",\"type\":[\"boolean\",\"null\"],\"doc\":\"SI/NO, TXEGRESADO\"}]}},\"doc\":\"EDUCACIONPOSTGRADOS\"}]}},{\"name\":\"experiencia\",\"type\":{\"type\":\"record\",\"name\":\"Experiencia\",\"fields\":[{\"name\":\"laboral\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"ExperienciaLaboral\",\"fields\":[{\"name\":\"item\",\"type\":\"int\"},{\"name\":\"centro_trabajo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXCENTROTRABAJO\"},{\"name\":\"ocupacion_profesion\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXOCUPACIONPROFESION\"},{\"name\":\"anio_desde\",\"type\":[\"int\",\"null\"],\"doc\":\"TXANIOTRABAJODESDE\"},{\"name\":\"anio_hasta\",\"type\":[\"int\",\"null\"],\"doc\":\"TXANIOTRABAJOHASTA\"},{\"name\":\"hasta_actualidad\",\"type\":\"boolean\"},{\"name\":\"ubicacion_pais\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"ubicacion_departamento\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"ubicacion_provincia\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"ubicacion_distrito\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"ubicacion_direccion\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"ruc\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},\"doc\":\"EXPERIENCIAS\"},{\"name\":\"cargos_elecciones\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"CargoEleccion\",\"fields\":[{\"name\":\"org_politica\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXORGPOLCARGOELEC\"},{\"name\":\"cargo\",\"type\":{\"","type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXCARGOELECCION2\"},{\"name\":\"anio_desde\",\"type\":[\"int\",\"null\"],\"doc\":\"TXANIOCARGOELECDESDE\"},{\"name\":\"anio_hasta\",\"type\":[\"int\",\"null\"],\"doc\":\"TXANIOCARGOPARTIHASTA\"},{\"name\":\"hasta_actualidad\",\"type\":\"boolean\"}]}},\"doc\":\"CARGOELECCIONS\"},{\"name\":\"cargos_partidarios\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"CargoPartidario\",\"fields\":[{\"name\":\"org_politica\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXORGPOLCARGOPARTIDARIO\"},{\"name\":\"cargo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXCARGOPARTIDARIO\"},{\"name\":\"anio_desde\",\"type\":[\"int\",\"null\"],\"doc\":\"TXANIOCARGOPARTIDESDE\"},{\"name\":\"anio_hasta\",\"type\":[\"int\",\"null\"],\"doc\":\"TXANIOCARGOPARTIHASTA\"},{\"name\":\"hasta_actualidad\",\"type\":\"boolean\"}]}},\"doc\":\"CARGOPARTIDARIOS\"},{\"name\":\"renuncias\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Renuncia\",\"fields\":[{\"name\":\"org_politica\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"anio\",\"type\":\"int\"}]}},\"doc\":\"RENUNCIAS\"}]}},{\"name\":\"sentencias\",\"type\":{\"type\":\"record\",\"name\":\"Sentencias\",\"fields\":[{\"name\":\"sentencias_penales\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"SentenciaPenal\",\"fields\":[{\"name\":\"expediente_penal\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"organo_judicial_penal\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"delito_penal\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"fallo_penal\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"modalidad\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"fallo_cumple\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"sentencia_fecha\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}}},{\"name\":\"sentencias_civiles\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"SentenciaCivil\",\"fields\":[{\"name\":\"materia_sentencia\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"expediente_obliga\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"doc\":\"TXEXPEDIENTEOBLIGA\"},{\"name\":\"organo_judicial_obliga\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"doc\":\"TXORGANOJURIDICIALOBLIGA\"},{\"name\":\"fallo_obliga\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}}}]}},{\"name\":\"ingresos\",\"type\":{\"type\":\"record\",\"name\":\"Ingreso\",\"fields\":[{\"name\":\"anio\",\"type\":[\"int\",\"null\"]},{\"name\":\"remuneracion_bruta_publico\",\"type\":\"double\",\"doc\":\"FLREMUBRUTAPUBLICO\"},{\"name\":\"remuneracion_bruta_privado\",\"type\":\"double\",\"doc\":\"FLREMUBRUTAPRIVADO\"},{\"name\":\"renta_individual_publico\",\"type\":\"double\",\"doc\":\"FLRENTAINDIVIDUALPUBLICO\"},{\"name\":\"renta_individual_privado\",\"type\":\"double\",\"doc\":\"FLRENTAINDIVIDUALPRIVADO\"},{\"name\":\"otro_ingreso_publico\",\"type\":\"double\",\"doc\":\"FLOTROINGRESOPUBLICO\"},{\"name\":\"otro_ingreso_privado\",\"type\":\"double\",\"doc\":\"FLOTROINGRESOPRIVADO\"},{\"name\":\"total_remuneracion_bruta\",\"type\":\"double\",\"doc\":\"TOTALREMBRUTA\"},{\"name\":\"total_renta\",\"type\":\"double\",\"doc\":\"TOTALRENTA\"},{\"name\":\"total_otro\",\"type\":\"double\",\"doc\":\"TOTALOTRO\"},{\"name\":\"total\",\"type\":\"double\",\"doc\":\"TOTAL\"},{\"name\":\"total_privado\",\"type\":\"double\",\"doc\":\"TOTALPRIVADO\"},{\"name\":\"total_publico\",\"type\":\"double\",\"doc\":\"TOTALPUBLICO\"}]},\"doc\":\"INGRESOS\"},{\"name\":\"bienes\",\"type\":{\"type\":\"record\",\"name\":\"Bienes\",\"fields\":[{\"name\":\"bienes_otros\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"BienOtro\",\"fields\":[{\"name\":\"tipo_bien\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXOTROBIEN\"},{\"name\":\"description\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"doc\":\"TXDESCRIPCION\"},{\"name\":\"valor\",\"type\":\"double\",\"doc\":\"FLVALOR\"}]}},\"doc\":\"TODO\"},{\"name\":\"bienes_muebles\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"BienMueble\",\"fields\":[{\"name\":\"tipo_vehiculo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXVEHICULO\"},{\"name\":\"marca\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXPLACA\"},{\"name\":\"modelo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXPLACA\"},{\"name\":\"anio\",\"type\":[\"int\",\"null\"],\"doc\":\"TXPLACA\"},{\"name\":\"placa\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXPLACA\"},{\"name\":\"valor\",\"type\":\"double\",\"doc\":\"FLVALOR\"},{\"name\":\"caracteristica\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"comentario\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},\"doc\":\"BIENMUEBLES\"},{\"name\":\"bienes_inmuebles\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"BienInmueble\",\"fields\":[{\"name\":\"tipo_bien\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXTIPOBIENINMUEBLE\"},{\"name\":\"ubicacion_ubigeo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"ubicacion_pais\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"ubicacion_departamento\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"ubicacion_provincia\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"ubicacion_distrito\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"ubicacion_direccion\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"sunarp_tiene\",\"type\":\"boolean\"},{\"name\":\"sunarp_partida\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"comentario\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"auto_valuo\",\"type\":\"double\",\"doc\":\"FLAUTOVALUO\"},{\"name\":\"uit\",\"type\":\"double\"}]}},\"doc\":\"BIENINMUEBLES\"}]}},{\"name\":\"info_adicional\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"InfoAdicional\",\"fields\":[{\"name\":\"info\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXINFOADICIONAL\"}]}},\"doc\":\"INFORMACIONADICIONAL\"}]}");
+  private static final long serialVersionUID = -7388132188417448340L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Candidato\",\"namespace\":\"openpolitica.jne.elecciones\",\"fields\":[{\"name\":\"hoja_vida_id\",\"type\":\"int\",\"doc\":\"IDHOJAVIDA\"},{\"name\":\"id_dni\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"doc\":\"TXDOCUMENTOIDENTIDAD\"},{\"name\":\"id_ce\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"doc\":\"TXCARNEEXTRANJERIA\"},{\"name\":\"id_nombres\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Nombres. TXNOMBRES\"},{\"name\":\"id_apellido_paterno\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Nombres. TXAPELLIDOPATERNO\"},{\"name\":\"id_apellido_materno\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Nombres. TXAPELLIDOMATERNO\"},{\"name\":\"id_sexo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"Masculino/Femenino. TXSEXO\"},{\"name\":\"nacimiento_fecha\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"dd/mm/yyyy. FENACIMIENTO\"},{\"name\":\"nacimiento_pais\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXPAISNACIMIENTO\"},{\"name\":\"nacimiento_ubigeo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"nacimiento_departamento\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXNACIDEPARTAMENTO\"},{\"name\":\"nacimiento_provincia\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXNACIPROVINCIA\"},{\"name\":\"nacimiento_distrito\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXNACIDISTRITO\"},{\"name\":\"domicilio_direccion\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"domicilio_ubigeo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"domicilio_departamento\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"domicilio_provincia\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"domicilio_distrito\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"postula_ubigeo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXUBIGEOPOSTULA\"},{\"name\":\"postula_departamento\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXPOSTULADEPARTAMENTO\"},{\"name\":\"postula_provincia\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXPOSTULAPROVINCIA\"},{\"name\":\"postula_distrito\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXPOSTULADISTRITO\"},{\"name\":\"postula_anio\",\"type\":\"int\"},{\"name\":\"cargo_id\",\"type\":\"int\",\"doc\":\"IDCARGOELECCION\"},{\"name\":\"cargo_nombre\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXCARGOELECCION\"},{\"name\":\"candidato_id\",\"type\":\"int\"},{\"name\":\"proceso_electoral_id\",\"type\":\"int\"},{\"name\":\"posicion\",\"type\":\"int\",\"doc\":\"intPosicion\"},{\"name\":\"org_politica_id\",\"type\":\"int\",\"doc\":\"IDORGANIZACIONPOLITICA\"},{\"name\":\"org_politica_nombre\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXORGANIZACIONPOLITICA\"},{\"name\":\"estado_nombre\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"estado_id\",\"type\":\"int\"},{\"name\":\"hoja_vida\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"expediente\",\"type\":{\"type\":\"record\",\"name\":\"Expediente\",\"fields\":[{\"name\":\"expediente_id\",\"type\":\"int\",\"doc\":\"idExpediente\"},{\"name\":\"tipo_eleccion_id\",\"type\":\"int\"},{\"name\":\"expediente_codigo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"expediente_codigo_padre\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"]},{\"name\":\"ubigeo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"region\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"provincia\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"distrito\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"org_politica_id\",\"type\":\"int\"},{\"name\":\"org_politica_nombre\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"org_politica_tipo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"lista_solicitud_id\",\"type\":\"int\"},{\"name\":\"lista_solicitud_estado\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"jurado_electoral_id\",\"type\":\"int\"},{\"name\":\"jurado_electoral_nombre\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"candidatos_hombres\",\"type\":\"int\"},{\"name\":\"candidatos_mujeres\",\"type\":\"int\"},{\"name\":\"ubicacion_jurado_id\",\"type\":\"int\"},{\"name\":\"distrito_electoral\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"educacion\",\"type\":{\"type\":\"record\",\"name\":\"Educacion\",\"fields\":[{\"name\":\"basica\",\"type\":{\"type\":\"record\",\"name\":\"EducacionBasica\",\"doc\":\"Educacion Primaria, Secundaria. EDUCACIONBASICAS\",\"fields\":[{\"name\":\"tiene_basica\",\"type\":\"boolean\",\"doc\":\"SI/NO, TXTIENEBASICA\"},{\"name\":\"tiene_primaria\",\"type\":\"boolean\",\"doc\":\"SI/NO, TXTIENEPRIMARIA\"},{\"name\":\"primaria_concluida\",\"type\":\"boolean\",\"doc\":\"SI/NO, TXCONCLUYOPRIMARIA\"},{\"name\":\"tiene_secundaria\",\"type\":\"boolean\",\"doc\":\"SI/NO, TXTIENESECUNDARIA\"},{\"name\":\"secundaria_concluida\",\"type\":\"boolean\",\"doc\":\"SI/NO, TXCONCLUYOSECUNDARIA\"}]}},{\"name\":\"tecnica\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"EducacionTecnica\",\"fields\":[{\"name\":\"centro_estudio\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXCENESTUDIOTECNICO\"},{\"name\":\"carrera\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXCARRERATECNICO\"},{\"name\":\"concluida\",\"type\":[\"boolean\",\"null\"],\"doc\":\"SI/NO, TXCONCLUYO\"}]}},\"doc\":\"EDUCACIONTECNICAS\"},{\"name\":\"no_universitaria\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"EducacionNoUniversitaria\",\"fields\":[{\"name\":\"centro_estudio\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXCENTROESTUDIONOUNI\"},{\"name\":\"carrera\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"concluida\",\"type\":[\"boolean\",\"null\"]}]}},\"doc\":\"EDUCACIONNOUNIVERSITARIAS\"},{\"name\":\"universitaria\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"EducacionUniversitaria\",\"fields\":[{\"name\":\"centro_estudio\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXUNIVERSIDAD\"},{\"name\":\"carrera\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXCARRERAUNI\"},{\"name\":\"concluida\",\"type\":\"boolean\",\"doc\":\"SI/NO, TXCONCLUYO\"},{\"name\":\"bachiller\",\"type\":\"boolean\",\"doc\":\"SI/NO, TXBACHILLER\"},{\"name\":\"bachiller_anio\",\"type\":[\"int\",\"null\"]},{\"name\":\"titulo\",\"type\":\"boolean\",\"doc\":\"SI/NO, TXTITULO\"},{\"name\":\"titulo_anio\",\"type\":[\"int\",\"null\"]}]}},\"doc\":\"EDUCACIONUNIVERSITARIAS\"},{\"name\":\"postgrado\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"EducacionPostgrado\",\"fields\":[{\"name\":\"centro_estudio\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXCENESTUDIOPOSGRADO\"},{\"name\":\"especialidad\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXESPECIALIDADPOSGRADO\"},{\"name\":\"postgrado_anio\",\"type\":[\"int\",\"null\"]},{\"name\":\"concluida\",\"type\":[\"boolean\",\"null\"],\"doc\":\"SI/NO, TXCONCLUYO\"},{\"name\":\"egresado\",\"type\":[\"boolean\",\"null\"],\"doc\":\"SI/NO, TXEGRESADO\"}]}},\"doc\":\"EDUCACIONPOSTGRADOS\"}]}},{\"name\":\"experiencia\",\"type\":{\"type\":\"record\",\"name\":\"Experiencia\",\"fields\":[{\"name\":\"laboral\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"ExperienciaLaboral\",\"fields\":[{\"name\":\"item\",\"type\":\"int\"},{\"name\":\"centro_trabajo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXCENTROTRABAJO\"},{\"name\":\"ocupacion_profesion\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXOCUPACIONPROFESION\"},{\"name\":\"anio_desde\",\"type\":[\"int\",\"null\"],\"doc\":\"TXANIOTRABAJODESDE\"},{\"name\":\"anio_hasta\",\"type\":[\"int\",\"null\"],\"doc\":\"TXANIOTRABAJOHASTA\"},{\"name\":\"hasta_actualidad\",\"type\":\"boolean\"},{\"name\":\"ubicacion_pais\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"ubicacion_departamento\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"ubicacion_provincia\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"ubicacion_distrito\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"ubicacion_direccion\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"ruc\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},\"doc\":\"EXPERIENCIAS\"},{\"name\":\"cargos_elecciones\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"CargoEleccion\",\"fields\":[{\"name\":\"org_politica\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}",",\"doc\":\"TXORGPOLCARGOELEC\"},{\"name\":\"cargo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXCARGOELECCION2\"},{\"name\":\"anio_desde\",\"type\":[\"int\",\"null\"],\"doc\":\"TXANIOCARGOELECDESDE\"},{\"name\":\"anio_hasta\",\"type\":[\"int\",\"null\"],\"doc\":\"TXANIOCARGOPARTIHASTA\"},{\"name\":\"hasta_actualidad\",\"type\":\"boolean\"}]}},\"doc\":\"CARGOELECCIONS\"},{\"name\":\"cargos_partidarios\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"CargoPartidario\",\"fields\":[{\"name\":\"org_politica\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXORGPOLCARGOPARTIDARIO\"},{\"name\":\"cargo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXCARGOPARTIDARIO\"},{\"name\":\"anio_desde\",\"type\":[\"int\",\"null\"],\"doc\":\"TXANIOCARGOPARTIDESDE\"},{\"name\":\"anio_hasta\",\"type\":[\"int\",\"null\"],\"doc\":\"TXANIOCARGOPARTIHASTA\"},{\"name\":\"hasta_actualidad\",\"type\":\"boolean\"}]}},\"doc\":\"CARGOPARTIDARIOS\"},{\"name\":\"renuncias\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Renuncia\",\"fields\":[{\"name\":\"org_politica\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"anio\",\"type\":\"int\"}]}},\"doc\":\"RENUNCIAS\"}]}},{\"name\":\"sentencias\",\"type\":{\"type\":\"record\",\"name\":\"Sentencias\",\"fields\":[{\"name\":\"sentencias_penales\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"SentenciaPenal\",\"fields\":[{\"name\":\"expediente_penal\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"organo_judicial_penal\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"delito_penal\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"fallo_penal\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"modalidad\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"fallo_cumple\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"sentencia_fecha\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}}},{\"name\":\"sentencias_civiles\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"SentenciaCivil\",\"fields\":[{\"name\":\"materia_sentencia\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"expediente_obliga\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"doc\":\"TXEXPEDIENTEOBLIGA\"},{\"name\":\"organo_judicial_obliga\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"doc\":\"TXORGANOJURIDICIALOBLIGA\"},{\"name\":\"fallo_obliga\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}}}]}},{\"name\":\"ingresos\",\"type\":{\"type\":\"record\",\"name\":\"Ingreso\",\"fields\":[{\"name\":\"anio\",\"type\":[\"int\",\"null\"]},{\"name\":\"remuneracion_bruta_publico\",\"type\":\"double\",\"doc\":\"FLREMUBRUTAPUBLICO\"},{\"name\":\"remuneracion_bruta_privado\",\"type\":\"double\",\"doc\":\"FLREMUBRUTAPRIVADO\"},{\"name\":\"renta_individual_publico\",\"type\":\"double\",\"doc\":\"FLRENTAINDIVIDUALPUBLICO\"},{\"name\":\"renta_individual_privado\",\"type\":\"double\",\"doc\":\"FLRENTAINDIVIDUALPRIVADO\"},{\"name\":\"otro_ingreso_publico\",\"type\":\"double\",\"doc\":\"FLOTROINGRESOPUBLICO\"},{\"name\":\"otro_ingreso_privado\",\"type\":\"double\",\"doc\":\"FLOTROINGRESOPRIVADO\"},{\"name\":\"total_remuneracion_bruta\",\"type\":\"double\",\"doc\":\"TOTALREMBRUTA\"},{\"name\":\"total_renta\",\"type\":\"double\",\"doc\":\"TOTALRENTA\"},{\"name\":\"total_otro\",\"type\":\"double\",\"doc\":\"TOTALOTRO\"},{\"name\":\"total\",\"type\":\"double\",\"doc\":\"TOTAL\"},{\"name\":\"total_privado\",\"type\":\"double\",\"doc\":\"TOTALPRIVADO\"},{\"name\":\"total_publico\",\"type\":\"double\",\"doc\":\"TOTALPUBLICO\"}]},\"doc\":\"INGRESOS\"},{\"name\":\"bienes\",\"type\":{\"type\":\"record\",\"name\":\"Bienes\",\"fields\":[{\"name\":\"bienes_otros\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"BienOtro\",\"fields\":[{\"name\":\"tipo_bien\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXOTROBIEN\"},{\"name\":\"description\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"doc\":\"TXDESCRIPCION\"},{\"name\":\"valor\",\"type\":\"double\",\"doc\":\"FLVALOR\"}]}},\"doc\":\"TODO\"},{\"name\":\"bienes_muebles\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"BienMueble\",\"fields\":[{\"name\":\"tipo_vehiculo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXVEHICULO\"},{\"name\":\"marca\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXPLACA\"},{\"name\":\"modelo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXPLACA\"},{\"name\":\"anio\",\"type\":[\"int\",\"null\"],\"doc\":\"TXPLACA\"},{\"name\":\"placa\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXPLACA\"},{\"name\":\"valor\",\"type\":\"double\",\"doc\":\"FLVALOR\"},{\"name\":\"caracteristica\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"comentario\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},\"doc\":\"BIENMUEBLES\"},{\"name\":\"bienes_inmuebles\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"BienInmueble\",\"fields\":[{\"name\":\"tipo_bien\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXTIPOBIENINMUEBLE\"},{\"name\":\"ubicacion_ubigeo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"ubicacion_pais\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"ubicacion_departamento\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"ubicacion_provincia\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"ubicacion_distrito\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"ubicacion_direccion\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"sunarp_tiene\",\"type\":\"boolean\"},{\"name\":\"sunarp_partida\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"comentario\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"auto_valuo\",\"type\":\"double\",\"doc\":\"FLAUTOVALUO\"},{\"name\":\"uit\",\"type\":\"double\"}]}},\"doc\":\"BIENINMUEBLES\"}]}},{\"name\":\"info_adicional\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"InfoAdicional\",\"fields\":[{\"name\":\"info\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"TXINFOADICIONAL\"}]}},\"doc\":\"INFORMACIONADICIONAL\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -116,6 +116,8 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
    private java.lang.String cargo_nombre;
    private int candidato_id;
    private int proceso_electoral_id;
+  /** intPosicion */
+   private int posicion;
   /** IDORGANIZACIONPOLITICA */
    private int org_politica_id;
   /** TXORGANIZACIONPOLITICA */
@@ -169,6 +171,7 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
    * @param cargo_nombre TXCARGOELECCION
    * @param candidato_id The new value for candidato_id
    * @param proceso_electoral_id The new value for proceso_electoral_id
+   * @param posicion intPosicion
    * @param org_politica_id IDORGANIZACIONPOLITICA
    * @param org_politica_nombre TXORGANIZACIONPOLITICA
    * @param estado_nombre The new value for estado_nombre
@@ -182,7 +185,7 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
    * @param bienes The new value for bienes
    * @param info_adicional INFORMACIONADICIONAL
    */
-  public Candidato(java.lang.Integer hoja_vida_id, java.lang.String id_dni, java.lang.String id_ce, java.lang.String id_nombres, java.lang.String id_apellido_paterno, java.lang.String id_apellido_materno, java.lang.String id_sexo, java.lang.String nacimiento_fecha, java.lang.String nacimiento_pais, java.lang.String nacimiento_ubigeo, java.lang.String nacimiento_departamento, java.lang.String nacimiento_provincia, java.lang.String nacimiento_distrito, java.lang.String domicilio_direccion, java.lang.String domicilio_ubigeo, java.lang.String domicilio_departamento, java.lang.String domicilio_provincia, java.lang.String domicilio_distrito, java.lang.String postula_ubigeo, java.lang.String postula_departamento, java.lang.String postula_provincia, java.lang.String postula_distrito, java.lang.Integer postula_anio, java.lang.Integer cargo_id, java.lang.String cargo_nombre, java.lang.Integer candidato_id, java.lang.Integer proceso_electoral_id, java.lang.Integer org_politica_id, java.lang.String org_politica_nombre, java.lang.String estado_nombre, java.lang.Integer estado_id, java.lang.String hoja_vida, openpolitica.jne.elecciones.Expediente expediente, openpolitica.jne.elecciones.Educacion educacion, openpolitica.jne.elecciones.Experiencia experiencia, openpolitica.jne.elecciones.Sentencias sentencias, openpolitica.jne.elecciones.Ingreso ingresos, openpolitica.jne.elecciones.Bienes bienes, java.util.List<openpolitica.jne.elecciones.InfoAdicional> info_adicional) {
+  public Candidato(java.lang.Integer hoja_vida_id, java.lang.String id_dni, java.lang.String id_ce, java.lang.String id_nombres, java.lang.String id_apellido_paterno, java.lang.String id_apellido_materno, java.lang.String id_sexo, java.lang.String nacimiento_fecha, java.lang.String nacimiento_pais, java.lang.String nacimiento_ubigeo, java.lang.String nacimiento_departamento, java.lang.String nacimiento_provincia, java.lang.String nacimiento_distrito, java.lang.String domicilio_direccion, java.lang.String domicilio_ubigeo, java.lang.String domicilio_departamento, java.lang.String domicilio_provincia, java.lang.String domicilio_distrito, java.lang.String postula_ubigeo, java.lang.String postula_departamento, java.lang.String postula_provincia, java.lang.String postula_distrito, java.lang.Integer postula_anio, java.lang.Integer cargo_id, java.lang.String cargo_nombre, java.lang.Integer candidato_id, java.lang.Integer proceso_electoral_id, java.lang.Integer posicion, java.lang.Integer org_politica_id, java.lang.String org_politica_nombre, java.lang.String estado_nombre, java.lang.Integer estado_id, java.lang.String hoja_vida, openpolitica.jne.elecciones.Expediente expediente, openpolitica.jne.elecciones.Educacion educacion, openpolitica.jne.elecciones.Experiencia experiencia, openpolitica.jne.elecciones.Sentencias sentencias, openpolitica.jne.elecciones.Ingreso ingresos, openpolitica.jne.elecciones.Bienes bienes, java.util.List<openpolitica.jne.elecciones.InfoAdicional> info_adicional) {
     this.hoja_vida_id = hoja_vida_id;
     this.id_dni = id_dni;
     this.id_ce = id_ce;
@@ -210,6 +213,7 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
     this.cargo_nombre = cargo_nombre;
     this.candidato_id = candidato_id;
     this.proceso_electoral_id = proceso_electoral_id;
+    this.posicion = posicion;
     this.org_politica_id = org_politica_id;
     this.org_politica_nombre = org_politica_nombre;
     this.estado_nombre = estado_nombre;
@@ -256,18 +260,19 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
     case 24: return cargo_nombre;
     case 25: return candidato_id;
     case 26: return proceso_electoral_id;
-    case 27: return org_politica_id;
-    case 28: return org_politica_nombre;
-    case 29: return estado_nombre;
-    case 30: return estado_id;
-    case 31: return hoja_vida;
-    case 32: return expediente;
-    case 33: return educacion;
-    case 34: return experiencia;
-    case 35: return sentencias;
-    case 36: return ingresos;
-    case 37: return bienes;
-    case 38: return info_adicional;
+    case 27: return posicion;
+    case 28: return org_politica_id;
+    case 29: return org_politica_nombre;
+    case 30: return estado_nombre;
+    case 31: return estado_id;
+    case 32: return hoja_vida;
+    case 33: return expediente;
+    case 34: return educacion;
+    case 35: return experiencia;
+    case 36: return sentencias;
+    case 37: return ingresos;
+    case 38: return bienes;
+    case 39: return info_adicional;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -303,18 +308,19 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
     case 24: cargo_nombre = value$ != null ? value$.toString() : null; break;
     case 25: candidato_id = (java.lang.Integer)value$; break;
     case 26: proceso_electoral_id = (java.lang.Integer)value$; break;
-    case 27: org_politica_id = (java.lang.Integer)value$; break;
-    case 28: org_politica_nombre = value$ != null ? value$.toString() : null; break;
-    case 29: estado_nombre = value$ != null ? value$.toString() : null; break;
-    case 30: estado_id = (java.lang.Integer)value$; break;
-    case 31: hoja_vida = value$ != null ? value$.toString() : null; break;
-    case 32: expediente = (openpolitica.jne.elecciones.Expediente)value$; break;
-    case 33: educacion = (openpolitica.jne.elecciones.Educacion)value$; break;
-    case 34: experiencia = (openpolitica.jne.elecciones.Experiencia)value$; break;
-    case 35: sentencias = (openpolitica.jne.elecciones.Sentencias)value$; break;
-    case 36: ingresos = (openpolitica.jne.elecciones.Ingreso)value$; break;
-    case 37: bienes = (openpolitica.jne.elecciones.Bienes)value$; break;
-    case 38: info_adicional = (java.util.List<openpolitica.jne.elecciones.InfoAdicional>)value$; break;
+    case 27: posicion = (java.lang.Integer)value$; break;
+    case 28: org_politica_id = (java.lang.Integer)value$; break;
+    case 29: org_politica_nombre = value$ != null ? value$.toString() : null; break;
+    case 30: estado_nombre = value$ != null ? value$.toString() : null; break;
+    case 31: estado_id = (java.lang.Integer)value$; break;
+    case 32: hoja_vida = value$ != null ? value$.toString() : null; break;
+    case 33: expediente = (openpolitica.jne.elecciones.Expediente)value$; break;
+    case 34: educacion = (openpolitica.jne.elecciones.Educacion)value$; break;
+    case 35: experiencia = (openpolitica.jne.elecciones.Experiencia)value$; break;
+    case 36: sentencias = (openpolitica.jne.elecciones.Sentencias)value$; break;
+    case 37: ingresos = (openpolitica.jne.elecciones.Ingreso)value$; break;
+    case 38: bienes = (openpolitica.jne.elecciones.Bienes)value$; break;
+    case 39: info_adicional = (java.util.List<openpolitica.jne.elecciones.InfoAdicional>)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -797,6 +803,24 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
   }
 
   /**
+   * Gets the value of the 'posicion' field.
+   * @return intPosicion
+   */
+  public int getPosicion() {
+    return posicion;
+  }
+
+
+  /**
+   * Sets the value of the 'posicion' field.
+   * intPosicion
+   * @param value the value to set.
+   */
+  public void setPosicion(int value) {
+    this.posicion = value;
+  }
+
+  /**
    * Gets the value of the 'org_politica_id' field.
    * @return IDORGANIZACIONPOLITICA
    */
@@ -1090,6 +1114,8 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
     private java.lang.String cargo_nombre;
     private int candidato_id;
     private int proceso_electoral_id;
+    /** intPosicion */
+    private int posicion;
     /** IDORGANIZACIONPOLITICA */
     private int org_politica_id;
     /** TXORGANIZACIONPOLITICA */
@@ -1232,71 +1258,75 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
         this.proceso_electoral_id = data().deepCopy(fields()[26].schema(), other.proceso_electoral_id);
         fieldSetFlags()[26] = other.fieldSetFlags()[26];
       }
-      if (isValidValue(fields()[27], other.org_politica_id)) {
-        this.org_politica_id = data().deepCopy(fields()[27].schema(), other.org_politica_id);
+      if (isValidValue(fields()[27], other.posicion)) {
+        this.posicion = data().deepCopy(fields()[27].schema(), other.posicion);
         fieldSetFlags()[27] = other.fieldSetFlags()[27];
       }
-      if (isValidValue(fields()[28], other.org_politica_nombre)) {
-        this.org_politica_nombre = data().deepCopy(fields()[28].schema(), other.org_politica_nombre);
+      if (isValidValue(fields()[28], other.org_politica_id)) {
+        this.org_politica_id = data().deepCopy(fields()[28].schema(), other.org_politica_id);
         fieldSetFlags()[28] = other.fieldSetFlags()[28];
       }
-      if (isValidValue(fields()[29], other.estado_nombre)) {
-        this.estado_nombre = data().deepCopy(fields()[29].schema(), other.estado_nombre);
+      if (isValidValue(fields()[29], other.org_politica_nombre)) {
+        this.org_politica_nombre = data().deepCopy(fields()[29].schema(), other.org_politica_nombre);
         fieldSetFlags()[29] = other.fieldSetFlags()[29];
       }
-      if (isValidValue(fields()[30], other.estado_id)) {
-        this.estado_id = data().deepCopy(fields()[30].schema(), other.estado_id);
+      if (isValidValue(fields()[30], other.estado_nombre)) {
+        this.estado_nombre = data().deepCopy(fields()[30].schema(), other.estado_nombre);
         fieldSetFlags()[30] = other.fieldSetFlags()[30];
       }
-      if (isValidValue(fields()[31], other.hoja_vida)) {
-        this.hoja_vida = data().deepCopy(fields()[31].schema(), other.hoja_vida);
+      if (isValidValue(fields()[31], other.estado_id)) {
+        this.estado_id = data().deepCopy(fields()[31].schema(), other.estado_id);
         fieldSetFlags()[31] = other.fieldSetFlags()[31];
       }
-      if (isValidValue(fields()[32], other.expediente)) {
-        this.expediente = data().deepCopy(fields()[32].schema(), other.expediente);
+      if (isValidValue(fields()[32], other.hoja_vida)) {
+        this.hoja_vida = data().deepCopy(fields()[32].schema(), other.hoja_vida);
         fieldSetFlags()[32] = other.fieldSetFlags()[32];
+      }
+      if (isValidValue(fields()[33], other.expediente)) {
+        this.expediente = data().deepCopy(fields()[33].schema(), other.expediente);
+        fieldSetFlags()[33] = other.fieldSetFlags()[33];
       }
       if (other.hasExpedienteBuilder()) {
         this.expedienteBuilder = openpolitica.jne.elecciones.Expediente.newBuilder(other.getExpedienteBuilder());
       }
-      if (isValidValue(fields()[33], other.educacion)) {
-        this.educacion = data().deepCopy(fields()[33].schema(), other.educacion);
-        fieldSetFlags()[33] = other.fieldSetFlags()[33];
+      if (isValidValue(fields()[34], other.educacion)) {
+        this.educacion = data().deepCopy(fields()[34].schema(), other.educacion);
+        fieldSetFlags()[34] = other.fieldSetFlags()[34];
       }
       if (other.hasEducacionBuilder()) {
         this.educacionBuilder = openpolitica.jne.elecciones.Educacion.newBuilder(other.getEducacionBuilder());
       }
-      if (isValidValue(fields()[34], other.experiencia)) {
-        this.experiencia = data().deepCopy(fields()[34].schema(), other.experiencia);
-        fieldSetFlags()[34] = other.fieldSetFlags()[34];
+      if (isValidValue(fields()[35], other.experiencia)) {
+        this.experiencia = data().deepCopy(fields()[35].schema(), other.experiencia);
+        fieldSetFlags()[35] = other.fieldSetFlags()[35];
       }
       if (other.hasExperienciaBuilder()) {
         this.experienciaBuilder = openpolitica.jne.elecciones.Experiencia.newBuilder(other.getExperienciaBuilder());
       }
-      if (isValidValue(fields()[35], other.sentencias)) {
-        this.sentencias = data().deepCopy(fields()[35].schema(), other.sentencias);
-        fieldSetFlags()[35] = other.fieldSetFlags()[35];
+      if (isValidValue(fields()[36], other.sentencias)) {
+        this.sentencias = data().deepCopy(fields()[36].schema(), other.sentencias);
+        fieldSetFlags()[36] = other.fieldSetFlags()[36];
       }
       if (other.hasSentenciasBuilder()) {
         this.sentenciasBuilder = openpolitica.jne.elecciones.Sentencias.newBuilder(other.getSentenciasBuilder());
       }
-      if (isValidValue(fields()[36], other.ingresos)) {
-        this.ingresos = data().deepCopy(fields()[36].schema(), other.ingresos);
-        fieldSetFlags()[36] = other.fieldSetFlags()[36];
+      if (isValidValue(fields()[37], other.ingresos)) {
+        this.ingresos = data().deepCopy(fields()[37].schema(), other.ingresos);
+        fieldSetFlags()[37] = other.fieldSetFlags()[37];
       }
       if (other.hasIngresosBuilder()) {
         this.ingresosBuilder = openpolitica.jne.elecciones.Ingreso.newBuilder(other.getIngresosBuilder());
       }
-      if (isValidValue(fields()[37], other.bienes)) {
-        this.bienes = data().deepCopy(fields()[37].schema(), other.bienes);
-        fieldSetFlags()[37] = other.fieldSetFlags()[37];
+      if (isValidValue(fields()[38], other.bienes)) {
+        this.bienes = data().deepCopy(fields()[38].schema(), other.bienes);
+        fieldSetFlags()[38] = other.fieldSetFlags()[38];
       }
       if (other.hasBienesBuilder()) {
         this.bienesBuilder = openpolitica.jne.elecciones.Bienes.newBuilder(other.getBienesBuilder());
       }
-      if (isValidValue(fields()[38], other.info_adicional)) {
-        this.info_adicional = data().deepCopy(fields()[38].schema(), other.info_adicional);
-        fieldSetFlags()[38] = other.fieldSetFlags()[38];
+      if (isValidValue(fields()[39], other.info_adicional)) {
+        this.info_adicional = data().deepCopy(fields()[39].schema(), other.info_adicional);
+        fieldSetFlags()[39] = other.fieldSetFlags()[39];
       }
     }
 
@@ -1414,59 +1444,63 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
         this.proceso_electoral_id = data().deepCopy(fields()[26].schema(), other.proceso_electoral_id);
         fieldSetFlags()[26] = true;
       }
-      if (isValidValue(fields()[27], other.org_politica_id)) {
-        this.org_politica_id = data().deepCopy(fields()[27].schema(), other.org_politica_id);
+      if (isValidValue(fields()[27], other.posicion)) {
+        this.posicion = data().deepCopy(fields()[27].schema(), other.posicion);
         fieldSetFlags()[27] = true;
       }
-      if (isValidValue(fields()[28], other.org_politica_nombre)) {
-        this.org_politica_nombre = data().deepCopy(fields()[28].schema(), other.org_politica_nombre);
+      if (isValidValue(fields()[28], other.org_politica_id)) {
+        this.org_politica_id = data().deepCopy(fields()[28].schema(), other.org_politica_id);
         fieldSetFlags()[28] = true;
       }
-      if (isValidValue(fields()[29], other.estado_nombre)) {
-        this.estado_nombre = data().deepCopy(fields()[29].schema(), other.estado_nombre);
+      if (isValidValue(fields()[29], other.org_politica_nombre)) {
+        this.org_politica_nombre = data().deepCopy(fields()[29].schema(), other.org_politica_nombre);
         fieldSetFlags()[29] = true;
       }
-      if (isValidValue(fields()[30], other.estado_id)) {
-        this.estado_id = data().deepCopy(fields()[30].schema(), other.estado_id);
+      if (isValidValue(fields()[30], other.estado_nombre)) {
+        this.estado_nombre = data().deepCopy(fields()[30].schema(), other.estado_nombre);
         fieldSetFlags()[30] = true;
       }
-      if (isValidValue(fields()[31], other.hoja_vida)) {
-        this.hoja_vida = data().deepCopy(fields()[31].schema(), other.hoja_vida);
+      if (isValidValue(fields()[31], other.estado_id)) {
+        this.estado_id = data().deepCopy(fields()[31].schema(), other.estado_id);
         fieldSetFlags()[31] = true;
       }
-      if (isValidValue(fields()[32], other.expediente)) {
-        this.expediente = data().deepCopy(fields()[32].schema(), other.expediente);
+      if (isValidValue(fields()[32], other.hoja_vida)) {
+        this.hoja_vida = data().deepCopy(fields()[32].schema(), other.hoja_vida);
         fieldSetFlags()[32] = true;
       }
-      this.expedienteBuilder = null;
-      if (isValidValue(fields()[33], other.educacion)) {
-        this.educacion = data().deepCopy(fields()[33].schema(), other.educacion);
+      if (isValidValue(fields()[33], other.expediente)) {
+        this.expediente = data().deepCopy(fields()[33].schema(), other.expediente);
         fieldSetFlags()[33] = true;
       }
-      this.educacionBuilder = null;
-      if (isValidValue(fields()[34], other.experiencia)) {
-        this.experiencia = data().deepCopy(fields()[34].schema(), other.experiencia);
+      this.expedienteBuilder = null;
+      if (isValidValue(fields()[34], other.educacion)) {
+        this.educacion = data().deepCopy(fields()[34].schema(), other.educacion);
         fieldSetFlags()[34] = true;
       }
-      this.experienciaBuilder = null;
-      if (isValidValue(fields()[35], other.sentencias)) {
-        this.sentencias = data().deepCopy(fields()[35].schema(), other.sentencias);
+      this.educacionBuilder = null;
+      if (isValidValue(fields()[35], other.experiencia)) {
+        this.experiencia = data().deepCopy(fields()[35].schema(), other.experiencia);
         fieldSetFlags()[35] = true;
       }
-      this.sentenciasBuilder = null;
-      if (isValidValue(fields()[36], other.ingresos)) {
-        this.ingresos = data().deepCopy(fields()[36].schema(), other.ingresos);
+      this.experienciaBuilder = null;
+      if (isValidValue(fields()[36], other.sentencias)) {
+        this.sentencias = data().deepCopy(fields()[36].schema(), other.sentencias);
         fieldSetFlags()[36] = true;
       }
-      this.ingresosBuilder = null;
-      if (isValidValue(fields()[37], other.bienes)) {
-        this.bienes = data().deepCopy(fields()[37].schema(), other.bienes);
+      this.sentenciasBuilder = null;
+      if (isValidValue(fields()[37], other.ingresos)) {
+        this.ingresos = data().deepCopy(fields()[37].schema(), other.ingresos);
         fieldSetFlags()[37] = true;
       }
-      this.bienesBuilder = null;
-      if (isValidValue(fields()[38], other.info_adicional)) {
-        this.info_adicional = data().deepCopy(fields()[38].schema(), other.info_adicional);
+      this.ingresosBuilder = null;
+      if (isValidValue(fields()[38], other.bienes)) {
+        this.bienes = data().deepCopy(fields()[38].schema(), other.bienes);
         fieldSetFlags()[38] = true;
+      }
+      this.bienesBuilder = null;
+      if (isValidValue(fields()[39], other.info_adicional)) {
+        this.info_adicional = data().deepCopy(fields()[39].schema(), other.info_adicional);
+        fieldSetFlags()[39] = true;
       }
     }
 
@@ -2618,6 +2652,49 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
     }
 
     /**
+      * Gets the value of the 'posicion' field.
+      * intPosicion
+      * @return The value.
+      */
+    public int getPosicion() {
+      return posicion;
+    }
+
+
+    /**
+      * Sets the value of the 'posicion' field.
+      * intPosicion
+      * @param value The value of 'posicion'.
+      * @return This builder.
+      */
+    public openpolitica.jne.elecciones.Candidato.Builder setPosicion(int value) {
+      validate(fields()[27], value);
+      this.posicion = value;
+      fieldSetFlags()[27] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'posicion' field has been set.
+      * intPosicion
+      * @return True if the 'posicion' field has been set, false otherwise.
+      */
+    public boolean hasPosicion() {
+      return fieldSetFlags()[27];
+    }
+
+
+    /**
+      * Clears the value of the 'posicion' field.
+      * intPosicion
+      * @return This builder.
+      */
+    public openpolitica.jne.elecciones.Candidato.Builder clearPosicion() {
+      fieldSetFlags()[27] = false;
+      return this;
+    }
+
+    /**
       * Gets the value of the 'org_politica_id' field.
       * IDORGANIZACIONPOLITICA
       * @return The value.
@@ -2634,9 +2711,9 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
       * @return This builder.
       */
     public openpolitica.jne.elecciones.Candidato.Builder setOrgPoliticaId(int value) {
-      validate(fields()[27], value);
+      validate(fields()[28], value);
       this.org_politica_id = value;
-      fieldSetFlags()[27] = true;
+      fieldSetFlags()[28] = true;
       return this;
     }
 
@@ -2646,7 +2723,7 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
       * @return True if the 'org_politica_id' field has been set, false otherwise.
       */
     public boolean hasOrgPoliticaId() {
-      return fieldSetFlags()[27];
+      return fieldSetFlags()[28];
     }
 
 
@@ -2656,7 +2733,7 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
       * @return This builder.
       */
     public openpolitica.jne.elecciones.Candidato.Builder clearOrgPoliticaId() {
-      fieldSetFlags()[27] = false;
+      fieldSetFlags()[28] = false;
       return this;
     }
 
@@ -2677,9 +2754,9 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
       * @return This builder.
       */
     public openpolitica.jne.elecciones.Candidato.Builder setOrgPoliticaNombre(java.lang.String value) {
-      validate(fields()[28], value);
+      validate(fields()[29], value);
       this.org_politica_nombre = value;
-      fieldSetFlags()[28] = true;
+      fieldSetFlags()[29] = true;
       return this;
     }
 
@@ -2689,7 +2766,7 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
       * @return True if the 'org_politica_nombre' field has been set, false otherwise.
       */
     public boolean hasOrgPoliticaNombre() {
-      return fieldSetFlags()[28];
+      return fieldSetFlags()[29];
     }
 
 
@@ -2700,7 +2777,7 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
       */
     public openpolitica.jne.elecciones.Candidato.Builder clearOrgPoliticaNombre() {
       org_politica_nombre = null;
-      fieldSetFlags()[28] = false;
+      fieldSetFlags()[29] = false;
       return this;
     }
 
@@ -2719,9 +2796,9 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
       * @return This builder.
       */
     public openpolitica.jne.elecciones.Candidato.Builder setEstadoNombre(java.lang.String value) {
-      validate(fields()[29], value);
+      validate(fields()[30], value);
       this.estado_nombre = value;
-      fieldSetFlags()[29] = true;
+      fieldSetFlags()[30] = true;
       return this;
     }
 
@@ -2730,7 +2807,7 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
       * @return True if the 'estado_nombre' field has been set, false otherwise.
       */
     public boolean hasEstadoNombre() {
-      return fieldSetFlags()[29];
+      return fieldSetFlags()[30];
     }
 
 
@@ -2740,7 +2817,7 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
       */
     public openpolitica.jne.elecciones.Candidato.Builder clearEstadoNombre() {
       estado_nombre = null;
-      fieldSetFlags()[29] = false;
+      fieldSetFlags()[30] = false;
       return this;
     }
 
@@ -2759,9 +2836,9 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
       * @return This builder.
       */
     public openpolitica.jne.elecciones.Candidato.Builder setEstadoId(int value) {
-      validate(fields()[30], value);
+      validate(fields()[31], value);
       this.estado_id = value;
-      fieldSetFlags()[30] = true;
+      fieldSetFlags()[31] = true;
       return this;
     }
 
@@ -2770,7 +2847,7 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
       * @return True if the 'estado_id' field has been set, false otherwise.
       */
     public boolean hasEstadoId() {
-      return fieldSetFlags()[30];
+      return fieldSetFlags()[31];
     }
 
 
@@ -2779,7 +2856,7 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
       * @return This builder.
       */
     public openpolitica.jne.elecciones.Candidato.Builder clearEstadoId() {
-      fieldSetFlags()[30] = false;
+      fieldSetFlags()[31] = false;
       return this;
     }
 
@@ -2798,9 +2875,9 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
       * @return This builder.
       */
     public openpolitica.jne.elecciones.Candidato.Builder setHojaVida(java.lang.String value) {
-      validate(fields()[31], value);
+      validate(fields()[32], value);
       this.hoja_vida = value;
-      fieldSetFlags()[31] = true;
+      fieldSetFlags()[32] = true;
       return this;
     }
 
@@ -2809,7 +2886,7 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
       * @return True if the 'hoja_vida' field has been set, false otherwise.
       */
     public boolean hasHojaVida() {
-      return fieldSetFlags()[31];
+      return fieldSetFlags()[32];
     }
 
 
@@ -2819,7 +2896,7 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
       */
     public openpolitica.jne.elecciones.Candidato.Builder clearHojaVida() {
       hoja_vida = null;
-      fieldSetFlags()[31] = false;
+      fieldSetFlags()[32] = false;
       return this;
     }
 
@@ -2838,10 +2915,10 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
       * @return This builder.
       */
     public openpolitica.jne.elecciones.Candidato.Builder setExpediente(openpolitica.jne.elecciones.Expediente value) {
-      validate(fields()[32], value);
+      validate(fields()[33], value);
       this.expedienteBuilder = null;
       this.expediente = value;
-      fieldSetFlags()[32] = true;
+      fieldSetFlags()[33] = true;
       return this;
     }
 
@@ -2850,7 +2927,7 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
       * @return True if the 'expediente' field has been set, false otherwise.
       */
     public boolean hasExpediente() {
-      return fieldSetFlags()[32];
+      return fieldSetFlags()[33];
     }
 
     /**
@@ -2895,7 +2972,7 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
     public openpolitica.jne.elecciones.Candidato.Builder clearExpediente() {
       expediente = null;
       expedienteBuilder = null;
-      fieldSetFlags()[32] = false;
+      fieldSetFlags()[33] = false;
       return this;
     }
 
@@ -2914,10 +2991,10 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
       * @return This builder.
       */
     public openpolitica.jne.elecciones.Candidato.Builder setEducacion(openpolitica.jne.elecciones.Educacion value) {
-      validate(fields()[33], value);
+      validate(fields()[34], value);
       this.educacionBuilder = null;
       this.educacion = value;
-      fieldSetFlags()[33] = true;
+      fieldSetFlags()[34] = true;
       return this;
     }
 
@@ -2926,7 +3003,7 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
       * @return True if the 'educacion' field has been set, false otherwise.
       */
     public boolean hasEducacion() {
-      return fieldSetFlags()[33];
+      return fieldSetFlags()[34];
     }
 
     /**
@@ -2971,7 +3048,7 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
     public openpolitica.jne.elecciones.Candidato.Builder clearEducacion() {
       educacion = null;
       educacionBuilder = null;
-      fieldSetFlags()[33] = false;
+      fieldSetFlags()[34] = false;
       return this;
     }
 
@@ -2990,10 +3067,10 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
       * @return This builder.
       */
     public openpolitica.jne.elecciones.Candidato.Builder setExperiencia(openpolitica.jne.elecciones.Experiencia value) {
-      validate(fields()[34], value);
+      validate(fields()[35], value);
       this.experienciaBuilder = null;
       this.experiencia = value;
-      fieldSetFlags()[34] = true;
+      fieldSetFlags()[35] = true;
       return this;
     }
 
@@ -3002,7 +3079,7 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
       * @return True if the 'experiencia' field has been set, false otherwise.
       */
     public boolean hasExperiencia() {
-      return fieldSetFlags()[34];
+      return fieldSetFlags()[35];
     }
 
     /**
@@ -3047,7 +3124,7 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
     public openpolitica.jne.elecciones.Candidato.Builder clearExperiencia() {
       experiencia = null;
       experienciaBuilder = null;
-      fieldSetFlags()[34] = false;
+      fieldSetFlags()[35] = false;
       return this;
     }
 
@@ -3066,10 +3143,10 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
       * @return This builder.
       */
     public openpolitica.jne.elecciones.Candidato.Builder setSentencias(openpolitica.jne.elecciones.Sentencias value) {
-      validate(fields()[35], value);
+      validate(fields()[36], value);
       this.sentenciasBuilder = null;
       this.sentencias = value;
-      fieldSetFlags()[35] = true;
+      fieldSetFlags()[36] = true;
       return this;
     }
 
@@ -3078,7 +3155,7 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
       * @return True if the 'sentencias' field has been set, false otherwise.
       */
     public boolean hasSentencias() {
-      return fieldSetFlags()[35];
+      return fieldSetFlags()[36];
     }
 
     /**
@@ -3123,7 +3200,7 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
     public openpolitica.jne.elecciones.Candidato.Builder clearSentencias() {
       sentencias = null;
       sentenciasBuilder = null;
-      fieldSetFlags()[35] = false;
+      fieldSetFlags()[36] = false;
       return this;
     }
 
@@ -3144,10 +3221,10 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
       * @return This builder.
       */
     public openpolitica.jne.elecciones.Candidato.Builder setIngresos(openpolitica.jne.elecciones.Ingreso value) {
-      validate(fields()[36], value);
+      validate(fields()[37], value);
       this.ingresosBuilder = null;
       this.ingresos = value;
-      fieldSetFlags()[36] = true;
+      fieldSetFlags()[37] = true;
       return this;
     }
 
@@ -3157,7 +3234,7 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
       * @return True if the 'ingresos' field has been set, false otherwise.
       */
     public boolean hasIngresos() {
-      return fieldSetFlags()[36];
+      return fieldSetFlags()[37];
     }
 
     /**
@@ -3206,7 +3283,7 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
     public openpolitica.jne.elecciones.Candidato.Builder clearIngresos() {
       ingresos = null;
       ingresosBuilder = null;
-      fieldSetFlags()[36] = false;
+      fieldSetFlags()[37] = false;
       return this;
     }
 
@@ -3225,10 +3302,10 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
       * @return This builder.
       */
     public openpolitica.jne.elecciones.Candidato.Builder setBienes(openpolitica.jne.elecciones.Bienes value) {
-      validate(fields()[37], value);
+      validate(fields()[38], value);
       this.bienesBuilder = null;
       this.bienes = value;
-      fieldSetFlags()[37] = true;
+      fieldSetFlags()[38] = true;
       return this;
     }
 
@@ -3237,7 +3314,7 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
       * @return True if the 'bienes' field has been set, false otherwise.
       */
     public boolean hasBienes() {
-      return fieldSetFlags()[37];
+      return fieldSetFlags()[38];
     }
 
     /**
@@ -3282,7 +3359,7 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
     public openpolitica.jne.elecciones.Candidato.Builder clearBienes() {
       bienes = null;
       bienesBuilder = null;
-      fieldSetFlags()[37] = false;
+      fieldSetFlags()[38] = false;
       return this;
     }
 
@@ -3303,9 +3380,9 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
       * @return This builder.
       */
     public openpolitica.jne.elecciones.Candidato.Builder setInfoAdicional(java.util.List<openpolitica.jne.elecciones.InfoAdicional> value) {
-      validate(fields()[38], value);
+      validate(fields()[39], value);
       this.info_adicional = value;
-      fieldSetFlags()[38] = true;
+      fieldSetFlags()[39] = true;
       return this;
     }
 
@@ -3315,7 +3392,7 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
       * @return True if the 'info_adicional' field has been set, false otherwise.
       */
     public boolean hasInfoAdicional() {
-      return fieldSetFlags()[38];
+      return fieldSetFlags()[39];
     }
 
 
@@ -3326,7 +3403,7 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
       */
     public openpolitica.jne.elecciones.Candidato.Builder clearInfoAdicional() {
       info_adicional = null;
-      fieldSetFlags()[38] = false;
+      fieldSetFlags()[39] = false;
       return this;
     }
 
@@ -3362,11 +3439,12 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
         record.cargo_nombre = fieldSetFlags()[24] ? this.cargo_nombre : (java.lang.String) defaultValue(fields()[24]);
         record.candidato_id = fieldSetFlags()[25] ? this.candidato_id : (java.lang.Integer) defaultValue(fields()[25]);
         record.proceso_electoral_id = fieldSetFlags()[26] ? this.proceso_electoral_id : (java.lang.Integer) defaultValue(fields()[26]);
-        record.org_politica_id = fieldSetFlags()[27] ? this.org_politica_id : (java.lang.Integer) defaultValue(fields()[27]);
-        record.org_politica_nombre = fieldSetFlags()[28] ? this.org_politica_nombre : (java.lang.String) defaultValue(fields()[28]);
-        record.estado_nombre = fieldSetFlags()[29] ? this.estado_nombre : (java.lang.String) defaultValue(fields()[29]);
-        record.estado_id = fieldSetFlags()[30] ? this.estado_id : (java.lang.Integer) defaultValue(fields()[30]);
-        record.hoja_vida = fieldSetFlags()[31] ? this.hoja_vida : (java.lang.String) defaultValue(fields()[31]);
+        record.posicion = fieldSetFlags()[27] ? this.posicion : (java.lang.Integer) defaultValue(fields()[27]);
+        record.org_politica_id = fieldSetFlags()[28] ? this.org_politica_id : (java.lang.Integer) defaultValue(fields()[28]);
+        record.org_politica_nombre = fieldSetFlags()[29] ? this.org_politica_nombre : (java.lang.String) defaultValue(fields()[29]);
+        record.estado_nombre = fieldSetFlags()[30] ? this.estado_nombre : (java.lang.String) defaultValue(fields()[30]);
+        record.estado_id = fieldSetFlags()[31] ? this.estado_id : (java.lang.Integer) defaultValue(fields()[31]);
+        record.hoja_vida = fieldSetFlags()[32] ? this.hoja_vida : (java.lang.String) defaultValue(fields()[32]);
         if (expedienteBuilder != null) {
           try {
             record.expediente = this.expedienteBuilder.build();
@@ -3375,7 +3453,7 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
             throw e;
           }
         } else {
-          record.expediente = fieldSetFlags()[32] ? this.expediente : (openpolitica.jne.elecciones.Expediente) defaultValue(fields()[32]);
+          record.expediente = fieldSetFlags()[33] ? this.expediente : (openpolitica.jne.elecciones.Expediente) defaultValue(fields()[33]);
         }
         if (educacionBuilder != null) {
           try {
@@ -3385,7 +3463,7 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
             throw e;
           }
         } else {
-          record.educacion = fieldSetFlags()[33] ? this.educacion : (openpolitica.jne.elecciones.Educacion) defaultValue(fields()[33]);
+          record.educacion = fieldSetFlags()[34] ? this.educacion : (openpolitica.jne.elecciones.Educacion) defaultValue(fields()[34]);
         }
         if (experienciaBuilder != null) {
           try {
@@ -3395,7 +3473,7 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
             throw e;
           }
         } else {
-          record.experiencia = fieldSetFlags()[34] ? this.experiencia : (openpolitica.jne.elecciones.Experiencia) defaultValue(fields()[34]);
+          record.experiencia = fieldSetFlags()[35] ? this.experiencia : (openpolitica.jne.elecciones.Experiencia) defaultValue(fields()[35]);
         }
         if (sentenciasBuilder != null) {
           try {
@@ -3405,7 +3483,7 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
             throw e;
           }
         } else {
-          record.sentencias = fieldSetFlags()[35] ? this.sentencias : (openpolitica.jne.elecciones.Sentencias) defaultValue(fields()[35]);
+          record.sentencias = fieldSetFlags()[36] ? this.sentencias : (openpolitica.jne.elecciones.Sentencias) defaultValue(fields()[36]);
         }
         if (ingresosBuilder != null) {
           try {
@@ -3415,7 +3493,7 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
             throw e;
           }
         } else {
-          record.ingresos = fieldSetFlags()[36] ? this.ingresos : (openpolitica.jne.elecciones.Ingreso) defaultValue(fields()[36]);
+          record.ingresos = fieldSetFlags()[37] ? this.ingresos : (openpolitica.jne.elecciones.Ingreso) defaultValue(fields()[37]);
         }
         if (bienesBuilder != null) {
           try {
@@ -3425,9 +3503,9 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
             throw e;
           }
         } else {
-          record.bienes = fieldSetFlags()[37] ? this.bienes : (openpolitica.jne.elecciones.Bienes) defaultValue(fields()[37]);
+          record.bienes = fieldSetFlags()[38] ? this.bienes : (openpolitica.jne.elecciones.Bienes) defaultValue(fields()[38]);
         }
-        record.info_adicional = fieldSetFlags()[38] ? this.info_adicional : (java.util.List<openpolitica.jne.elecciones.InfoAdicional>) defaultValue(fields()[38]);
+        record.info_adicional = fieldSetFlags()[39] ? this.info_adicional : (java.util.List<openpolitica.jne.elecciones.InfoAdicional>) defaultValue(fields()[39]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
@@ -3525,6 +3603,8 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
     out.writeInt(this.candidato_id);
 
     out.writeInt(this.proceso_electoral_id);
+
+    out.writeInt(this.posicion);
 
     out.writeInt(this.org_politica_id);
 
@@ -3632,6 +3712,8 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
 
       this.proceso_electoral_id = in.readInt();
 
+      this.posicion = in.readInt();
+
       this.org_politica_id = in.readInt();
 
       this.org_politica_nombre = in.readString();
@@ -3691,7 +3773,7 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
       }
 
     } else {
-      for (int i = 0; i < 39; i++) {
+      for (int i = 0; i < 40; i++) {
         switch (fieldOrder[i].pos()) {
         case 0:
           this.hoja_vida_id = in.readInt();
@@ -3812,68 +3894,72 @@ public class Candidato extends org.apache.avro.specific.SpecificRecordBase imple
           break;
 
         case 27:
-          this.org_politica_id = in.readInt();
+          this.posicion = in.readInt();
           break;
 
         case 28:
-          this.org_politica_nombre = in.readString();
+          this.org_politica_id = in.readInt();
           break;
 
         case 29:
-          this.estado_nombre = in.readString();
+          this.org_politica_nombre = in.readString();
           break;
 
         case 30:
-          this.estado_id = in.readInt();
+          this.estado_nombre = in.readString();
           break;
 
         case 31:
-          this.hoja_vida = in.readString();
+          this.estado_id = in.readInt();
           break;
 
         case 32:
+          this.hoja_vida = in.readString();
+          break;
+
+        case 33:
           if (this.expediente == null) {
             this.expediente = new openpolitica.jne.elecciones.Expediente();
           }
           this.expediente.customDecode(in);
           break;
 
-        case 33:
+        case 34:
           if (this.educacion == null) {
             this.educacion = new openpolitica.jne.elecciones.Educacion();
           }
           this.educacion.customDecode(in);
           break;
 
-        case 34:
+        case 35:
           if (this.experiencia == null) {
             this.experiencia = new openpolitica.jne.elecciones.Experiencia();
           }
           this.experiencia.customDecode(in);
           break;
 
-        case 35:
+        case 36:
           if (this.sentencias == null) {
             this.sentencias = new openpolitica.jne.elecciones.Sentencias();
           }
           this.sentencias.customDecode(in);
           break;
 
-        case 36:
+        case 37:
           if (this.ingresos == null) {
             this.ingresos = new openpolitica.jne.elecciones.Ingreso();
           }
           this.ingresos.customDecode(in);
           break;
 
-        case 37:
+        case 38:
           if (this.bienes == null) {
             this.bienes = new openpolitica.jne.elecciones.Bienes();
           }
           this.bienes.customDecode(in);
           break;
 
-        case 38:
+        case 39:
           long size0 = in.readArrayStart();
           java.util.List<openpolitica.jne.elecciones.InfoAdicional> a0 = this.info_adicional;
           if (a0 == null) {

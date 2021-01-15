@@ -136,6 +136,11 @@
       "type": "int"
     },
     {
+      "name": "posicion",
+      "type": "int",
+      "doc": "intPosicion"
+    },
+    {
       "name": "org_politica_id",
       "type": "int",
       "doc": "IDORGANIZACIONPOLITICA"
