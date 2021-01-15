@@ -43,8 +43,8 @@ import org.apache.avro.specific.SpecificDatumWriter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class CandidatoTransform {
-  static final Logger LOG = LoggerFactory.getLogger(CandidatoTransform.class);
+public class CandidatosTransform {
+  static final Logger LOG = LoggerFactory.getLogger(CandidatosTransform.class);
   static final ObjectMapper mapper = new ObjectMapper();
 
   static int candidatosCount = 0;
@@ -55,7 +55,7 @@ public class CandidatoTransform {
   final Path input;
   final Path expInput;
 
-  CandidatoTransform(Path input, Path expInput) {
+  CandidatosTransform(Path input, Path expInput) {
     this.input = input;
     this.expInput = expInput;
   }
@@ -66,33 +66,31 @@ public class CandidatoTransform {
       var reader = load(output);
       reader.forEach(current::add);
       current.sort(Comparator.comparing(Candidato::getHojaVidaId));
-      LOG.info("Candidatos actuales: "+current.size());
+      LOG.info("Candidatos actuales: " + current.size());
 
       candidatos.sort(Comparator.comparing(Candidato::getHojaVidaId));
-      LOG.info("Candidatos obtenidos: "+candidatos.size());
+      LOG.info("Candidatos obtenidos: " + candidatos.size());
 
       if (current.equals(candidatos)) {
         LOG.info("Candidatos obtenidos no han cambiado");
         return false;
-      } else {
-        var datumWriter = new SpecificDatumWriter<>(Candidato.class);
-        try (var writer = new DataFileWriter<>(datumWriter)) {
-          writer.setCodec(CodecFactory.zstandardCodec(CodecFactory.DEFAULT_ZSTANDARD_LEVEL));
-          writer.create(Candidato.SCHEMA$, output.toFile());
-
-          candidatos.forEach(s -> {
-            try {
-              writer.append(s);
-            } catch (IOException e) {
-              e.printStackTrace();
-            }
-          });
-        }
-        LOG.info("Candidatos: "+ candidatosCount);
-        return true;
       }
     }
-    return false;
+    var datumWriter = new SpecificDatumWriter<>(Candidato.class);
+    try (var writer = new DataFileWriter<>(datumWriter)) {
+      writer.setCodec(CodecFactory.zstandardCodec(CodecFactory.DEFAULT_ZSTANDARD_LEVEL));
+      writer.create(Candidato.SCHEMA$, output.toFile());
+
+      candidatos.forEach(s -> {
+        try {
+          writer.append(s);
+        } catch (IOException e) {
+          e.printStackTrace();
+        }
+      });
+    }
+    LOG.info("Candidatos: " + candidatosCount);
+    return true;
   }
 
   DataFileReader<Candidato> load(Path input) throws IOException {
@@ -285,7 +283,7 @@ public class CandidatoTransform {
       var expPenal = n.get("strExpedientePenal").textValue();
       if (tengo.equals("1")) {
         //sentPenCount++;
-        System.out.println(n);
+        //System.out.println(n);
         sentPenales.add(SentenciaPenal.newBuilder()
             .setOrganoJudicialPenal(orgJudicialPenal)
             .setExpedientePenal(expPenal)
@@ -305,7 +303,7 @@ public class CandidatoTransform {
       var materiaSentencia = n.get("strMateriaSentencia").textValue();
       if (tengo.equals("1")) {
         //sentCivCount++;
-        System.out.println(n);
+        //System.out.println(n);
         sentCiviles.add(SentenciaCivil.newBuilder()
             .setMateriaSentencia(materiaSentencia)
             .setExpedienteObliga(
@@ -405,7 +403,7 @@ public class CandidatoTransform {
     var bienesOtrosArray = (ArrayNode) node.get("lBienMuebleOtro");
     var bienesOtros = new ArrayList<BienOtro>(bienesOtrosArray.size());
     bienesOtrosArray.forEach(n -> {
-      System.out.println(n);
+      //System.out.println(n);
       //      var tipo = n.get("TXOTROBIEN").textValue();
       //      if (!tipo.isBlank()) {
       //        var desc = Optional.ofNullable(n.get("TXDESCRIPCION")).map(JsonNode::textValue)
@@ -469,6 +467,7 @@ public class CandidatoTransform {
         .put(n.get("idCargoEleccion").intValue(), n.get("strCargoEleccion").textValue()));
 
     var expId = node.get("idExpediente").intValue();
+    var posicion = node.get("intPosicion").intValue();
     var exp = expMap.get(expId);
     var datos = node.get("oDatosPersonales");
     // Build candidato
@@ -524,6 +523,7 @@ public class CandidatoTransform {
         .setEstadoId(datos.get("idEstado").intValue())
         .setEstadoNombre(datos.get("strEstado").textValue())
         .setHojaVida(datos.get("strHojaVida").textValue())
+        .setPosicion(posicion)
         // Org Politica
         .setOrgPoliticaId(exp.getOrgPoliticaId())
         .setOrgPoliticaNombre(exp.getOrgPoliticaNombre())

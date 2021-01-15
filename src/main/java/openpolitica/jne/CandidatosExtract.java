@@ -1,5 +1,6 @@
 package openpolitica.jne;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -45,11 +46,10 @@ public class CandidatosExtract {
         var expJson = objectMapper.readTree(expOrg);
         var expArray = (ArrayNode) expJson;
         System.out.println("Org: " + orgPoliticaId + " - Total: " + expArray.size());
-        var ids = new LinkedHashMap<Integer, Integer>();
+        var ids = new LinkedHashMap<Integer, JsonNode>();
         expArray.forEach(n -> {
           var hojaVidaId = n.get("idHojaVida").intValue();
-          var expedienteId = n.get("idExpediente").intValue();
-          ids.put(hojaVidaId, expedienteId);
+          ids.put(hojaVidaId, n);
         });
         ids.entrySet().parallelStream().forEach(entry -> {
           try {
@@ -58,8 +58,8 @@ public class CandidatosExtract {
               Files.createDirectories(output);
             }
             var hojaVidaId = entry.getKey();
-            var expedienteId = entry.getValue();
-            extract(output, hojaVidaId, orgPoliticaId, expedienteId);
+            var expediente = entry.getValue();
+            extract(output, hojaVidaId, orgPoliticaId, expediente);
           } catch (IOException | InterruptedException e) {
             e.printStackTrace();
           }
@@ -71,7 +71,7 @@ public class CandidatosExtract {
   }
 
   void extract(Path output, int hojaVidaId, int orgPoliticoId,
-      Integer expedienteId)
+      JsonNode expediente)
       throws IOException, InterruptedException {
     var url = "https://plataformaelectoral.jne.gob.pe/HojaVida/GetHVConsolidado?param="
         + hojaVidaId + "-0-" + orgPoliticoId + "-110";
@@ -82,7 +82,10 @@ public class CandidatosExtract {
     var httpResponse = httpClient.send(httpRequest, BodyHandlers.ofString());
     var jsonResponse = objectMapper.readTree(httpResponse.body());
     var data = (ObjectNode) jsonResponse.get("data");
+    var expedienteId = expediente.get("idExpediente").intValue();
     data.put("idExpediente", expedienteId);
+    var posicion = expediente.get("intPosicion").intValue();
+    data.put("intPosicion", posicion);
     Files.writeString(
         output.resolve(hojaVidaId + ".json"),
         objectMapper.writer()
