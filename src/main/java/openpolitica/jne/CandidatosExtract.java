@@ -82,10 +82,10 @@ public class CandidatosExtract {
     var httpResponse = httpClient.send(httpRequest, BodyHandlers.ofString());
     var jsonResponse = objectMapper.readTree(httpResponse.body());
     var data = (ObjectNode) jsonResponse.get("data");
-    var expedienteId = expediente.get("idExpediente").intValue();
-    data.put("idExpediente", expedienteId);
-    var posicion = expediente.get("intPosicion").intValue();
-    data.put("intPosicion", posicion);
+    data.put("idExpediente", expediente.get("idExpediente").intValue());
+    data.put("intPosicion", expediente.get("intPosicion").intValue());
+    data.put("strRutaArchivo", expediente.get("strRutaArchivo").textValue());
+    data.put("strEstadoExp", expediente.get("strEstadoExp").textValue());
     Files.writeString(
         output.resolve(hojaVidaId + ".json"),
         objectMapper.writer()

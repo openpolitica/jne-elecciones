@@ -98,7 +98,7 @@ public class CandidatosTransform {
     return new DataFileReader<>(input.toFile(), reader);
   }
 
-  Candidato map(JsonNode node, Map<Integer, Expediente> expMap) {
+  Candidato map(JsonNode node, Map<Integer, Expediente.Builder> expMap) {
     // Educacion
     //// Educacion Basica
     var eduBasicaNode = node.get("oEduBasica");
@@ -469,6 +469,9 @@ public class CandidatosTransform {
     var expId = node.get("idExpediente").intValue();
     var posicion = node.get("intPosicion").intValue();
     var exp = expMap.get(expId);
+    if (exp != null) {
+      exp.setExpedienteEstado(node.get("strEstadoExp").textValue());
+    }
     var datos = node.get("oDatosPersonales");
     // Build candidato
     var idCargoEleccion = datos.get("idCargoEleccion").intValue();
@@ -524,11 +527,13 @@ public class CandidatosTransform {
         .setEstadoNombre(datos.get("strEstado").textValue())
         .setHojaVida(datos.get("strHojaVida").textValue())
         .setPosicion(posicion)
+        // Otro
+        .setEnlaceFoto("https://declara.jne.gob.pe" + node.get("strRutaArchivo").textValue())
         // Org Politica
         .setOrgPoliticaId(exp.getOrgPoliticaId())
         .setOrgPoliticaNombre(exp.getOrgPoliticaNombre())
         // Expediente
-        .setExpediente(exp)
+        .setExpedienteBuilder(exp)
         // Educacion
         .setEducacion(Educacion.newBuilder()
             .setBasica(eduBasica)
@@ -604,8 +609,8 @@ public class CandidatosTransform {
         .collect(Collectors.toList());
   }
 
-  private Map<Integer, Expediente> mapExpedientes(ArrayNode expJsonNode) {
-    var map = new LinkedHashMap<Integer, Expediente>();
+  private Map<Integer, Expediente.Builder> mapExpedientes(ArrayNode expJsonNode) {
+    var map = new LinkedHashMap<Integer, Expediente.Builder>();
     expJsonNode.forEach(n -> {
       var expId = n.get("idExpediente").intValue();
       var tipoEleccion = n.get("idTipoEleccion").intValue();
@@ -645,8 +650,7 @@ public class CandidatosTransform {
           .setCandidatosHombres(candHom)
           .setCandidatosMujeres(candMuj)
           .setUbicacionJuradoId(juradoUbicacionId)
-          .setDistritoElectoral(distritoElectoral)
-          .build());
+          .setDistritoElectoral(distritoElectoral));
     });
     return map;
   }
