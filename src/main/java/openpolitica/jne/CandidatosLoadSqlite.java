@@ -1,7 +1,6 @@
 package openpolitica.jne;
 
 import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -123,18 +122,20 @@ public class CandidatosLoadSqlite {
       ps.setInt(35, candidato.getExpediente().getExpedienteId());
       ps.setInt(36, candidato.getExpediente().getTipoEleccionId());
       ps.setString(37, candidato.getExpediente().getExpedienteCodigo());
-      ps.setString(38, candidato.getExpediente().getUbigeo());
-      ps.setString(39, candidato.getExpediente().getRegion());
-      ps.setString(40, candidato.getExpediente().getProvincia());
-      ps.setString(41, candidato.getExpediente().getDistrito());
-      ps.setInt(42, candidato.getExpediente().getListaSolicitudId());
-      ps.setString(43, candidato.getExpediente().getListaSolicitudEstado());
-      ps.setInt(44, candidato.getExpediente().getJuradoElectoralId());
-      ps.setString(45, candidato.getExpediente().getJuradoElectoralNombre());
-      ps.setInt(46, candidato.getExpediente().getCandidatosMujeres());
-      ps.setInt(47, candidato.getExpediente().getCandidatosHombres());
-      ps.setInt(48, candidato.getExpediente().getUbicacionJuradoId());
-      ps.setString(49, candidato.getExpediente().getDistritoElectoral());
+      ps.setString(38, candidato.getExpediente().getExpedienteEstado());
+      ps.setString(39, candidato.getExpediente().getUbigeo());
+      ps.setString(40, candidato.getExpediente().getRegion());
+      ps.setString(41, candidato.getExpediente().getProvincia());
+      ps.setString(42, candidato.getExpediente().getDistrito());
+      ps.setInt(43, candidato.getExpediente().getListaSolicitudId());
+      ps.setString(44, candidato.getExpediente().getListaSolicitudEstado());
+      ps.setInt(45, candidato.getExpediente().getJuradoElectoralId());
+      ps.setString(46, candidato.getExpediente().getJuradoElectoralNombre());
+      ps.setInt(47, candidato.getExpediente().getCandidatosMujeres());
+      ps.setInt(48, candidato.getExpediente().getCandidatosHombres());
+      ps.setInt(49, candidato.getExpediente().getUbicacionJuradoId());
+      ps.setString(50, candidato.getExpediente().getDistritoElectoral());
+      ps.setString(51, candidato.getEnlaceFoto());
 
       ps.addBatch();
     }
@@ -180,10 +181,11 @@ public class CandidatosLoadSqlite {
             expediente_id int,
             tipo_eleccion_id int,
             expediente_codigo string,
-            exp_ubigeo string,
-            exp_region string,
-            exp_provincia string,
-            exp_distrito string,
+            expediente_estado string,
+            expediente_ubigeo string,
+            expediente_region string,
+            expediente_provincia string,
+            expediente_distrito string,
             lista_solicitud_id int,
             lista_solicitud_estado string,
             jurado_electoral_id int,
@@ -191,7 +193,8 @@ public class CandidatosLoadSqlite {
             candidatos_mujeres int,
             candidatos_hombres int,
             ubicacion_jurado_id int,
-            distrito_electoral string
+            distrito_electoral string,
+            enlace_foto string
           )
           """.formatted(tableName);
     }
@@ -203,7 +206,8 @@ public class CandidatosLoadSqlite {
             ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
             ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
             ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
-            ?, ?, ?, ?, ?, ?, ?, ?, ?
+            ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 
+            ?
           )
           """.formatted(tableName);
     }

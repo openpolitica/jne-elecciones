@@ -163,6 +163,10 @@
       "type": "string"
     },
     {
+      "name": "enlace_foto",
+      "type": "string"
+    },
+    {
       "name": "expediente",
       "type": {
         "type": "record",
@@ -172,6 +176,11 @@
             "name": "expediente_id",
             "type": "int",
             "doc": "idExpediente"
+          },
+          {
+            "name": "expediente_estado",
+            "type": "string",
+            "doc": "estado de expediente del candidato"
           },
           {
             "name": "tipo_eleccion_id",

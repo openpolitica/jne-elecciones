@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class Expediente extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -4668293598131060502L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Expediente\",\"namespace\":\"openpolitica.jne.elecciones\",\"fields\":[{\"name\":\"expediente_id\",\"type\":\"int\",\"doc\":\"idExpediente\"},{\"name\":\"tipo_eleccion_id\",\"type\":\"int\"},{\"name\":\"expediente_codigo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"expediente_codigo_padre\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"]},{\"name\":\"ubigeo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"region\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"provincia\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"distrito\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"org_politica_id\",\"type\":\"int\"},{\"name\":\"org_politica_nombre\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"org_politica_tipo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"lista_solicitud_id\",\"type\":\"int\"},{\"name\":\"lista_solicitud_estado\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"jurado_electoral_id\",\"type\":\"int\"},{\"name\":\"jurado_electoral_nombre\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"candidatos_hombres\",\"type\":\"int\"},{\"name\":\"candidatos_mujeres\",\"type\":\"int\"},{\"name\":\"ubicacion_jurado_id\",\"type\":\"int\"},{\"name\":\"distrito_electoral\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}");
+  private static final long serialVersionUID = -242499847620409622L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Expediente\",\"namespace\":\"openpolitica.jne.elecciones\",\"fields\":[{\"name\":\"expediente_id\",\"type\":\"int\",\"doc\":\"idExpediente\"},{\"name\":\"expediente_estado\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"tipo_eleccion_id\",\"type\":\"int\"},{\"name\":\"expediente_codigo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"expediente_codigo_padre\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"]},{\"name\":\"ubigeo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"region\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"provincia\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"distrito\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"org_politica_id\",\"type\":\"int\"},{\"name\":\"org_politica_nombre\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"org_politica_tipo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"lista_solicitud_id\",\"type\":\"int\"},{\"name\":\"lista_solicitud_estado\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"jurado_electoral_id\",\"type\":\"int\"},{\"name\":\"jurado_electoral_nombre\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"candidatos_hombres\",\"type\":\"int\"},{\"name\":\"candidatos_mujeres\",\"type\":\"int\"},{\"name\":\"ubicacion_jurado_id\",\"type\":\"int\"},{\"name\":\"distrito_electoral\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -73,6 +73,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
 
   /** idExpediente */
    private int expediente_id;
+   private java.lang.String expediente_estado;
    private int tipo_eleccion_id;
    private java.lang.String expediente_codigo;
    private java.lang.String expediente_codigo_padre;
@@ -102,6 +103,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
   /**
    * All-args constructor.
    * @param expediente_id idExpediente
+   * @param expediente_estado The new value for expediente_estado
    * @param tipo_eleccion_id The new value for tipo_eleccion_id
    * @param expediente_codigo The new value for expediente_codigo
    * @param expediente_codigo_padre The new value for expediente_codigo_padre
@@ -121,8 +123,9 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
    * @param ubicacion_jurado_id The new value for ubicacion_jurado_id
    * @param distrito_electoral The new value for distrito_electoral
    */
-  public Expediente(java.lang.Integer expediente_id, java.lang.Integer tipo_eleccion_id, java.lang.String expediente_codigo, java.lang.String expediente_codigo_padre, java.lang.String ubigeo, java.lang.String region, java.lang.String provincia, java.lang.String distrito, java.lang.Integer org_politica_id, java.lang.String org_politica_nombre, java.lang.String org_politica_tipo, java.lang.Integer lista_solicitud_id, java.lang.String lista_solicitud_estado, java.lang.Integer jurado_electoral_id, java.lang.String jurado_electoral_nombre, java.lang.Integer candidatos_hombres, java.lang.Integer candidatos_mujeres, java.lang.Integer ubicacion_jurado_id, java.lang.String distrito_electoral) {
+  public Expediente(java.lang.Integer expediente_id, java.lang.String expediente_estado, java.lang.Integer tipo_eleccion_id, java.lang.String expediente_codigo, java.lang.String expediente_codigo_padre, java.lang.String ubigeo, java.lang.String region, java.lang.String provincia, java.lang.String distrito, java.lang.Integer org_politica_id, java.lang.String org_politica_nombre, java.lang.String org_politica_tipo, java.lang.Integer lista_solicitud_id, java.lang.String lista_solicitud_estado, java.lang.Integer jurado_electoral_id, java.lang.String jurado_electoral_nombre, java.lang.Integer candidatos_hombres, java.lang.Integer candidatos_mujeres, java.lang.Integer ubicacion_jurado_id, java.lang.String distrito_electoral) {
     this.expediente_id = expediente_id;
+    this.expediente_estado = expediente_estado;
     this.tipo_eleccion_id = tipo_eleccion_id;
     this.expediente_codigo = expediente_codigo;
     this.expediente_codigo_padre = expediente_codigo_padre;
@@ -149,24 +152,25 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
   public java.lang.Object get(int field$) {
     switch (field$) {
     case 0: return expediente_id;
-    case 1: return tipo_eleccion_id;
-    case 2: return expediente_codigo;
-    case 3: return expediente_codigo_padre;
-    case 4: return ubigeo;
-    case 5: return region;
-    case 6: return provincia;
-    case 7: return distrito;
-    case 8: return org_politica_id;
-    case 9: return org_politica_nombre;
-    case 10: return org_politica_tipo;
-    case 11: return lista_solicitud_id;
-    case 12: return lista_solicitud_estado;
-    case 13: return jurado_electoral_id;
-    case 14: return jurado_electoral_nombre;
-    case 15: return candidatos_hombres;
-    case 16: return candidatos_mujeres;
-    case 17: return ubicacion_jurado_id;
-    case 18: return distrito_electoral;
+    case 1: return expediente_estado;
+    case 2: return tipo_eleccion_id;
+    case 3: return expediente_codigo;
+    case 4: return expediente_codigo_padre;
+    case 5: return ubigeo;
+    case 6: return region;
+    case 7: return provincia;
+    case 8: return distrito;
+    case 9: return org_politica_id;
+    case 10: return org_politica_nombre;
+    case 11: return org_politica_tipo;
+    case 12: return lista_solicitud_id;
+    case 13: return lista_solicitud_estado;
+    case 14: return jurado_electoral_id;
+    case 15: return jurado_electoral_nombre;
+    case 16: return candidatos_hombres;
+    case 17: return candidatos_mujeres;
+    case 18: return ubicacion_jurado_id;
+    case 19: return distrito_electoral;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -176,24 +180,25 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
     case 0: expediente_id = (java.lang.Integer)value$; break;
-    case 1: tipo_eleccion_id = (java.lang.Integer)value$; break;
-    case 2: expediente_codigo = value$ != null ? value$.toString() : null; break;
-    case 3: expediente_codigo_padre = value$ != null ? value$.toString() : null; break;
-    case 4: ubigeo = value$ != null ? value$.toString() : null; break;
-    case 5: region = value$ != null ? value$.toString() : null; break;
-    case 6: provincia = value$ != null ? value$.toString() : null; break;
-    case 7: distrito = value$ != null ? value$.toString() : null; break;
-    case 8: org_politica_id = (java.lang.Integer)value$; break;
-    case 9: org_politica_nombre = value$ != null ? value$.toString() : null; break;
-    case 10: org_politica_tipo = value$ != null ? value$.toString() : null; break;
-    case 11: lista_solicitud_id = (java.lang.Integer)value$; break;
-    case 12: lista_solicitud_estado = value$ != null ? value$.toString() : null; break;
-    case 13: jurado_electoral_id = (java.lang.Integer)value$; break;
-    case 14: jurado_electoral_nombre = value$ != null ? value$.toString() : null; break;
-    case 15: candidatos_hombres = (java.lang.Integer)value$; break;
-    case 16: candidatos_mujeres = (java.lang.Integer)value$; break;
-    case 17: ubicacion_jurado_id = (java.lang.Integer)value$; break;
-    case 18: distrito_electoral = value$ != null ? value$.toString() : null; break;
+    case 1: expediente_estado = value$ != null ? value$.toString() : null; break;
+    case 2: tipo_eleccion_id = (java.lang.Integer)value$; break;
+    case 3: expediente_codigo = value$ != null ? value$.toString() : null; break;
+    case 4: expediente_codigo_padre = value$ != null ? value$.toString() : null; break;
+    case 5: ubigeo = value$ != null ? value$.toString() : null; break;
+    case 6: region = value$ != null ? value$.toString() : null; break;
+    case 7: provincia = value$ != null ? value$.toString() : null; break;
+    case 8: distrito = value$ != null ? value$.toString() : null; break;
+    case 9: org_politica_id = (java.lang.Integer)value$; break;
+    case 10: org_politica_nombre = value$ != null ? value$.toString() : null; break;
+    case 11: org_politica_tipo = value$ != null ? value$.toString() : null; break;
+    case 12: lista_solicitud_id = (java.lang.Integer)value$; break;
+    case 13: lista_solicitud_estado = value$ != null ? value$.toString() : null; break;
+    case 14: jurado_electoral_id = (java.lang.Integer)value$; break;
+    case 15: jurado_electoral_nombre = value$ != null ? value$.toString() : null; break;
+    case 16: candidatos_hombres = (java.lang.Integer)value$; break;
+    case 17: candidatos_mujeres = (java.lang.Integer)value$; break;
+    case 18: ubicacion_jurado_id = (java.lang.Integer)value$; break;
+    case 19: distrito_electoral = value$ != null ? value$.toString() : null; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -214,6 +219,23 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
    */
   public void setExpedienteId(int value) {
     this.expediente_id = value;
+  }
+
+  /**
+   * Gets the value of the 'expediente_estado' field.
+   * @return The value of the 'expediente_estado' field.
+   */
+  public java.lang.String getExpedienteEstado() {
+    return expediente_estado;
+  }
+
+
+  /**
+   * Sets the value of the 'expediente_estado' field.
+   * @param value the value to set.
+   */
+  public void setExpedienteEstado(java.lang.String value) {
+    this.expediente_estado = value;
   }
 
   /**
@@ -565,6 +587,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
 
     /** idExpediente */
     private int expediente_id;
+    private java.lang.String expediente_estado;
     private int tipo_eleccion_id;
     private java.lang.String expediente_codigo;
     private java.lang.String expediente_codigo_padre;
@@ -599,77 +622,81 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
         this.expediente_id = data().deepCopy(fields()[0].schema(), other.expediente_id);
         fieldSetFlags()[0] = other.fieldSetFlags()[0];
       }
-      if (isValidValue(fields()[1], other.tipo_eleccion_id)) {
-        this.tipo_eleccion_id = data().deepCopy(fields()[1].schema(), other.tipo_eleccion_id);
+      if (isValidValue(fields()[1], other.expediente_estado)) {
+        this.expediente_estado = data().deepCopy(fields()[1].schema(), other.expediente_estado);
         fieldSetFlags()[1] = other.fieldSetFlags()[1];
       }
-      if (isValidValue(fields()[2], other.expediente_codigo)) {
-        this.expediente_codigo = data().deepCopy(fields()[2].schema(), other.expediente_codigo);
+      if (isValidValue(fields()[2], other.tipo_eleccion_id)) {
+        this.tipo_eleccion_id = data().deepCopy(fields()[2].schema(), other.tipo_eleccion_id);
         fieldSetFlags()[2] = other.fieldSetFlags()[2];
       }
-      if (isValidValue(fields()[3], other.expediente_codigo_padre)) {
-        this.expediente_codigo_padre = data().deepCopy(fields()[3].schema(), other.expediente_codigo_padre);
+      if (isValidValue(fields()[3], other.expediente_codigo)) {
+        this.expediente_codigo = data().deepCopy(fields()[3].schema(), other.expediente_codigo);
         fieldSetFlags()[3] = other.fieldSetFlags()[3];
       }
-      if (isValidValue(fields()[4], other.ubigeo)) {
-        this.ubigeo = data().deepCopy(fields()[4].schema(), other.ubigeo);
+      if (isValidValue(fields()[4], other.expediente_codigo_padre)) {
+        this.expediente_codigo_padre = data().deepCopy(fields()[4].schema(), other.expediente_codigo_padre);
         fieldSetFlags()[4] = other.fieldSetFlags()[4];
       }
-      if (isValidValue(fields()[5], other.region)) {
-        this.region = data().deepCopy(fields()[5].schema(), other.region);
+      if (isValidValue(fields()[5], other.ubigeo)) {
+        this.ubigeo = data().deepCopy(fields()[5].schema(), other.ubigeo);
         fieldSetFlags()[5] = other.fieldSetFlags()[5];
       }
-      if (isValidValue(fields()[6], other.provincia)) {
-        this.provincia = data().deepCopy(fields()[6].schema(), other.provincia);
+      if (isValidValue(fields()[6], other.region)) {
+        this.region = data().deepCopy(fields()[6].schema(), other.region);
         fieldSetFlags()[6] = other.fieldSetFlags()[6];
       }
-      if (isValidValue(fields()[7], other.distrito)) {
-        this.distrito = data().deepCopy(fields()[7].schema(), other.distrito);
+      if (isValidValue(fields()[7], other.provincia)) {
+        this.provincia = data().deepCopy(fields()[7].schema(), other.provincia);
         fieldSetFlags()[7] = other.fieldSetFlags()[7];
       }
-      if (isValidValue(fields()[8], other.org_politica_id)) {
-        this.org_politica_id = data().deepCopy(fields()[8].schema(), other.org_politica_id);
+      if (isValidValue(fields()[8], other.distrito)) {
+        this.distrito = data().deepCopy(fields()[8].schema(), other.distrito);
         fieldSetFlags()[8] = other.fieldSetFlags()[8];
       }
-      if (isValidValue(fields()[9], other.org_politica_nombre)) {
-        this.org_politica_nombre = data().deepCopy(fields()[9].schema(), other.org_politica_nombre);
+      if (isValidValue(fields()[9], other.org_politica_id)) {
+        this.org_politica_id = data().deepCopy(fields()[9].schema(), other.org_politica_id);
         fieldSetFlags()[9] = other.fieldSetFlags()[9];
       }
-      if (isValidValue(fields()[10], other.org_politica_tipo)) {
-        this.org_politica_tipo = data().deepCopy(fields()[10].schema(), other.org_politica_tipo);
+      if (isValidValue(fields()[10], other.org_politica_nombre)) {
+        this.org_politica_nombre = data().deepCopy(fields()[10].schema(), other.org_politica_nombre);
         fieldSetFlags()[10] = other.fieldSetFlags()[10];
       }
-      if (isValidValue(fields()[11], other.lista_solicitud_id)) {
-        this.lista_solicitud_id = data().deepCopy(fields()[11].schema(), other.lista_solicitud_id);
+      if (isValidValue(fields()[11], other.org_politica_tipo)) {
+        this.org_politica_tipo = data().deepCopy(fields()[11].schema(), other.org_politica_tipo);
         fieldSetFlags()[11] = other.fieldSetFlags()[11];
       }
-      if (isValidValue(fields()[12], other.lista_solicitud_estado)) {
-        this.lista_solicitud_estado = data().deepCopy(fields()[12].schema(), other.lista_solicitud_estado);
+      if (isValidValue(fields()[12], other.lista_solicitud_id)) {
+        this.lista_solicitud_id = data().deepCopy(fields()[12].schema(), other.lista_solicitud_id);
         fieldSetFlags()[12] = other.fieldSetFlags()[12];
       }
-      if (isValidValue(fields()[13], other.jurado_electoral_id)) {
-        this.jurado_electoral_id = data().deepCopy(fields()[13].schema(), other.jurado_electoral_id);
+      if (isValidValue(fields()[13], other.lista_solicitud_estado)) {
+        this.lista_solicitud_estado = data().deepCopy(fields()[13].schema(), other.lista_solicitud_estado);
         fieldSetFlags()[13] = other.fieldSetFlags()[13];
       }
-      if (isValidValue(fields()[14], other.jurado_electoral_nombre)) {
-        this.jurado_electoral_nombre = data().deepCopy(fields()[14].schema(), other.jurado_electoral_nombre);
+      if (isValidValue(fields()[14], other.jurado_electoral_id)) {
+        this.jurado_electoral_id = data().deepCopy(fields()[14].schema(), other.jurado_electoral_id);
         fieldSetFlags()[14] = other.fieldSetFlags()[14];
       }
-      if (isValidValue(fields()[15], other.candidatos_hombres)) {
-        this.candidatos_hombres = data().deepCopy(fields()[15].schema(), other.candidatos_hombres);
+      if (isValidValue(fields()[15], other.jurado_electoral_nombre)) {
+        this.jurado_electoral_nombre = data().deepCopy(fields()[15].schema(), other.jurado_electoral_nombre);
         fieldSetFlags()[15] = other.fieldSetFlags()[15];
       }
-      if (isValidValue(fields()[16], other.candidatos_mujeres)) {
-        this.candidatos_mujeres = data().deepCopy(fields()[16].schema(), other.candidatos_mujeres);
+      if (isValidValue(fields()[16], other.candidatos_hombres)) {
+        this.candidatos_hombres = data().deepCopy(fields()[16].schema(), other.candidatos_hombres);
         fieldSetFlags()[16] = other.fieldSetFlags()[16];
       }
-      if (isValidValue(fields()[17], other.ubicacion_jurado_id)) {
-        this.ubicacion_jurado_id = data().deepCopy(fields()[17].schema(), other.ubicacion_jurado_id);
+      if (isValidValue(fields()[17], other.candidatos_mujeres)) {
+        this.candidatos_mujeres = data().deepCopy(fields()[17].schema(), other.candidatos_mujeres);
         fieldSetFlags()[17] = other.fieldSetFlags()[17];
       }
-      if (isValidValue(fields()[18], other.distrito_electoral)) {
-        this.distrito_electoral = data().deepCopy(fields()[18].schema(), other.distrito_electoral);
+      if (isValidValue(fields()[18], other.ubicacion_jurado_id)) {
+        this.ubicacion_jurado_id = data().deepCopy(fields()[18].schema(), other.ubicacion_jurado_id);
         fieldSetFlags()[18] = other.fieldSetFlags()[18];
+      }
+      if (isValidValue(fields()[19], other.distrito_electoral)) {
+        this.distrito_electoral = data().deepCopy(fields()[19].schema(), other.distrito_electoral);
+        fieldSetFlags()[19] = other.fieldSetFlags()[19];
       }
     }
 
@@ -683,77 +710,81 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
         this.expediente_id = data().deepCopy(fields()[0].schema(), other.expediente_id);
         fieldSetFlags()[0] = true;
       }
-      if (isValidValue(fields()[1], other.tipo_eleccion_id)) {
-        this.tipo_eleccion_id = data().deepCopy(fields()[1].schema(), other.tipo_eleccion_id);
+      if (isValidValue(fields()[1], other.expediente_estado)) {
+        this.expediente_estado = data().deepCopy(fields()[1].schema(), other.expediente_estado);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.expediente_codigo)) {
-        this.expediente_codigo = data().deepCopy(fields()[2].schema(), other.expediente_codigo);
+      if (isValidValue(fields()[2], other.tipo_eleccion_id)) {
+        this.tipo_eleccion_id = data().deepCopy(fields()[2].schema(), other.tipo_eleccion_id);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.expediente_codigo_padre)) {
-        this.expediente_codigo_padre = data().deepCopy(fields()[3].schema(), other.expediente_codigo_padre);
+      if (isValidValue(fields()[3], other.expediente_codigo)) {
+        this.expediente_codigo = data().deepCopy(fields()[3].schema(), other.expediente_codigo);
         fieldSetFlags()[3] = true;
       }
-      if (isValidValue(fields()[4], other.ubigeo)) {
-        this.ubigeo = data().deepCopy(fields()[4].schema(), other.ubigeo);
+      if (isValidValue(fields()[4], other.expediente_codigo_padre)) {
+        this.expediente_codigo_padre = data().deepCopy(fields()[4].schema(), other.expediente_codigo_padre);
         fieldSetFlags()[4] = true;
       }
-      if (isValidValue(fields()[5], other.region)) {
-        this.region = data().deepCopy(fields()[5].schema(), other.region);
+      if (isValidValue(fields()[5], other.ubigeo)) {
+        this.ubigeo = data().deepCopy(fields()[5].schema(), other.ubigeo);
         fieldSetFlags()[5] = true;
       }
-      if (isValidValue(fields()[6], other.provincia)) {
-        this.provincia = data().deepCopy(fields()[6].schema(), other.provincia);
+      if (isValidValue(fields()[6], other.region)) {
+        this.region = data().deepCopy(fields()[6].schema(), other.region);
         fieldSetFlags()[6] = true;
       }
-      if (isValidValue(fields()[7], other.distrito)) {
-        this.distrito = data().deepCopy(fields()[7].schema(), other.distrito);
+      if (isValidValue(fields()[7], other.provincia)) {
+        this.provincia = data().deepCopy(fields()[7].schema(), other.provincia);
         fieldSetFlags()[7] = true;
       }
-      if (isValidValue(fields()[8], other.org_politica_id)) {
-        this.org_politica_id = data().deepCopy(fields()[8].schema(), other.org_politica_id);
+      if (isValidValue(fields()[8], other.distrito)) {
+        this.distrito = data().deepCopy(fields()[8].schema(), other.distrito);
         fieldSetFlags()[8] = true;
       }
-      if (isValidValue(fields()[9], other.org_politica_nombre)) {
-        this.org_politica_nombre = data().deepCopy(fields()[9].schema(), other.org_politica_nombre);
+      if (isValidValue(fields()[9], other.org_politica_id)) {
+        this.org_politica_id = data().deepCopy(fields()[9].schema(), other.org_politica_id);
         fieldSetFlags()[9] = true;
       }
-      if (isValidValue(fields()[10], other.org_politica_tipo)) {
-        this.org_politica_tipo = data().deepCopy(fields()[10].schema(), other.org_politica_tipo);
+      if (isValidValue(fields()[10], other.org_politica_nombre)) {
+        this.org_politica_nombre = data().deepCopy(fields()[10].schema(), other.org_politica_nombre);
         fieldSetFlags()[10] = true;
       }
-      if (isValidValue(fields()[11], other.lista_solicitud_id)) {
-        this.lista_solicitud_id = data().deepCopy(fields()[11].schema(), other.lista_solicitud_id);
+      if (isValidValue(fields()[11], other.org_politica_tipo)) {
+        this.org_politica_tipo = data().deepCopy(fields()[11].schema(), other.org_politica_tipo);
         fieldSetFlags()[11] = true;
       }
-      if (isValidValue(fields()[12], other.lista_solicitud_estado)) {
-        this.lista_solicitud_estado = data().deepCopy(fields()[12].schema(), other.lista_solicitud_estado);
+      if (isValidValue(fields()[12], other.lista_solicitud_id)) {
+        this.lista_solicitud_id = data().deepCopy(fields()[12].schema(), other.lista_solicitud_id);
         fieldSetFlags()[12] = true;
       }
-      if (isValidValue(fields()[13], other.jurado_electoral_id)) {
-        this.jurado_electoral_id = data().deepCopy(fields()[13].schema(), other.jurado_electoral_id);
+      if (isValidValue(fields()[13], other.lista_solicitud_estado)) {
+        this.lista_solicitud_estado = data().deepCopy(fields()[13].schema(), other.lista_solicitud_estado);
         fieldSetFlags()[13] = true;
       }
-      if (isValidValue(fields()[14], other.jurado_electoral_nombre)) {
-        this.jurado_electoral_nombre = data().deepCopy(fields()[14].schema(), other.jurado_electoral_nombre);
+      if (isValidValue(fields()[14], other.jurado_electoral_id)) {
+        this.jurado_electoral_id = data().deepCopy(fields()[14].schema(), other.jurado_electoral_id);
         fieldSetFlags()[14] = true;
       }
-      if (isValidValue(fields()[15], other.candidatos_hombres)) {
-        this.candidatos_hombres = data().deepCopy(fields()[15].schema(), other.candidatos_hombres);
+      if (isValidValue(fields()[15], other.jurado_electoral_nombre)) {
+        this.jurado_electoral_nombre = data().deepCopy(fields()[15].schema(), other.jurado_electoral_nombre);
         fieldSetFlags()[15] = true;
       }
-      if (isValidValue(fields()[16], other.candidatos_mujeres)) {
-        this.candidatos_mujeres = data().deepCopy(fields()[16].schema(), other.candidatos_mujeres);
+      if (isValidValue(fields()[16], other.candidatos_hombres)) {
+        this.candidatos_hombres = data().deepCopy(fields()[16].schema(), other.candidatos_hombres);
         fieldSetFlags()[16] = true;
       }
-      if (isValidValue(fields()[17], other.ubicacion_jurado_id)) {
-        this.ubicacion_jurado_id = data().deepCopy(fields()[17].schema(), other.ubicacion_jurado_id);
+      if (isValidValue(fields()[17], other.candidatos_mujeres)) {
+        this.candidatos_mujeres = data().deepCopy(fields()[17].schema(), other.candidatos_mujeres);
         fieldSetFlags()[17] = true;
       }
-      if (isValidValue(fields()[18], other.distrito_electoral)) {
-        this.distrito_electoral = data().deepCopy(fields()[18].schema(), other.distrito_electoral);
+      if (isValidValue(fields()[18], other.ubicacion_jurado_id)) {
+        this.ubicacion_jurado_id = data().deepCopy(fields()[18].schema(), other.ubicacion_jurado_id);
         fieldSetFlags()[18] = true;
+      }
+      if (isValidValue(fields()[19], other.distrito_electoral)) {
+        this.distrito_electoral = data().deepCopy(fields()[19].schema(), other.distrito_electoral);
+        fieldSetFlags()[19] = true;
       }
     }
 
@@ -801,6 +832,46 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
     }
 
     /**
+      * Gets the value of the 'expediente_estado' field.
+      * @return The value.
+      */
+    public java.lang.String getExpedienteEstado() {
+      return expediente_estado;
+    }
+
+
+    /**
+      * Sets the value of the 'expediente_estado' field.
+      * @param value The value of 'expediente_estado'.
+      * @return This builder.
+      */
+    public openpolitica.jne.elecciones.Expediente.Builder setExpedienteEstado(java.lang.String value) {
+      validate(fields()[1], value);
+      this.expediente_estado = value;
+      fieldSetFlags()[1] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'expediente_estado' field has been set.
+      * @return True if the 'expediente_estado' field has been set, false otherwise.
+      */
+    public boolean hasExpedienteEstado() {
+      return fieldSetFlags()[1];
+    }
+
+
+    /**
+      * Clears the value of the 'expediente_estado' field.
+      * @return This builder.
+      */
+    public openpolitica.jne.elecciones.Expediente.Builder clearExpedienteEstado() {
+      expediente_estado = null;
+      fieldSetFlags()[1] = false;
+      return this;
+    }
+
+    /**
       * Gets the value of the 'tipo_eleccion_id' field.
       * @return The value.
       */
@@ -815,9 +886,9 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return This builder.
       */
     public openpolitica.jne.elecciones.Expediente.Builder setTipoEleccionId(int value) {
-      validate(fields()[1], value);
+      validate(fields()[2], value);
       this.tipo_eleccion_id = value;
-      fieldSetFlags()[1] = true;
+      fieldSetFlags()[2] = true;
       return this;
     }
 
@@ -826,7 +897,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return True if the 'tipo_eleccion_id' field has been set, false otherwise.
       */
     public boolean hasTipoEleccionId() {
-      return fieldSetFlags()[1];
+      return fieldSetFlags()[2];
     }
 
 
@@ -835,7 +906,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return This builder.
       */
     public openpolitica.jne.elecciones.Expediente.Builder clearTipoEleccionId() {
-      fieldSetFlags()[1] = false;
+      fieldSetFlags()[2] = false;
       return this;
     }
 
@@ -854,9 +925,9 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return This builder.
       */
     public openpolitica.jne.elecciones.Expediente.Builder setExpedienteCodigo(java.lang.String value) {
-      validate(fields()[2], value);
+      validate(fields()[3], value);
       this.expediente_codigo = value;
-      fieldSetFlags()[2] = true;
+      fieldSetFlags()[3] = true;
       return this;
     }
 
@@ -865,7 +936,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return True if the 'expediente_codigo' field has been set, false otherwise.
       */
     public boolean hasExpedienteCodigo() {
-      return fieldSetFlags()[2];
+      return fieldSetFlags()[3];
     }
 
 
@@ -875,7 +946,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       */
     public openpolitica.jne.elecciones.Expediente.Builder clearExpedienteCodigo() {
       expediente_codigo = null;
-      fieldSetFlags()[2] = false;
+      fieldSetFlags()[3] = false;
       return this;
     }
 
@@ -894,9 +965,9 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return This builder.
       */
     public openpolitica.jne.elecciones.Expediente.Builder setExpedienteCodigoPadre(java.lang.String value) {
-      validate(fields()[3], value);
+      validate(fields()[4], value);
       this.expediente_codigo_padre = value;
-      fieldSetFlags()[3] = true;
+      fieldSetFlags()[4] = true;
       return this;
     }
 
@@ -905,7 +976,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return True if the 'expediente_codigo_padre' field has been set, false otherwise.
       */
     public boolean hasExpedienteCodigoPadre() {
-      return fieldSetFlags()[3];
+      return fieldSetFlags()[4];
     }
 
 
@@ -915,7 +986,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       */
     public openpolitica.jne.elecciones.Expediente.Builder clearExpedienteCodigoPadre() {
       expediente_codigo_padre = null;
-      fieldSetFlags()[3] = false;
+      fieldSetFlags()[4] = false;
       return this;
     }
 
@@ -934,9 +1005,9 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return This builder.
       */
     public openpolitica.jne.elecciones.Expediente.Builder setUbigeo(java.lang.String value) {
-      validate(fields()[4], value);
+      validate(fields()[5], value);
       this.ubigeo = value;
-      fieldSetFlags()[4] = true;
+      fieldSetFlags()[5] = true;
       return this;
     }
 
@@ -945,7 +1016,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return True if the 'ubigeo' field has been set, false otherwise.
       */
     public boolean hasUbigeo() {
-      return fieldSetFlags()[4];
+      return fieldSetFlags()[5];
     }
 
 
@@ -955,7 +1026,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       */
     public openpolitica.jne.elecciones.Expediente.Builder clearUbigeo() {
       ubigeo = null;
-      fieldSetFlags()[4] = false;
+      fieldSetFlags()[5] = false;
       return this;
     }
 
@@ -974,9 +1045,9 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return This builder.
       */
     public openpolitica.jne.elecciones.Expediente.Builder setRegion(java.lang.String value) {
-      validate(fields()[5], value);
+      validate(fields()[6], value);
       this.region = value;
-      fieldSetFlags()[5] = true;
+      fieldSetFlags()[6] = true;
       return this;
     }
 
@@ -985,7 +1056,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return True if the 'region' field has been set, false otherwise.
       */
     public boolean hasRegion() {
-      return fieldSetFlags()[5];
+      return fieldSetFlags()[6];
     }
 
 
@@ -995,7 +1066,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       */
     public openpolitica.jne.elecciones.Expediente.Builder clearRegion() {
       region = null;
-      fieldSetFlags()[5] = false;
+      fieldSetFlags()[6] = false;
       return this;
     }
 
@@ -1014,9 +1085,9 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return This builder.
       */
     public openpolitica.jne.elecciones.Expediente.Builder setProvincia(java.lang.String value) {
-      validate(fields()[6], value);
+      validate(fields()[7], value);
       this.provincia = value;
-      fieldSetFlags()[6] = true;
+      fieldSetFlags()[7] = true;
       return this;
     }
 
@@ -1025,7 +1096,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return True if the 'provincia' field has been set, false otherwise.
       */
     public boolean hasProvincia() {
-      return fieldSetFlags()[6];
+      return fieldSetFlags()[7];
     }
 
 
@@ -1035,7 +1106,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       */
     public openpolitica.jne.elecciones.Expediente.Builder clearProvincia() {
       provincia = null;
-      fieldSetFlags()[6] = false;
+      fieldSetFlags()[7] = false;
       return this;
     }
 
@@ -1054,9 +1125,9 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return This builder.
       */
     public openpolitica.jne.elecciones.Expediente.Builder setDistrito(java.lang.String value) {
-      validate(fields()[7], value);
+      validate(fields()[8], value);
       this.distrito = value;
-      fieldSetFlags()[7] = true;
+      fieldSetFlags()[8] = true;
       return this;
     }
 
@@ -1065,7 +1136,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return True if the 'distrito' field has been set, false otherwise.
       */
     public boolean hasDistrito() {
-      return fieldSetFlags()[7];
+      return fieldSetFlags()[8];
     }
 
 
@@ -1075,7 +1146,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       */
     public openpolitica.jne.elecciones.Expediente.Builder clearDistrito() {
       distrito = null;
-      fieldSetFlags()[7] = false;
+      fieldSetFlags()[8] = false;
       return this;
     }
 
@@ -1094,9 +1165,9 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return This builder.
       */
     public openpolitica.jne.elecciones.Expediente.Builder setOrgPoliticaId(int value) {
-      validate(fields()[8], value);
+      validate(fields()[9], value);
       this.org_politica_id = value;
-      fieldSetFlags()[8] = true;
+      fieldSetFlags()[9] = true;
       return this;
     }
 
@@ -1105,7 +1176,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return True if the 'org_politica_id' field has been set, false otherwise.
       */
     public boolean hasOrgPoliticaId() {
-      return fieldSetFlags()[8];
+      return fieldSetFlags()[9];
     }
 
 
@@ -1114,7 +1185,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return This builder.
       */
     public openpolitica.jne.elecciones.Expediente.Builder clearOrgPoliticaId() {
-      fieldSetFlags()[8] = false;
+      fieldSetFlags()[9] = false;
       return this;
     }
 
@@ -1133,9 +1204,9 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return This builder.
       */
     public openpolitica.jne.elecciones.Expediente.Builder setOrgPoliticaNombre(java.lang.String value) {
-      validate(fields()[9], value);
+      validate(fields()[10], value);
       this.org_politica_nombre = value;
-      fieldSetFlags()[9] = true;
+      fieldSetFlags()[10] = true;
       return this;
     }
 
@@ -1144,7 +1215,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return True if the 'org_politica_nombre' field has been set, false otherwise.
       */
     public boolean hasOrgPoliticaNombre() {
-      return fieldSetFlags()[9];
+      return fieldSetFlags()[10];
     }
 
 
@@ -1154,7 +1225,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       */
     public openpolitica.jne.elecciones.Expediente.Builder clearOrgPoliticaNombre() {
       org_politica_nombre = null;
-      fieldSetFlags()[9] = false;
+      fieldSetFlags()[10] = false;
       return this;
     }
 
@@ -1173,9 +1244,9 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return This builder.
       */
     public openpolitica.jne.elecciones.Expediente.Builder setOrgPoliticaTipo(java.lang.String value) {
-      validate(fields()[10], value);
+      validate(fields()[11], value);
       this.org_politica_tipo = value;
-      fieldSetFlags()[10] = true;
+      fieldSetFlags()[11] = true;
       return this;
     }
 
@@ -1184,7 +1255,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return True if the 'org_politica_tipo' field has been set, false otherwise.
       */
     public boolean hasOrgPoliticaTipo() {
-      return fieldSetFlags()[10];
+      return fieldSetFlags()[11];
     }
 
 
@@ -1194,7 +1265,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       */
     public openpolitica.jne.elecciones.Expediente.Builder clearOrgPoliticaTipo() {
       org_politica_tipo = null;
-      fieldSetFlags()[10] = false;
+      fieldSetFlags()[11] = false;
       return this;
     }
 
@@ -1213,9 +1284,9 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return This builder.
       */
     public openpolitica.jne.elecciones.Expediente.Builder setListaSolicitudId(int value) {
-      validate(fields()[11], value);
+      validate(fields()[12], value);
       this.lista_solicitud_id = value;
-      fieldSetFlags()[11] = true;
+      fieldSetFlags()[12] = true;
       return this;
     }
 
@@ -1224,7 +1295,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return True if the 'lista_solicitud_id' field has been set, false otherwise.
       */
     public boolean hasListaSolicitudId() {
-      return fieldSetFlags()[11];
+      return fieldSetFlags()[12];
     }
 
 
@@ -1233,7 +1304,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return This builder.
       */
     public openpolitica.jne.elecciones.Expediente.Builder clearListaSolicitudId() {
-      fieldSetFlags()[11] = false;
+      fieldSetFlags()[12] = false;
       return this;
     }
 
@@ -1252,9 +1323,9 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return This builder.
       */
     public openpolitica.jne.elecciones.Expediente.Builder setListaSolicitudEstado(java.lang.String value) {
-      validate(fields()[12], value);
+      validate(fields()[13], value);
       this.lista_solicitud_estado = value;
-      fieldSetFlags()[12] = true;
+      fieldSetFlags()[13] = true;
       return this;
     }
 
@@ -1263,7 +1334,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return True if the 'lista_solicitud_estado' field has been set, false otherwise.
       */
     public boolean hasListaSolicitudEstado() {
-      return fieldSetFlags()[12];
+      return fieldSetFlags()[13];
     }
 
 
@@ -1273,7 +1344,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       */
     public openpolitica.jne.elecciones.Expediente.Builder clearListaSolicitudEstado() {
       lista_solicitud_estado = null;
-      fieldSetFlags()[12] = false;
+      fieldSetFlags()[13] = false;
       return this;
     }
 
@@ -1292,9 +1363,9 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return This builder.
       */
     public openpolitica.jne.elecciones.Expediente.Builder setJuradoElectoralId(int value) {
-      validate(fields()[13], value);
+      validate(fields()[14], value);
       this.jurado_electoral_id = value;
-      fieldSetFlags()[13] = true;
+      fieldSetFlags()[14] = true;
       return this;
     }
 
@@ -1303,7 +1374,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return True if the 'jurado_electoral_id' field has been set, false otherwise.
       */
     public boolean hasJuradoElectoralId() {
-      return fieldSetFlags()[13];
+      return fieldSetFlags()[14];
     }
 
 
@@ -1312,7 +1383,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return This builder.
       */
     public openpolitica.jne.elecciones.Expediente.Builder clearJuradoElectoralId() {
-      fieldSetFlags()[13] = false;
+      fieldSetFlags()[14] = false;
       return this;
     }
 
@@ -1331,9 +1402,9 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return This builder.
       */
     public openpolitica.jne.elecciones.Expediente.Builder setJuradoElectoralNombre(java.lang.String value) {
-      validate(fields()[14], value);
+      validate(fields()[15], value);
       this.jurado_electoral_nombre = value;
-      fieldSetFlags()[14] = true;
+      fieldSetFlags()[15] = true;
       return this;
     }
 
@@ -1342,7 +1413,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return True if the 'jurado_electoral_nombre' field has been set, false otherwise.
       */
     public boolean hasJuradoElectoralNombre() {
-      return fieldSetFlags()[14];
+      return fieldSetFlags()[15];
     }
 
 
@@ -1352,7 +1423,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       */
     public openpolitica.jne.elecciones.Expediente.Builder clearJuradoElectoralNombre() {
       jurado_electoral_nombre = null;
-      fieldSetFlags()[14] = false;
+      fieldSetFlags()[15] = false;
       return this;
     }
 
@@ -1371,9 +1442,9 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return This builder.
       */
     public openpolitica.jne.elecciones.Expediente.Builder setCandidatosHombres(int value) {
-      validate(fields()[15], value);
+      validate(fields()[16], value);
       this.candidatos_hombres = value;
-      fieldSetFlags()[15] = true;
+      fieldSetFlags()[16] = true;
       return this;
     }
 
@@ -1382,7 +1453,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return True if the 'candidatos_hombres' field has been set, false otherwise.
       */
     public boolean hasCandidatosHombres() {
-      return fieldSetFlags()[15];
+      return fieldSetFlags()[16];
     }
 
 
@@ -1391,7 +1462,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return This builder.
       */
     public openpolitica.jne.elecciones.Expediente.Builder clearCandidatosHombres() {
-      fieldSetFlags()[15] = false;
+      fieldSetFlags()[16] = false;
       return this;
     }
 
@@ -1410,9 +1481,9 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return This builder.
       */
     public openpolitica.jne.elecciones.Expediente.Builder setCandidatosMujeres(int value) {
-      validate(fields()[16], value);
+      validate(fields()[17], value);
       this.candidatos_mujeres = value;
-      fieldSetFlags()[16] = true;
+      fieldSetFlags()[17] = true;
       return this;
     }
 
@@ -1421,7 +1492,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return True if the 'candidatos_mujeres' field has been set, false otherwise.
       */
     public boolean hasCandidatosMujeres() {
-      return fieldSetFlags()[16];
+      return fieldSetFlags()[17];
     }
 
 
@@ -1430,7 +1501,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return This builder.
       */
     public openpolitica.jne.elecciones.Expediente.Builder clearCandidatosMujeres() {
-      fieldSetFlags()[16] = false;
+      fieldSetFlags()[17] = false;
       return this;
     }
 
@@ -1449,9 +1520,9 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return This builder.
       */
     public openpolitica.jne.elecciones.Expediente.Builder setUbicacionJuradoId(int value) {
-      validate(fields()[17], value);
+      validate(fields()[18], value);
       this.ubicacion_jurado_id = value;
-      fieldSetFlags()[17] = true;
+      fieldSetFlags()[18] = true;
       return this;
     }
 
@@ -1460,7 +1531,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return True if the 'ubicacion_jurado_id' field has been set, false otherwise.
       */
     public boolean hasUbicacionJuradoId() {
-      return fieldSetFlags()[17];
+      return fieldSetFlags()[18];
     }
 
 
@@ -1469,7 +1540,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return This builder.
       */
     public openpolitica.jne.elecciones.Expediente.Builder clearUbicacionJuradoId() {
-      fieldSetFlags()[17] = false;
+      fieldSetFlags()[18] = false;
       return this;
     }
 
@@ -1488,9 +1559,9 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return This builder.
       */
     public openpolitica.jne.elecciones.Expediente.Builder setDistritoElectoral(java.lang.String value) {
-      validate(fields()[18], value);
+      validate(fields()[19], value);
       this.distrito_electoral = value;
-      fieldSetFlags()[18] = true;
+      fieldSetFlags()[19] = true;
       return this;
     }
 
@@ -1499,7 +1570,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       * @return True if the 'distrito_electoral' field has been set, false otherwise.
       */
     public boolean hasDistritoElectoral() {
-      return fieldSetFlags()[18];
+      return fieldSetFlags()[19];
     }
 
 
@@ -1509,7 +1580,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       */
     public openpolitica.jne.elecciones.Expediente.Builder clearDistritoElectoral() {
       distrito_electoral = null;
-      fieldSetFlags()[18] = false;
+      fieldSetFlags()[19] = false;
       return this;
     }
 
@@ -1519,24 +1590,25 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       try {
         Expediente record = new Expediente();
         record.expediente_id = fieldSetFlags()[0] ? this.expediente_id : (java.lang.Integer) defaultValue(fields()[0]);
-        record.tipo_eleccion_id = fieldSetFlags()[1] ? this.tipo_eleccion_id : (java.lang.Integer) defaultValue(fields()[1]);
-        record.expediente_codigo = fieldSetFlags()[2] ? this.expediente_codigo : (java.lang.String) defaultValue(fields()[2]);
-        record.expediente_codigo_padre = fieldSetFlags()[3] ? this.expediente_codigo_padre : (java.lang.String) defaultValue(fields()[3]);
-        record.ubigeo = fieldSetFlags()[4] ? this.ubigeo : (java.lang.String) defaultValue(fields()[4]);
-        record.region = fieldSetFlags()[5] ? this.region : (java.lang.String) defaultValue(fields()[5]);
-        record.provincia = fieldSetFlags()[6] ? this.provincia : (java.lang.String) defaultValue(fields()[6]);
-        record.distrito = fieldSetFlags()[7] ? this.distrito : (java.lang.String) defaultValue(fields()[7]);
-        record.org_politica_id = fieldSetFlags()[8] ? this.org_politica_id : (java.lang.Integer) defaultValue(fields()[8]);
-        record.org_politica_nombre = fieldSetFlags()[9] ? this.org_politica_nombre : (java.lang.String) defaultValue(fields()[9]);
-        record.org_politica_tipo = fieldSetFlags()[10] ? this.org_politica_tipo : (java.lang.String) defaultValue(fields()[10]);
-        record.lista_solicitud_id = fieldSetFlags()[11] ? this.lista_solicitud_id : (java.lang.Integer) defaultValue(fields()[11]);
-        record.lista_solicitud_estado = fieldSetFlags()[12] ? this.lista_solicitud_estado : (java.lang.String) defaultValue(fields()[12]);
-        record.jurado_electoral_id = fieldSetFlags()[13] ? this.jurado_electoral_id : (java.lang.Integer) defaultValue(fields()[13]);
-        record.jurado_electoral_nombre = fieldSetFlags()[14] ? this.jurado_electoral_nombre : (java.lang.String) defaultValue(fields()[14]);
-        record.candidatos_hombres = fieldSetFlags()[15] ? this.candidatos_hombres : (java.lang.Integer) defaultValue(fields()[15]);
-        record.candidatos_mujeres = fieldSetFlags()[16] ? this.candidatos_mujeres : (java.lang.Integer) defaultValue(fields()[16]);
-        record.ubicacion_jurado_id = fieldSetFlags()[17] ? this.ubicacion_jurado_id : (java.lang.Integer) defaultValue(fields()[17]);
-        record.distrito_electoral = fieldSetFlags()[18] ? this.distrito_electoral : (java.lang.String) defaultValue(fields()[18]);
+        record.expediente_estado = fieldSetFlags()[1] ? this.expediente_estado : (java.lang.String) defaultValue(fields()[1]);
+        record.tipo_eleccion_id = fieldSetFlags()[2] ? this.tipo_eleccion_id : (java.lang.Integer) defaultValue(fields()[2]);
+        record.expediente_codigo = fieldSetFlags()[3] ? this.expediente_codigo : (java.lang.String) defaultValue(fields()[3]);
+        record.expediente_codigo_padre = fieldSetFlags()[4] ? this.expediente_codigo_padre : (java.lang.String) defaultValue(fields()[4]);
+        record.ubigeo = fieldSetFlags()[5] ? this.ubigeo : (java.lang.String) defaultValue(fields()[5]);
+        record.region = fieldSetFlags()[6] ? this.region : (java.lang.String) defaultValue(fields()[6]);
+        record.provincia = fieldSetFlags()[7] ? this.provincia : (java.lang.String) defaultValue(fields()[7]);
+        record.distrito = fieldSetFlags()[8] ? this.distrito : (java.lang.String) defaultValue(fields()[8]);
+        record.org_politica_id = fieldSetFlags()[9] ? this.org_politica_id : (java.lang.Integer) defaultValue(fields()[9]);
+        record.org_politica_nombre = fieldSetFlags()[10] ? this.org_politica_nombre : (java.lang.String) defaultValue(fields()[10]);
+        record.org_politica_tipo = fieldSetFlags()[11] ? this.org_politica_tipo : (java.lang.String) defaultValue(fields()[11]);
+        record.lista_solicitud_id = fieldSetFlags()[12] ? this.lista_solicitud_id : (java.lang.Integer) defaultValue(fields()[12]);
+        record.lista_solicitud_estado = fieldSetFlags()[13] ? this.lista_solicitud_estado : (java.lang.String) defaultValue(fields()[13]);
+        record.jurado_electoral_id = fieldSetFlags()[14] ? this.jurado_electoral_id : (java.lang.Integer) defaultValue(fields()[14]);
+        record.jurado_electoral_nombre = fieldSetFlags()[15] ? this.jurado_electoral_nombre : (java.lang.String) defaultValue(fields()[15]);
+        record.candidatos_hombres = fieldSetFlags()[16] ? this.candidatos_hombres : (java.lang.Integer) defaultValue(fields()[16]);
+        record.candidatos_mujeres = fieldSetFlags()[17] ? this.candidatos_mujeres : (java.lang.Integer) defaultValue(fields()[17]);
+        record.ubicacion_jurado_id = fieldSetFlags()[18] ? this.ubicacion_jurado_id : (java.lang.Integer) defaultValue(fields()[18]);
+        record.distrito_electoral = fieldSetFlags()[19] ? this.distrito_electoral : (java.lang.String) defaultValue(fields()[19]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
@@ -1570,6 +1642,8 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
     throws java.io.IOException
   {
     out.writeInt(this.expediente_id);
+
+    out.writeString(this.expediente_estado);
 
     out.writeInt(this.tipo_eleccion_id);
 
@@ -1622,6 +1696,8 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
     if (fieldOrder == null) {
       this.expediente_id = in.readInt();
 
+      this.expediente_estado = in.readString();
+
       this.tipo_eleccion_id = in.readInt();
 
       this.expediente_codigo = in.readString();
@@ -1664,21 +1740,25 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       this.distrito_electoral = in.readString();
 
     } else {
-      for (int i = 0; i < 19; i++) {
+      for (int i = 0; i < 20; i++) {
         switch (fieldOrder[i].pos()) {
         case 0:
           this.expediente_id = in.readInt();
           break;
 
         case 1:
-          this.tipo_eleccion_id = in.readInt();
+          this.expediente_estado = in.readString();
           break;
 
         case 2:
-          this.expediente_codigo = in.readString();
+          this.tipo_eleccion_id = in.readInt();
           break;
 
         case 3:
+          this.expediente_codigo = in.readString();
+          break;
+
+        case 4:
           if (in.readIndex() != 0) {
             in.readNull();
             this.expediente_codigo_padre = null;
@@ -1687,63 +1767,63 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
           }
           break;
 
-        case 4:
+        case 5:
           this.ubigeo = in.readString();
           break;
 
-        case 5:
+        case 6:
           this.region = in.readString();
           break;
 
-        case 6:
+        case 7:
           this.provincia = in.readString();
           break;
 
-        case 7:
+        case 8:
           this.distrito = in.readString();
           break;
 
-        case 8:
+        case 9:
           this.org_politica_id = in.readInt();
           break;
 
-        case 9:
+        case 10:
           this.org_politica_nombre = in.readString();
           break;
 
-        case 10:
+        case 11:
           this.org_politica_tipo = in.readString();
           break;
 
-        case 11:
+        case 12:
           this.lista_solicitud_id = in.readInt();
           break;
 
-        case 12:
+        case 13:
           this.lista_solicitud_estado = in.readString();
           break;
 
-        case 13:
+        case 14:
           this.jurado_electoral_id = in.readInt();
           break;
 
-        case 14:
+        case 15:
           this.jurado_electoral_nombre = in.readString();
           break;
 
-        case 15:
+        case 16:
           this.candidatos_hombres = in.readInt();
           break;
 
-        case 16:
+        case 17:
           this.candidatos_mujeres = in.readInt();
           break;
 
-        case 17:
+        case 18:
           this.ubicacion_jurado_id = in.readInt();
           break;
 
-        case 18:
+        case 19:
           this.distrito_electoral = in.readString();
           break;
 
