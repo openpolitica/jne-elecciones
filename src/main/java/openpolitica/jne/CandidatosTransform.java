@@ -93,7 +93,7 @@ public class CandidatosTransform {
     return true;
   }
 
-  DataFileReader<Candidato> load(Path input) throws IOException {
+  public static DataFileReader<Candidato> load(Path input) throws IOException {
     var reader = new SpecificDatumReader<>(Candidato.class);
     return new DataFileReader<>(input.toFile(), reader);
   }

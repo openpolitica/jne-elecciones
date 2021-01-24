@@ -302,11 +302,14 @@ public class CandidatosLoadSqlite {
     @Override
     protected void addBatch(PreparedStatement ps, Candidato candidato)
         throws SQLException {
-      ps.setInt(1, candidato.getHojaVidaId());
-      ps.setString(2, "BASICA");
-      ps.setBoolean(3, candidato.getEducacion().getBasica().getTieneBasica());
-
-      ps.addBatch();
+      {
+        ps.setInt(1, candidato.getHojaVidaId());
+        ps.setString(2, "BASICA");
+        ps.setBoolean(3, candidato.getEducacion().getBasica().getTieneBasica());
+        ps.setString(4, null);
+        ps.setString(5, null);
+        ps.addBatch();
+      }
 
       for (EducacionTecnica tecnica : candidato.getEducacion().getTecnica()) {
         ps.setInt(1, candidato.getHojaVidaId());
@@ -321,9 +324,7 @@ public class CandidatosLoadSqlite {
       for (EducacionNoUniversitaria noUniv : candidato.getEducacion().getNoUniversitaria()) {
         ps.setInt(1, candidato.getHojaVidaId());
         ps.setString(2, "NO_UNIVERSITARIA");
-        if (noUniv.getConcluida() != null) {
-          ps.setBoolean(3, noUniv.getConcluida());
-        }
+        if (noUniv.getConcluida() != null) ps.setBoolean(3, noUniv.getConcluida());
         ps.setString(4, noUniv.getCentroEstudio());
         ps.setString(5, noUniv.getCarrera());
 
@@ -343,9 +344,7 @@ public class CandidatosLoadSqlite {
       for (EducacionPostgrado post : candidato.getEducacion().getPostgrado()) {
         ps.setInt(1, candidato.getHojaVidaId());
         ps.setString(2, "POSTGRADO");
-        if (post.getConcluida() != null) {
-          ps.setBoolean(3, post.getConcluida());
-        }
+        if (post.getConcluida() != null) ps.setBoolean(3, post.getConcluida());
         ps.setString(4, post.getCentroEstudio());
         ps.setString(5, post.getEspecialidad());
 

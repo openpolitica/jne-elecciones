@@ -13,10 +13,13 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.Duration;
 import java.util.LinkedHashMap;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static java.util.stream.Collectors.toList;
 
 public class CandidatosExtract {
+  static final Logger LOG = LoggerFactory.getLogger(CandidatosExtract.class);
 
   static final HttpClient httpClient = HttpClient.newBuilder()
       .connectTimeout(Duration.ofMinutes(1))
@@ -70,8 +73,7 @@ public class CandidatosExtract {
     });
   }
 
-  void extract(Path output, int hojaVidaId, int orgPoliticoId,
-      JsonNode expediente)
+  void extract(Path output, int hojaVidaId, int orgPoliticoId, JsonNode expediente)
       throws IOException, InterruptedException {
     var url = "https://plataformaelectoral.jne.gob.pe/HojaVida/GetHVConsolidado?param="
         + hojaVidaId + "-0-" + orgPoliticoId + "-110";
@@ -81,15 +83,20 @@ public class CandidatosExtract {
         .build();
     var httpResponse = httpClient.send(httpRequest, BodyHandlers.ofString());
     var jsonResponse = objectMapper.readTree(httpResponse.body());
-    var data = (ObjectNode) jsonResponse.get("data");
-    data.put("idExpediente", expediente.get("idExpediente").intValue());
-    data.put("intPosicion", expediente.get("intPosicion").intValue());
-    data.put("strRutaArchivo", expediente.get("strRutaArchivo").textValue());
-    data.put("strEstadoExp", expediente.get("strEstadoExp").textValue());
-    Files.writeString(
-        output.resolve(hojaVidaId + ".json"),
-        objectMapper.writer()
-            .withDefaultPrettyPrinter()
-            .writeValueAsString(data));
+    var jsonNode = jsonResponse.get("data");
+    if (jsonNode instanceof ObjectNode) {
+      var data = (ObjectNode) jsonNode;
+      data.put("idExpediente", expediente.get("idExpediente").intValue());
+      data.put("intPosicion", expediente.get("intPosicion").intValue());
+      data.put("strRutaArchivo", expediente.get("strRutaArchivo").textValue());
+      data.put("strEstadoExp", expediente.get("strEstadoExp").textValue());
+      Files.writeString(
+          output.resolve(hojaVidaId + ".json"),
+          objectMapper.writer()
+              .withDefaultPrettyPrinter()
+              .writeValueAsString(data));
+    } else {
+      LOG.warn("URL {} no retorna valores \nresponse: {}\n expediente: {}", url, jsonResponse, expediente);
+    }
   }
 }
