@@ -725,7 +725,7 @@ public class CandidatosLoadSqlite {
     @Override String prepareStatement() {
       return """
         insert into %s values (
-          ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, _
+          ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
         )
         """.formatted(tableName);
     }
