@@ -611,4 +611,143 @@ public class CandidatosLoadSqlite {
         """.formatted(tableName);
     }
   }
+
+  static class BienesOtrosTableLoad extends TableLoad {
+
+    public BienesOtrosTableLoad() {
+      super("bien_otro");
+    }
+
+    @Override String createTableStatement() {
+      return """
+        create table %s (
+          hoja_vida_id int,
+          tipo_bien string,
+          descripcion string,
+          valor double
+        )
+        """.formatted(tableName);
+    }
+
+    @Override String prepareStatement() {
+      return """
+        insert into %s values (
+          ?, ?, ?, ?
+        )
+        """.formatted(tableName);
+    }
+
+    @Override void addBatch(PreparedStatement ps, Candidato c) throws SQLException {
+      for(var b : c.getBienes().getBienesOtros()) {
+        ps.setInt(1, c.getHojaVidaId());
+        ps.setString(2, b.getTipoBien());
+        ps.setString(3, b.getDescription());
+        ps.setDouble(4, b.getValor());
+
+        ps.addBatch();
+      }
+    }
+  }
+
+  static class BienesMueblesTableLoad extends TableLoad {
+
+    public BienesMueblesTableLoad() {
+      super("bien_mueble");
+    }
+
+    @Override String createTableStatement() {
+      return """
+        create table %s (
+          hoja_vida_id int,
+          tipo_vehiculo string,
+          marca string,
+          modelo string,
+          anio int,
+          placa string,
+          caracteristica string,
+          comentario string,
+          valor double
+        )
+        """.formatted(tableName);
+    }
+
+    @Override String prepareStatement() {
+      return """
+        insert into %s values (
+          ?, ?, ?, ?, ?, ?, ?, ?, ?
+        )
+        """.formatted(tableName);
+    }
+
+    @Override void addBatch(PreparedStatement ps, Candidato c) throws SQLException {
+      for(var b : c.getBienes().getBienesMuebles()) {
+        ps.setInt(1, c.getHojaVidaId());
+        ps.setString(2, b.getTipoVehiculo());
+        ps.setString(3, b.getMarca());
+        ps.setString(4, b.getModelo());
+        ps.setInt(5, b.getAnio());
+        ps.setString(6, b.getPlaca());
+        ps.setString(7, b.getCaracteristica());
+        ps.setString(8, b.getComentario());
+        ps.setDouble(9, b.getValor());
+
+        ps.addBatch();
+      }
+    }
+  }
+
+  static class BienesInmueblesTableLoad extends TableLoad {
+
+    public BienesInmueblesTableLoad() {
+      super("bien_inmueble");
+    }
+
+    @Override String createTableStatement() {
+      return """
+        create table %s (
+          hoja_vida_id int,
+          tipo_bien string,
+          ubicacion_ubigeo string,
+          ubicacion_pais string,
+          ubicacion_departamento string,
+          ubicacion_provincia string,
+          ubicacion_distrito string,
+          ubicacion_direccion string,
+          sunarp_tiene boolean,
+          sunarp_partida string,
+          comentario string,
+          auto_valuo double,
+          uit double
+        )
+        """.formatted(tableName);
+    }
+
+    @Override String prepareStatement() {
+      return """
+        insert into %s values (
+          ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, _
+        )
+        """.formatted(tableName);
+    }
+
+    @Override void addBatch(PreparedStatement ps, Candidato c) throws SQLException {
+      for(var b : c.getBienes().getBienesInmuebles()) {
+        ps.setInt(1, c.getHojaVidaId());
+        ps.setString(2, b.getTipoBien());
+        ps.setString(3, b.getUbicacionUbigeo());
+        ps.setString(4, b.getUbicacionPais());
+        ps.setString(5, b.getUbicacionDepartamento());
+        ps.setString(6, b.getUbicacionProvincia());
+        ps.setString(7, b.getUbicacionDistrito());
+        ps.setString(8, b.getUbicacionDireccion());
+        ps.setBoolean(9, b.getSunarpTiene());
+        ps.setString(10, b.getSunarpPartida());
+        ps.setString(11, b.getComentario());
+        ps.setDouble(12, b.getAutoValuo());
+        ps.setDouble(13, b.getUit());
+
+        ps.addBatch();
+      }
+    }
+  }
 }
