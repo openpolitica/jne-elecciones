@@ -136,6 +136,11 @@ public class CandidatosLoadSqlite {
       ps.setInt(49, candidato.getExpediente().getUbicacionJuradoId());
       ps.setString(50, candidato.getExpediente().getDistritoElectoral());
       ps.setString(51, candidato.getEnlaceFoto());
+      ps.setBoolean(52, candidato.getEducacion().getBasica().getTieneBasica());
+      ps.setBoolean(53, candidato.getEducacion().getBasica().getTienePrimaria());
+      ps.setBoolean(54, candidato.getEducacion().getBasica().getPrimariaConcluida());
+      ps.setBoolean(55, candidato.getEducacion().getBasica().getTieneSecundaria());
+      ps.setBoolean(56, candidato.getEducacion().getBasica().getSecundariaConcluida());
 
       ps.addBatch();
     }
@@ -194,7 +199,12 @@ public class CandidatosLoadSqlite {
             candidatos_hombres int,
             ubicacion_jurado_id int,
             distrito_electoral string,
-            enlace_foto string
+            enlace_foto string,
+            educacion_basica_tiene boolean,
+            educacion_primaria_tiene boolean,
+            educacion_primaria_concluida boolean,
+            educacion_secundaria_tiene boolean,
+            educacion_secundaria_concluida boolean
           )
           """.formatted(tableName);
     }
@@ -207,7 +217,7 @@ public class CandidatosLoadSqlite {
             ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
             ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
             ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 
-            ?
+            ?, ?, ?, ?, ?, ?
           )
           """.formatted(tableName);
     }
