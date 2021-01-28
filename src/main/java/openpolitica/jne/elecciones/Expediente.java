@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class Expediente extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -242499847620409622L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Expediente\",\"namespace\":\"openpolitica.jne.elecciones\",\"fields\":[{\"name\":\"expediente_id\",\"type\":\"int\",\"doc\":\"idExpediente\"},{\"name\":\"expediente_estado\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"tipo_eleccion_id\",\"type\":\"int\"},{\"name\":\"expediente_codigo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"expediente_codigo_padre\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"]},{\"name\":\"ubigeo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"region\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"provincia\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"distrito\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"org_politica_id\",\"type\":\"int\"},{\"name\":\"org_politica_nombre\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"org_politica_tipo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"lista_solicitud_id\",\"type\":\"int\"},{\"name\":\"lista_solicitud_estado\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"jurado_electoral_id\",\"type\":\"int\"},{\"name\":\"jurado_electoral_nombre\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"candidatos_hombres\",\"type\":\"int\"},{\"name\":\"candidatos_mujeres\",\"type\":\"int\"},{\"name\":\"ubicacion_jurado_id\",\"type\":\"int\"},{\"name\":\"distrito_electoral\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}");
+  private static final long serialVersionUID = 1306404300214229064L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Expediente\",\"namespace\":\"openpolitica.jne.elecciones\",\"fields\":[{\"name\":\"expediente_id\",\"type\":\"int\",\"doc\":\"idExpediente\"},{\"name\":\"expediente_estado\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"estado de expediente del candidato\"},{\"name\":\"tipo_eleccion_id\",\"type\":\"int\"},{\"name\":\"expediente_codigo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"expediente_codigo_padre\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"]},{\"name\":\"ubigeo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"region\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"provincia\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"distrito\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"org_politica_id\",\"type\":\"int\"},{\"name\":\"org_politica_nombre\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"org_politica_tipo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"lista_solicitud_id\",\"type\":\"int\"},{\"name\":\"lista_solicitud_estado\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"jurado_electoral_id\",\"type\":\"int\"},{\"name\":\"jurado_electoral_nombre\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"candidatos_hombres\",\"type\":\"int\"},{\"name\":\"candidatos_mujeres\",\"type\":\"int\"},{\"name\":\"ubicacion_jurado_id\",\"type\":\"int\"},{\"name\":\"distrito_electoral\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"designado\",\"type\":\"boolean\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -73,6 +73,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
 
   /** idExpediente */
    private int expediente_id;
+  /** estado de expediente del candidato */
    private java.lang.String expediente_estado;
    private int tipo_eleccion_id;
    private java.lang.String expediente_codigo;
@@ -92,6 +93,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
    private int candidatos_mujeres;
    private int ubicacion_jurado_id;
    private java.lang.String distrito_electoral;
+   private boolean designado;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -103,7 +105,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
   /**
    * All-args constructor.
    * @param expediente_id idExpediente
-   * @param expediente_estado The new value for expediente_estado
+   * @param expediente_estado estado de expediente del candidato
    * @param tipo_eleccion_id The new value for tipo_eleccion_id
    * @param expediente_codigo The new value for expediente_codigo
    * @param expediente_codigo_padre The new value for expediente_codigo_padre
@@ -122,8 +124,9 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
    * @param candidatos_mujeres The new value for candidatos_mujeres
    * @param ubicacion_jurado_id The new value for ubicacion_jurado_id
    * @param distrito_electoral The new value for distrito_electoral
+   * @param designado The new value for designado
    */
-  public Expediente(java.lang.Integer expediente_id, java.lang.String expediente_estado, java.lang.Integer tipo_eleccion_id, java.lang.String expediente_codigo, java.lang.String expediente_codigo_padre, java.lang.String ubigeo, java.lang.String region, java.lang.String provincia, java.lang.String distrito, java.lang.Integer org_politica_id, java.lang.String org_politica_nombre, java.lang.String org_politica_tipo, java.lang.Integer lista_solicitud_id, java.lang.String lista_solicitud_estado, java.lang.Integer jurado_electoral_id, java.lang.String jurado_electoral_nombre, java.lang.Integer candidatos_hombres, java.lang.Integer candidatos_mujeres, java.lang.Integer ubicacion_jurado_id, java.lang.String distrito_electoral) {
+  public Expediente(java.lang.Integer expediente_id, java.lang.String expediente_estado, java.lang.Integer tipo_eleccion_id, java.lang.String expediente_codigo, java.lang.String expediente_codigo_padre, java.lang.String ubigeo, java.lang.String region, java.lang.String provincia, java.lang.String distrito, java.lang.Integer org_politica_id, java.lang.String org_politica_nombre, java.lang.String org_politica_tipo, java.lang.Integer lista_solicitud_id, java.lang.String lista_solicitud_estado, java.lang.Integer jurado_electoral_id, java.lang.String jurado_electoral_nombre, java.lang.Integer candidatos_hombres, java.lang.Integer candidatos_mujeres, java.lang.Integer ubicacion_jurado_id, java.lang.String distrito_electoral, java.lang.Boolean designado) {
     this.expediente_id = expediente_id;
     this.expediente_estado = expediente_estado;
     this.tipo_eleccion_id = tipo_eleccion_id;
@@ -144,6 +147,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
     this.candidatos_mujeres = candidatos_mujeres;
     this.ubicacion_jurado_id = ubicacion_jurado_id;
     this.distrito_electoral = distrito_electoral;
+    this.designado = designado;
   }
 
   public org.apache.avro.specific.SpecificData getSpecificData() { return MODEL$; }
@@ -171,6 +175,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
     case 17: return candidatos_mujeres;
     case 18: return ubicacion_jurado_id;
     case 19: return distrito_electoral;
+    case 20: return designado;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -199,6 +204,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
     case 17: candidatos_mujeres = (java.lang.Integer)value$; break;
     case 18: ubicacion_jurado_id = (java.lang.Integer)value$; break;
     case 19: distrito_electoral = value$ != null ? value$.toString() : null; break;
+    case 20: designado = (java.lang.Boolean)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -223,7 +229,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
 
   /**
    * Gets the value of the 'expediente_estado' field.
-   * @return The value of the 'expediente_estado' field.
+   * @return estado de expediente del candidato
    */
   public java.lang.String getExpedienteEstado() {
     return expediente_estado;
@@ -232,6 +238,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
 
   /**
    * Sets the value of the 'expediente_estado' field.
+   * estado de expediente del candidato
    * @param value the value to set.
    */
   public void setExpedienteEstado(java.lang.String value) {
@@ -545,6 +552,23 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
   }
 
   /**
+   * Gets the value of the 'designado' field.
+   * @return The value of the 'designado' field.
+   */
+  public boolean getDesignado() {
+    return designado;
+  }
+
+
+  /**
+   * Sets the value of the 'designado' field.
+   * @param value the value to set.
+   */
+  public void setDesignado(boolean value) {
+    this.designado = value;
+  }
+
+  /**
    * Creates a new Expediente RecordBuilder.
    * @return A new Expediente RecordBuilder
    */
@@ -587,6 +611,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
 
     /** idExpediente */
     private int expediente_id;
+    /** estado de expediente del candidato */
     private java.lang.String expediente_estado;
     private int tipo_eleccion_id;
     private java.lang.String expediente_codigo;
@@ -606,6 +631,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
     private int candidatos_mujeres;
     private int ubicacion_jurado_id;
     private java.lang.String distrito_electoral;
+    private boolean designado;
 
     /** Creates a new Builder */
     private Builder() {
@@ -698,6 +724,10 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
         this.distrito_electoral = data().deepCopy(fields()[19].schema(), other.distrito_electoral);
         fieldSetFlags()[19] = other.fieldSetFlags()[19];
       }
+      if (isValidValue(fields()[20], other.designado)) {
+        this.designado = data().deepCopy(fields()[20].schema(), other.designado);
+        fieldSetFlags()[20] = other.fieldSetFlags()[20];
+      }
     }
 
     /**
@@ -786,6 +816,10 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
         this.distrito_electoral = data().deepCopy(fields()[19].schema(), other.distrito_electoral);
         fieldSetFlags()[19] = true;
       }
+      if (isValidValue(fields()[20], other.designado)) {
+        this.designado = data().deepCopy(fields()[20].schema(), other.designado);
+        fieldSetFlags()[20] = true;
+      }
     }
 
     /**
@@ -833,6 +867,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
 
     /**
       * Gets the value of the 'expediente_estado' field.
+      * estado de expediente del candidato
       * @return The value.
       */
     public java.lang.String getExpedienteEstado() {
@@ -842,6 +877,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
 
     /**
       * Sets the value of the 'expediente_estado' field.
+      * estado de expediente del candidato
       * @param value The value of 'expediente_estado'.
       * @return This builder.
       */
@@ -854,6 +890,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
 
     /**
       * Checks whether the 'expediente_estado' field has been set.
+      * estado de expediente del candidato
       * @return True if the 'expediente_estado' field has been set, false otherwise.
       */
     public boolean hasExpedienteEstado() {
@@ -863,6 +900,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
 
     /**
       * Clears the value of the 'expediente_estado' field.
+      * estado de expediente del candidato
       * @return This builder.
       */
     public openpolitica.jne.elecciones.Expediente.Builder clearExpedienteEstado() {
@@ -1584,6 +1622,45 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
       return this;
     }
 
+    /**
+      * Gets the value of the 'designado' field.
+      * @return The value.
+      */
+    public boolean getDesignado() {
+      return designado;
+    }
+
+
+    /**
+      * Sets the value of the 'designado' field.
+      * @param value The value of 'designado'.
+      * @return This builder.
+      */
+    public openpolitica.jne.elecciones.Expediente.Builder setDesignado(boolean value) {
+      validate(fields()[20], value);
+      this.designado = value;
+      fieldSetFlags()[20] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'designado' field has been set.
+      * @return True if the 'designado' field has been set, false otherwise.
+      */
+    public boolean hasDesignado() {
+      return fieldSetFlags()[20];
+    }
+
+
+    /**
+      * Clears the value of the 'designado' field.
+      * @return This builder.
+      */
+    public openpolitica.jne.elecciones.Expediente.Builder clearDesignado() {
+      fieldSetFlags()[20] = false;
+      return this;
+    }
+
     @Override
     @SuppressWarnings("unchecked")
     public Expediente build() {
@@ -1609,6 +1686,7 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
         record.candidatos_mujeres = fieldSetFlags()[17] ? this.candidatos_mujeres : (java.lang.Integer) defaultValue(fields()[17]);
         record.ubicacion_jurado_id = fieldSetFlags()[18] ? this.ubicacion_jurado_id : (java.lang.Integer) defaultValue(fields()[18]);
         record.distrito_electoral = fieldSetFlags()[19] ? this.distrito_electoral : (java.lang.String) defaultValue(fields()[19]);
+        record.designado = fieldSetFlags()[20] ? this.designado : (java.lang.Boolean) defaultValue(fields()[20]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
@@ -1687,6 +1765,8 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
 
     out.writeString(this.distrito_electoral);
 
+    out.writeBoolean(this.designado);
+
   }
 
   @Override public void customDecode(org.apache.avro.io.ResolvingDecoder in)
@@ -1739,8 +1819,10 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
 
       this.distrito_electoral = in.readString();
 
+      this.designado = in.readBoolean();
+
     } else {
-      for (int i = 0; i < 20; i++) {
+      for (int i = 0; i < 21; i++) {
         switch (fieldOrder[i].pos()) {
         case 0:
           this.expediente_id = in.readInt();
@@ -1825,6 +1907,10 @@ public class Expediente extends org.apache.avro.specific.SpecificRecordBase impl
 
         case 19:
           this.distrito_electoral = in.readString();
+          break;
+
+        case 20:
+          this.designado = in.readBoolean();
           break;
 
         default:

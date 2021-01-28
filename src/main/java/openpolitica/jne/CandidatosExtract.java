@@ -90,6 +90,7 @@ public class CandidatosExtract {
       data.put("intPosicion", expediente.get("intPosicion").intValue());
       data.put("strRutaArchivo", expediente.get("strRutaArchivo").textValue());
       data.put("strEstadoExp", expediente.get("strEstadoExp").textValue());
+      data.put("strFGDesignado", expediente.get("strFGDesignado").textValue());
       Files.writeString(
           output.resolve(hojaVidaId + ".json"),
           objectMapper.writer()

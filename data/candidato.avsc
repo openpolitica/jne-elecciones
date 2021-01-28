@@ -253,6 +253,10 @@
           {
             "name": "distrito_electoral",
             "type": "string"
+          },
+          {
+            "name": "designado",
+            "type": "boolean"
           }
         ]
       }
