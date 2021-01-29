@@ -21,15 +21,14 @@ public class CandidatosLoadSqlite {
   static final Logger LOG = LoggerFactory.getLogger(CandidatosLoadSqlite.class);
   static List<TableLoad> tableLoadList = List.of(
       new CandidatoTableLoad(),
-      new BienesTableLoad(),
+      new BienesOtrosTableLoad(),
+      new BienesMueblesTableLoad(),
+      new BienesInmueblesTableLoad(),
       new EducacionTableLoad(),
       new ExperienciaTableLoad(),
       new IngresoTableLoad(),
       new SentenciaCivilTableLoad(),
-      new SentenciaPenalTableLoad(),
-      new BienesOtrosTableLoad(),
-      new BienesMueblesTableLoad(),
-      new BienesInmueblesTableLoad()
+      new SentenciaPenalTableLoad()
   );
 
   public CandidatosLoadSqlite() {
@@ -140,11 +139,6 @@ public class CandidatosLoadSqlite {
       ps.setString(50, candidato.getExpediente().getDistritoElectoral());
       ps.setBoolean(51, candidato.getExpediente().getDesignado());
       ps.setString(52, candidato.getEnlaceFoto());
-      ps.setBoolean(53, candidato.getEducacion().getBasica().getTieneBasica());
-      ps.setBoolean(54, candidato.getEducacion().getBasica().getTienePrimaria());
-      ps.setBoolean(55, candidato.getEducacion().getBasica().getPrimariaConcluida());
-      ps.setBoolean(56, candidato.getEducacion().getBasica().getTieneSecundaria());
-      ps.setBoolean(57, candidato.getEducacion().getBasica().getSecundariaConcluida());
 
       ps.addBatch();
     }
@@ -204,12 +198,7 @@ public class CandidatosLoadSqlite {
             ubicacion_jurado_id int,
             distrito_electoral string,
             candidato_designado boolean,
-            enlace_foto string,
-            educacion_basica_tiene boolean,
-            educacion_primaria_tiene boolean,
-            educacion_primaria_concluida boolean,
-            educacion_secundaria_tiene boolean,
-            educacion_secundaria_concluida boolean
+            enlace_foto string
           )
           """.formatted(tableName);
     }
@@ -222,87 +211,7 @@ public class CandidatosLoadSqlite {
             ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
             ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
             ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 
-            ?, ?, ?, ?, ?, ?, ?
-          )
-          """.formatted(tableName);
-    }
-  }
-
-  static class BienesTableLoad extends TableLoad {
-
-    public BienesTableLoad() {
-      super("experiencia");
-    }
-
-    @Override
-    protected void addBatch(PreparedStatement ps, Candidato candidato)
-        throws SQLException {
-      for (var exp : candidato.getExperiencia().getLaboral()) {
-        ps.setInt(1, candidato.getHojaVidaId());
-        ps.setString(2, "LABORAL");
-        ps.setString(3, exp.getCentroTrabajo());
-        ps.setString(4, exp.getOcupacionProfesion());
-        ps.setInt(5, exp.getAnioDesde());
-        if (exp.getAnioHasta() != null) {
-          ps.setInt(6, exp.getAnioHasta());
-        }
-        ps.setBoolean(7, exp.getHastaActualidad());
-
-        ps.addBatch();
-      }
-
-      for (var exp : candidato.getExperiencia().getCargosElecciones()) {
-        ps.setInt(1, candidato.getHojaVidaId());
-        ps.setString(2, "CARGO_ELECCIONES");
-        ps.setString(3, exp.getOrgPolitica());
-        ps.setString(4, exp.getCargo());
-        if (exp.getAnioDesde() != null) {
-          ps.setInt(5, exp.getAnioDesde());
-        }
-        if (exp.getAnioHasta() != null) {
-          ps.setInt(6, exp.getAnioHasta());
-        }
-        ps.setBoolean(7, exp.getHastaActualidad());
-
-        ps.addBatch();
-      }
-
-      for (var exp : candidato.getExperiencia().getCargosPartidarios()) {
-        ps.setInt(1, candidato.getHojaVidaId());
-        ps.setString(2, "CARGO_PARTIDARIO");
-        ps.setString(3, exp.getOrgPolitica());
-        ps.setString(4, exp.getCargo());
-        if (exp.getAnioDesde() != null) {
-          ps.setInt(5, exp.getAnioDesde());
-        }
-        if (exp.getAnioHasta() != null) {
-          ps.setInt(6, exp.getAnioHasta());
-        }
-        ps.setBoolean(7, exp.getHastaActualidad());
-
-        ps.addBatch();
-      }
-    }
-
-    @Override
-    protected String createTableStatement() {
-      return """
-          create table %s (
-            hoja_vida_id int,
-            tipo string,
-            centro_trabajo_org_politica string,
-            ocupacion_profesion_cargo string,
-            anio_desde int,
-            anio_hasta int,
-            hasta_actualidad boolean
-          )
-          """.formatted(tableName);
-    }
-
-    @Override String prepareStatement() {
-      return """
-          insert into %s values (
-            ?, ?, ?, ?, ?, ?, ?
+            ?, ?
           )
           """.formatted(tableName);
     }
@@ -321,6 +230,22 @@ public class CandidatosLoadSqlite {
         ps.setInt(1, candidato.getHojaVidaId());
         ps.setString(2, "BASICA");
         ps.setBoolean(3, candidato.getEducacion().getBasica().getTieneBasica());
+        ps.setString(4, null);
+        ps.setString(5, null);
+        ps.addBatch();
+      }
+      {
+        ps.setInt(1, candidato.getHojaVidaId());
+        ps.setString(2, "BASICA_PRIMARIA");
+        ps.setBoolean(3, candidato.getEducacion().getBasica().getPrimariaConcluida());
+        ps.setString(4, null);
+        ps.setString(5, null);
+        ps.addBatch();
+      }
+      {
+        ps.setInt(1, candidato.getHojaVidaId());
+        ps.setString(2, "BASICA_SECUNDARIA");
+        ps.setBoolean(3, candidato.getEducacion().getBasica().getSecundariaConcluida());
         ps.setString(4, null);
         ps.setString(5, null);
         ps.addBatch();
