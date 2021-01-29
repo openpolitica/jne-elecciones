@@ -471,6 +471,9 @@ public class CandidatosTransform {
     var exp = expMap.get(expId);
     if (exp != null) {
       exp.setExpedienteEstado(node.get("strEstadoExp").textValue());
+      var designadoNode = node.get("strFGDesignado");
+      var designado = designadoNode != null ? designadoNode.textValue() : "";
+      exp.setDesignado(designado.equals("1"));
     }
     var datos = node.get("oDatosPersonales");
     // Build candidato
