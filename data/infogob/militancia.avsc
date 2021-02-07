@@ -1,0 +1,129 @@
+[
+  {
+    "namespace": "openpolitica.jne.infogob.data",
+    "type": "record",
+    "name": "ProcesoElectoral",
+    "fields": [
+      {
+        "name": "proceso_electoral",
+        "type": "string"
+      },
+      {
+        "name": "cargo_postulo",
+        "type": "string"
+      },
+      {
+        "name": "org_politica",
+        "type": "string"
+      },
+      {
+        "name": "circunscripcion",
+        "type": "string"
+      },
+      {
+        "name": "elegido",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "namespace": "openpolitica.jne.infogob.data",
+    "type": "record",
+    "name": "Afiliacion",
+    "fields": [
+      {
+        "name": "org_politica",
+        "type": "string"
+      },
+      {
+        "name": "org_politica_estado",
+        "type": "string"
+      },
+      {
+        "name": "org_politica_tipo",
+        "type": "string"
+      },
+      {
+        "name": "org_politica_alcance",
+        "type": "string"
+      },
+      {
+        "name": "org_politica_fecha_inscripcion",
+        "type": ["string", "null"],
+        "default": "null"
+      },
+      {
+        "name": "afiliacion_estado",
+        "type": "string"
+      },
+      {
+        "name": "afiliacion_inicio",
+        "type": "string"
+      },
+      {
+        "name": "afiliacion_representante",
+        "type": "string"
+      },
+      {
+        "name": "afiliacion_comite",
+        "type": [
+          "string",
+          "null"
+        ],
+        "default": "null"
+      },
+      {
+        "name": "afiliacion_cancelacion",
+        "type": [
+          "string",
+          "null"
+        ],
+        "default": "null"
+      }
+    ]
+  },
+  {
+    "namespace": "openpolitica.jne.infogob.data",
+    "type": "record",
+    "name": "Militancia",
+    "fields": [
+      {
+        "name": "dni",
+        "type": "string"
+      },
+      {
+        "name": "nombre_completo",
+        "type": "string"
+      },
+      {
+        "name": "ficha_historial",
+        "type": [{
+          "name": "FichaHistorial",
+          "type": "record",
+          "fields": [
+            {
+              "name": "afiliacion_vigente",
+              "type": "Afiliacion"
+            },
+
+            {
+              "name": "historial_afiliaciones",
+              "type": {
+                "type": "array",
+                "items": "Afiliacion"
+              }
+            }
+          ]
+        }, "null"]
+      },
+      {
+        "name": "procesos_electorales",
+        "type": {
+          "type": "array",
+          "items": "ProcesoElectoral"
+        }
+      }
+    ]
+  }
+]
+
