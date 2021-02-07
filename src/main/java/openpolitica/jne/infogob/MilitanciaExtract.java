@@ -4,15 +4,18 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import java.io.IOException;
 import java.net.URI;
+import java.net.URLEncoder;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 import openpolitica.jne.elecciones.data.Candidato;
 import openpolitica.jne.infogob.data.Afiliacion;
@@ -35,18 +38,12 @@ public class MilitanciaExtract {
   static final HttpClient httpClient = HttpClient.newBuilder().build();
 
   public static void main(String[] args) throws IOException {
-    var inputCandidatos = Path.of("data/2021-candidatos-presidenciales.avro");
-    var output = Path.of("data/infogob/2021-militancia-candidatos-presidenciales.avro");
-
-    var main = new MilitanciaExtract();
-    var militancias = main.getMilitancias(inputCandidatos, main);
-    main.save(output, militancias);
+    var m = new MilitanciaExtract().getMilitancia("18010708");
+    System.out.println(m);
   }
 
   List<Militancia> getMilitancias(Path inputCandidatos,
       MilitanciaExtract main) throws IOException {
-    var militancias = new ArrayList<Militancia>();
-
     var candidatos = main.loadCandidatos(inputCandidatos);
 
     var dnis = new ArrayList<String>();
@@ -55,67 +52,72 @@ public class MilitanciaExtract {
       dnis.add(dni);
     });
 
-    dnis.parallelStream()
-        .forEach(dni -> {
-          try {
-            var html = Jsoup.connect("https://infogob.jne.gob.pe/Politico").get();
-            var key = html.select("input#key").attr("value");
-            System.out.println(key);
-            //{"IdDNI":"70365396","TxApePat":"","TxApeMat":"","TxNombre":"","token":"iDmIeY0KBfY=mY"}
-            var requestNode = mapper.createObjectNode();
-            requestNode.put("IdDNI", dni)
-                .put("TxApePat", "")
-                .put("TxApeMat", "")
-                .put("token", key)
-            ;
-            var requestBody = mapper.writeValueAsString(requestNode);
-            System.out.println(requestBody);
-            var httpRequest = HttpRequest.newBuilder()
-                .uri(URI.create("https://infogob.jne.gob.pe/Politico/ListarPolitico"))
-                .POST(HttpRequest.BodyPublishers.ofString(requestBody))
-                .header("Content-type", "application/json")
-                .build();
-            var response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
-            var responseBody = response.body();
-            System.out.println(responseBody);
-            var responseNode = mapper.readTree(responseBody);
-            if (responseNode.get("Estado").asText().equals("success")) {
-              var dataArray = (ArrayNode) responseNode.get("Data");
-              if (dataArray.isEmpty()) {
-                System.out.println("No data for " + dni);
-              } else if (dataArray.size() == 1) {
-                var dataNode = dataArray.get(0);
-                var rutaPolitico = dataNode.get("TxRutaPolitico").asText();
+    return
+        dnis.parallelStream()
+            .map(this::getMilitancia)
+            .filter(Objects::nonNull)
+            .collect(Collectors.toList());
+  }
 
-                System.out.println(rutaPolitico);
+  private Militancia getMilitancia(String dni) {
+    try {
 
-                var token = rutaPolitico.split("_")[2];
-                System.out.println(token);
+      var html = Jsoup.connect("https://infogob.jne.gob.pe/Politico").get();
+      var key = html.select("input#key").attr("value");
+      //{"IdDNI":"70365396","TxApePat":"","TxApeMat":"","TxNombre":"","token":"iDmIeY0KBfY=mY"}
+      var requestNode = mapper.createObjectNode();
+      requestNode.put("IdDNI", dni)
+          .put("TxApePat", "")
+          .put("TxApeMat", "")
+          .put("token", key)
+      ;
+      var requestBody = mapper.writeValueAsString(requestNode);
+      var httpRequest = HttpRequest.newBuilder()
+          .uri(URI.create("https://infogob.jne.gob.pe/Politico/ListarPolitico"))
+          .POST(HttpRequest.BodyPublishers.ofString(requestBody))
+          .header("Content-type", "application/json")
+          .build();
+      var response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+      var responseBody = response.body();
+      var responseNode = mapper.readTree(responseBody);
 
-                var politicoDoc =
-                    Jsoup.connect("https://infogob.jne.gob.pe" + rutaPolitico).get().body();
-                var fichaKey = politicoDoc.select("input#key").attr("value");
-                var nombreCompleto = politicoDoc.select("span#TxNombreCompleto").text();
+      if (responseNode.get("Estado").asText().equals("success")) {
+        var dataArray = (ArrayNode) responseNode.get("Data");
+        if (dataArray.isEmpty()) {
+          System.out.println("No data for " + dni);
+        } else if (dataArray.size() == 1) {
 
-                var militancia = Militancia.newBuilder()
-                    .setDni(dni)
-                    .setNombreCompleto(nombreCompleto)
-                    .setFichaHistorial(main.getFichaHistorial(token, fichaKey))
-                    .setProcesosElectorales(main.getProcesosElectorales(token, fichaKey))
-                    .build();
+          var dataNode = dataArray.get(0);
+          var rutaPolitico = dataNode.get("TxRutaPolitico").asText();
 
-                // TODO estabilidad cargo https://infogob.jne.gob.pe/Politico/FichaPolitico/george-patrick-forsyth-sommer_estabilidad-en-el-cargo_4b@2tWTg7S8=@W
-                // TODO revocatorias promovidas https://infogob.jne.gob.pe/Politico/FichaPolitico/george-patrick-forsyth-sommer_revocatorias-promovidas_4b@2tWTg7S8=@W
-                militancias.add(militancia);
-              } else {
-                System.out.println("Error: too many persons per DNI");
-              }
-            }
-          } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
-          }
-        });
-    return militancias;
+          System.out.println(rutaPolitico);
+
+          var token = rutaPolitico.split("_")[2];
+          System.out.println(token);
+
+          var politicoDoc =
+              Jsoup.connect("https://infogob.jne.gob.pe" + rutaPolitico).get().body();
+          var fichaKey = politicoDoc.select("input#key").attr("value");
+          var nombreCompleto = politicoDoc.select("span#TxNombreCompleto").text();
+
+          return Militancia.newBuilder()
+              .setDni(dni)
+              .setNombreCompleto(nombreCompleto)
+              .setFichaHistorial(getFichaHistorial(token, fichaKey))
+              .setProcesosElectorales(getProcesosElectorales(token, fichaKey))
+              .build();
+
+          // TODO estabilidad cargo https://infogob.jne.gob.pe/Politico/FichaPolitico/george-patrick-forsyth-sommer_estabilidad-en-el-cargo_4b@2tWTg7S8=@W
+          // TODO revocatorias promovidas https://infogob.jne.gob.pe/Politico/FichaPolitico/george-patrick-forsyth-sommer_revocatorias-promovidas_4b@2tWTg7S8=@W
+        } else {
+          System.out.println("Error: too many persons per DNI");
+        }
+      }
+      return null;
+    } catch (IOException | InterruptedException e) {
+      e.printStackTrace();
+      return null;
+    }
   }
 
   void save(Path output, List<Militancia> candidatos) throws IOException {
@@ -153,7 +155,7 @@ public class MilitanciaExtract {
       throws IOException, InterruptedException {
     var politicoUrl =
         "https://infogob.jne.gob.pe/Politico/_ProcesosFichaPolitico?istrParameters="
-            + token;
+            + URLEncoder.encode(token, StandardCharsets.UTF_8);
     System.out.println(politicoUrl);
 
     var fichaRequestNode = mapper.createObjectNode().put("token", fichaKey);
@@ -194,7 +196,7 @@ public class MilitanciaExtract {
       throws IOException, InterruptedException {
     var politicoUrl =
         "https://infogob.jne.gob.pe/Politico/_HistorialFichaPolitico?istrParameters="
-            + token;
+            + URLEncoder.encode(token, StandardCharsets.UTF_8);
     System.out.println(politicoUrl);
     var fichaRequestNode = mapper.createObjectNode().put("token", fichaKey);
     String fichaRequest = mapper.writeValueAsString(fichaRequestNode);
