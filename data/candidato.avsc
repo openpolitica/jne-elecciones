@@ -1,5 +1,5 @@
 {
-  "namespace": "openpolitica.jne.elecciones",
+  "namespace": "openpolitica.jne.elecciones.data",
   "type": "record",
   "name": "Candidato",
   "fields": [
