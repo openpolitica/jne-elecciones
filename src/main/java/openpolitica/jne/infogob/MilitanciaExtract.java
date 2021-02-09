@@ -17,7 +17,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
-import openpolitica.jne.elecciones.data.Candidato;
+import openpolitica.jne.plataformaelectoral.data.Candidato;
 import openpolitica.jne.infogob.data.Afiliacion;
 import openpolitica.jne.infogob.data.FichaHistorial;
 import openpolitica.jne.infogob.data.Militancia;
