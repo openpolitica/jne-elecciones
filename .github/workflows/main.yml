@@ -28,7 +28,7 @@ jobs:
         run: mvn clean compile
 
       - name: Run extraction
-        run: mvn exec:java -D"exec.mainClass"="openpolitica.jne.elecciones.CandidatosEtl2021"
+        run: mvn exec:java -D"exec.mainClass"="openpolitica.jne.plataformaelectoral.CandidatosEtl2021"
 
       - name: Commit & Push changes
         uses: actions-js/push@master
