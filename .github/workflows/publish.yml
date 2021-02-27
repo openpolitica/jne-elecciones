@@ -26,18 +26,18 @@ jobs:
           packages: |
             datasette
             sqlite-utils
-    - name: Set up Cloud SDK
-      uses: google-github-actions/setup-gcloud@master
-      with:
-        project_id: ${{ secrets.GCP_PROJECT_ID }}
-        service_account_key: ${{ secrets.GCP_SA_KEY }}
-        export_default_credentials: true
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@master
+        with:
+          project_id: ${{ secrets.GCP_PROJECT_ID }}
+          service_account_key: ${{ secrets.GCP_SA_KEY }}
+          export_default_credentials: true
 
-    - name: Use gcloud CLI
-      run: gcloud info
-    - name: Set region
-      run: gcloud config set run/region southamerica-east1
+      - name: Use gcloud CLI
+        run: gcloud info
+      - name: Set region
+        run: gcloud config set run/region southamerica-east1
 
-    - name: Deploy datasette
-      run: |
-        datasette publish cloudrun data/plataformaelectoral/2021-candidatos-presidenciales.db data/plataformaelectoral/2021-candidatos-congresales.db data/infogob/2021-militancia-candidatos-presidenciales.db data/infogob/2021-militancia-candidatos-congresales.db data/plataformaelectoral/2021-candidatos-parlamento-andino.db data/infogob/2021-militancia-candidatos-parlamento-andino.db --service=openpolitica-jne --install datasette-vega
+      - name: Deploy datasette
+        run: |
+          datasette publish cloudrun data/plataformaelectoral/2021-candidatos-presidenciales.db data/plataformaelectoral/2021-candidatos-congresales.db data/infogob/2021-militancia-candidatos-presidenciales.db data/infogob/2021-militancia-candidatos-congresales.db data/plataformaelectoral/2021-candidatos-parlamento-andino.db data/infogob/2021-militancia-candidatos-parlamento-andino.db --service=openpolitica-jne --install datasette-vega
