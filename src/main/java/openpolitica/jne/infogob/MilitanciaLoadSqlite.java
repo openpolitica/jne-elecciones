@@ -186,13 +186,4 @@ public class MilitanciaLoadSqlite {
     }
   }
 
-  public static void main(String[] args) throws IOException, SQLException {
-    var main = new MilitanciaLoadSqlite();
-    main.save(Path.of("data/infogob/2021-militancia-candidatos-presidenciales.avro"),
-        Path.of("data/infogob/2021-militancia-candidatos-presidenciales.db"));
-    main.save(Path.of("data/infogob/2021-militancia-candidatos-congresales.avro"),
-        Path.of("data/infogob/2021-militancia-candidatos-congresales.db"));
-    main.save(Path.of("data/infogob/2021-militancia-candidatos-parlamento-andino.avro"),
-        Path.of("data/infogob/2021-militancia-candidatos-parlamento-andino.db"));
-  }
 }
