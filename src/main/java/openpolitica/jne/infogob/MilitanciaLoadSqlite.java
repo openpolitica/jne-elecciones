@@ -192,5 +192,7 @@ public class MilitanciaLoadSqlite {
         Path.of("data/infogob/2021-militancia-candidatos-presidenciales.db"));
     main.save(Path.of("data/infogob/2021-militancia-candidatos-congresales.avro"),
         Path.of("data/infogob/2021-militancia-candidatos-congresales.db"));
+    main.save(Path.of("data/infogob/2021-militancia-candidatos-parlamento-andino.avro"),
+        Path.of("data/infogob/2021-militancia-candidatos-parlamento-andino.db"));
   }
 }
