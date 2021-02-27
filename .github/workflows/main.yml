@@ -36,13 +36,3 @@ jobs:
           branch: main
           message: 'workflow: datos actualizados'
           github_token: ${{ secrets.GITHUB_TOKEN }}
-
-      - uses: actions/setup-python@v1
-      - uses: google-github-actions/deploy-cloudrun@main
-      - name: publishes to datasette
-        uses: BSFishy/pip-action@v1
-        with:
-          packages: |
-            datasette
-            sqlite-utils
-      - run: datasette publish cloudrun data/plataformaelectoral/2021-candidatos-presidenciales.db data/plataformaelectoral/2021-candidatos-congresales.db data/infogob/2021-militancia-candidatos-presidenciales.db data/infogob/2021-militancia-candidatos-congresales.db data/plataformaelectoral/2021-candidatos-parlamento-andino.db data/infogob/2021-militancia-candidatos-parlamento-andino.db --service=openpolitica-jne --install datasette-vega
