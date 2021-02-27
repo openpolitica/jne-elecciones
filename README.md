@@ -1,6 +1,9 @@
 # JNE - Elecciones
 
 ![extract](https://github.com/openpolitica/jne-elecciones/workflows/extract/badge.svg)
+[![publish](https://github.com/openpolitica/jne-elecciones/actions/workflows/publish.yml/badge.svg)](https://github.com/openpolitica/jne-elecciones/actions/workflows/publish.yml)
+
+Explorar datos: <https://openpolitica-jne-dtnlgurdna-rj.a.run.app/>
 
 ## 2021
 
