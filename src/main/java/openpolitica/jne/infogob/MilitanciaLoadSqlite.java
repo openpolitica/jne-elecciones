@@ -6,6 +6,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import openpolitica.jne.infogob.data.Militancia;
 import org.apache.avro.file.DataFileReader;
 import org.apache.avro.specific.SpecificDatumReader;
@@ -22,10 +26,17 @@ public class MilitanciaLoadSqlite {
   public MilitanciaLoadSqlite() {
   }
 
-  public void save(Path input, Path output) throws SQLException, IOException {
+  public void save(Path input, Path output) {
     var jdbcUrl = "jdbc:sqlite:" + output.toAbsolutePath();
     try (var connection = DriverManager.getConnection(jdbcUrl)) {
       var statement = connection.createStatement();
+
+      statement.executeUpdate("pragma journal_mode = WAL");
+      statement.executeUpdate("pragma synchronous = off");
+      statement.executeUpdate("pragma temp_store = memory");
+      statement.executeUpdate("pragma mmap_size = 300000000");
+      statement.executeUpdate("pragma page_size = 32768");
+
       for (var tableLoad : tableLoadList) {
         LOG.info("Loading {}", tableLoad.tableName);
         statement.executeUpdate(tableLoad.dropTableStatement());
@@ -41,6 +52,11 @@ public class MilitanciaLoadSqlite {
         ps.executeBatch();
         LOG.info("Table {} updated", tableLoad.tableName);
       }
+
+      statement.executeUpdate("pragma vacuum;");
+      statement.executeUpdate("pragma optimize;");
+    } catch (Exception throwables) {
+      throwables.printStackTrace();
     }
   }
 
@@ -50,6 +66,8 @@ public class MilitanciaLoadSqlite {
   }
 
   abstract static class TableLoad {
+    final ObjectMapper jsonMapper = new ObjectMapper();
+
     final String tableName;
 
     public TableLoad(String tableName) {
@@ -64,7 +82,7 @@ public class MilitanciaLoadSqlite {
 
     abstract String prepareStatement();
 
-    abstract void addBatch(PreparedStatement ps, Militancia m) throws SQLException;
+    abstract void addBatch(PreparedStatement ps, Militancia m) throws SQLException, JsonProcessingException;
   }
 
   static class AfiliacionTableLoad extends TableLoad {
@@ -88,7 +106,8 @@ public class MilitanciaLoadSqlite {
             afiliacion_inicio string,
             afiliacion_cancelacion string,
             afiliacion_representante string,
-            afiliacion_comite string
+            afiliacion_comite string,
+            cargos string
           )
           """.formatted(tableName);
     }
@@ -96,12 +115,12 @@ public class MilitanciaLoadSqlite {
     @Override String prepareStatement() {
       return """
           insert into %s values (
-            ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
+            ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
           )
           """.formatted(tableName);
     }
 
-    @Override void addBatch(PreparedStatement ps, Militancia m) throws SQLException {
+    @Override void addBatch(PreparedStatement ps, Militancia m) throws SQLException, JsonProcessingException {
       if (m.getFichaHistorial() != null && m.getFichaHistorial().getAfiliacionVigente() != null) {
         ps.setString(1, m.getDni());
         ps.setString(2, m.getNombreCompleto());
@@ -118,6 +137,10 @@ public class MilitanciaLoadSqlite {
         ps.setString(11, m.getFichaHistorial().getAfiliacionVigente().getAfiliacionCancelacion());
         ps.setString(12, m.getFichaHistorial().getAfiliacionVigente().getAfiliacionRepresentante());
         ps.setString(13, m.getFichaHistorial().getAfiliacionVigente().getAfiliacionComite());
+
+        ps.setString(14, jsonMapper.writeValueAsString(m.getFichaHistorial().getAfiliacionVigente().getCargos().stream()
+                .map(cargo -> cargo.getCargoNombre() + " " + cargo.getCargoPeriodo())
+                .collect(Collectors.toList())));
 
         ps.addBatch();
 
@@ -136,6 +159,7 @@ public class MilitanciaLoadSqlite {
           ps.setString(11, b.getAfiliacionCancelacion());
           ps.setString(12, b.getAfiliacionRepresentante());
           ps.setString(13, b.getAfiliacionComite());
+          ps.setString(14, "[]");
 
           ps.addBatch();
         }
