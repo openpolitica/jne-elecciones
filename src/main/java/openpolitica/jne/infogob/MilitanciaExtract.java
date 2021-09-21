@@ -17,17 +17,16 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
+
+import openpolitica.jne.infogob.data.*;
 import openpolitica.jne.plataformaelectoral.data.Candidato;
-import openpolitica.jne.infogob.data.Afiliacion;
-import openpolitica.jne.infogob.data.FichaHistorial;
-import openpolitica.jne.infogob.data.Militancia;
-import openpolitica.jne.infogob.data.ProcesoElectoral;
 import org.apache.avro.file.CodecFactory;
 import org.apache.avro.file.DataFileReader;
 import org.apache.avro.file.DataFileWriter;
 import org.apache.avro.specific.SpecificDatumReader;
 import org.apache.avro.specific.SpecificDatumWriter;
 import org.jsoup.Jsoup;
+import org.jsoup.nodes.Element;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -37,7 +36,7 @@ public class MilitanciaExtract {
   static final ObjectMapper mapper = new ObjectMapper();
   static final HttpClient httpClient = HttpClient.newBuilder().build();
 
-  public static void main(String[] args) throws IOException {
+  public static void main(String[] args) {
     var m = new MilitanciaExtract().getMilitancia("18010708");
     System.out.println(m);
   }
@@ -214,44 +213,66 @@ public class MilitanciaExtract {
     var select = politicoBody.select("div.content");
     System.out.println(select);
     if (!select.isEmpty()) {
-      var divCampos = select.first().select("span.control");
+      Element first = select.first();
+      var divCampos = first.select("span.control");
       System.out.println(divCampos);
+      var divCargos = first.select("span.detalleCargo");
+      System.out.println("Cargos: "+divCargos);
 
-      var divHistorialCampos = select.last().children();
-      var histSize = 1;
-      for (var el : divHistorialCampos) {
-        if (el.tagName().equals("hr")) histSize++;
-      }
-      System.out.println("hist size: " + histSize);
-      var historial = new Afiliacion.Builder[histSize];
-      for (int a = 0; a < histSize; a++) {
-        historial[a] = Afiliacion.newBuilder();
-      }
-      int i = 0;
-
-      for (var elem : divHistorialCampos) {
-        if (elem.tagName().equals("hr")) {
-          i++;
-        } else {
-          var divRows = elem.children();
-          for (var divRow : divRows) {
-            var iKey = divRow.select("span.etiqueta").text();
-            var iVal = divRow.select("span.control").text();
-            switch (iKey) {
-              case "Organización Política:" -> historial[i].setOrgPolitica(iVal);
-              case "Estado Org. Política:" -> historial[i].setOrgPoliticaEstado(iVal);
-              case "Tipo partido:" -> historial[i].setOrgPoliticaTipo(iVal);
-              case "Alcance:" -> historial[i].setOrgPoliticaAlcance(iVal);
-              case "Fecha de inscripción:" -> historial[i].setOrgPoliticaFechaInscripcion(iVal);
-              case "Fecha de cancelación:" -> historial[i].setAfiliacionCancelacion(iVal);
-              case "Estado de ciudadano:" -> historial[i].setAfiliacionEstado(iVal);
-              case "Inicio de afiliación:" -> historial[i].setAfiliacionInicio(iVal);
-              case "Representante:" -> historial[i].setAfiliacionRepresentante(iVal);
-            }
+      List<Cargo> cargos = new ArrayList<>();
+      if (!divCargos.isEmpty() && divCargos.size() % 2 == 0) {
+        Cargo.Builder cargo = Cargo.newBuilder();
+        for (int a = 0; a < divCargos.size(); a ++) {
+          var t = divCargos.get(a).text();
+          if (a % 2 == 0) {
+            cargo = Cargo.newBuilder();
+            cargo.setCargoNombre(t);
+          } else {
+              cargo.setCargoPeriodo(t);
+              cargos.add(cargo.build());
           }
         }
       }
 
+      Afiliacion.Builder[] historial = new Afiliacion.Builder[0];
+      if (select.size() > 1) {
+        Element last = select.last();
+        var divHistorialCampos = last.children();
+        var histSize = 1;
+        for (var el : divHistorialCampos) {
+          if (el.tagName().equals("hr")) histSize++;
+        }
+        System.out.println("hist size: " + histSize);
+        historial = new Afiliacion.Builder[histSize];
+        for (int a = 0; a < histSize; a++) {
+          historial[a] = Afiliacion.newBuilder();
+        }
+        int i = 0;
+
+        for (var elem : divHistorialCampos) {
+          if (elem.tagName().equals("hr")) {
+            i++;
+          } else {
+            var divRows = elem.children();
+            for (var divRow : divRows) {
+              var iKey = divRow.select("span.etiqueta").text();
+              var iVal = divRow.select("span.control").text();
+              switch (iKey) {
+                case "Organización Política:" -> historial[i].setOrgPolitica(iVal);
+                case "Estado Org. Política:" -> historial[i].setOrgPoliticaEstado(iVal);
+                case "Tipo partido:" -> historial[i].setOrgPoliticaTipo(iVal);
+                case "Alcance:" -> historial[i].setOrgPoliticaAlcance(iVal);
+                case "Fecha de inscripción:" -> historial[i].setOrgPoliticaFechaInscripcion(iVal);
+                case "Fecha de cancelación:" -> historial[i].setAfiliacionCancelacion(iVal);
+                case "Estado de ciudadano:" -> historial[i].setAfiliacionEstado(iVal);
+                case "Inicio de afiliación:" -> historial[i].setAfiliacionInicio(iVal);
+                case "Representante:" -> historial[i].setAfiliacionRepresentante(iVal);
+              }
+              historial[i].setCargos(new ArrayList<>()); // no se esta capturando cargos de historia no vigente
+            }
+          }
+        }
+      }
       return FichaHistorial.newBuilder()
           .setAfiliacionVigente(Afiliacion.newBuilder()
               .setOrgPolitica(divCampos.get(0).text())
@@ -263,6 +284,7 @@ public class MilitanciaExtract {
               .setAfiliacionInicio(divCampos.get(6).text())
               .setAfiliacionRepresentante(divCampos.get(7).text())
               .setAfiliacionComite(divCampos.get(8).text())
+              .setCargos(cargos)
               .build())
           .setHistorialAfiliaciones(Arrays.stream(historial)
               .map(Afiliacion.Builder::build)

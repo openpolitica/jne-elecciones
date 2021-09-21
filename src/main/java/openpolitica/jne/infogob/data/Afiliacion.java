@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class Afiliacion extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -6984911559582135225L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Afiliacion\",\"namespace\":\"openpolitica.jne.infogob.data\",\"fields\":[{\"name\":\"org_politica\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"org_politica_estado\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"org_politica_tipo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"org_politica_alcance\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"org_politica_fecha_inscripcion\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"default\":\"null\"},{\"name\":\"afiliacion_estado\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"afiliacion_inicio\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"afiliacion_representante\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"afiliacion_comite\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"default\":\"null\"},{\"name\":\"afiliacion_cancelacion\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"default\":\"null\"}]}");
+  private static final long serialVersionUID = -8171970671167653387L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Afiliacion\",\"namespace\":\"openpolitica.jne.infogob.data\",\"fields\":[{\"name\":\"org_politica\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"org_politica_estado\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"org_politica_tipo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"org_politica_alcance\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"org_politica_fecha_inscripcion\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"default\":\"null\"},{\"name\":\"afiliacion_estado\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"afiliacion_inicio\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"afiliacion_representante\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"afiliacion_comite\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"default\":\"null\"},{\"name\":\"afiliacion_cancelacion\",\"type\":[{\"type\":\"string\",\"avro.java.string\":\"String\"},\"null\"],\"default\":\"null\"},{\"name\":\"cargos\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"Cargo\",\"fields\":[{\"name\":\"cargo_nombre\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"cargo_periodo\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -81,6 +81,7 @@ public class Afiliacion extends org.apache.avro.specific.SpecificRecordBase impl
    private java.lang.String afiliacion_representante;
    private java.lang.String afiliacion_comite;
    private java.lang.String afiliacion_cancelacion;
+   private java.util.List<openpolitica.jne.infogob.data.Cargo> cargos;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -101,8 +102,9 @@ public class Afiliacion extends org.apache.avro.specific.SpecificRecordBase impl
    * @param afiliacion_representante The new value for afiliacion_representante
    * @param afiliacion_comite The new value for afiliacion_comite
    * @param afiliacion_cancelacion The new value for afiliacion_cancelacion
+   * @param cargos The new value for cargos
    */
-  public Afiliacion(java.lang.String org_politica, java.lang.String org_politica_estado, java.lang.String org_politica_tipo, java.lang.String org_politica_alcance, java.lang.String org_politica_fecha_inscripcion, java.lang.String afiliacion_estado, java.lang.String afiliacion_inicio, java.lang.String afiliacion_representante, java.lang.String afiliacion_comite, java.lang.String afiliacion_cancelacion) {
+  public Afiliacion(java.lang.String org_politica, java.lang.String org_politica_estado, java.lang.String org_politica_tipo, java.lang.String org_politica_alcance, java.lang.String org_politica_fecha_inscripcion, java.lang.String afiliacion_estado, java.lang.String afiliacion_inicio, java.lang.String afiliacion_representante, java.lang.String afiliacion_comite, java.lang.String afiliacion_cancelacion, java.util.List<openpolitica.jne.infogob.data.Cargo> cargos) {
     this.org_politica = org_politica;
     this.org_politica_estado = org_politica_estado;
     this.org_politica_tipo = org_politica_tipo;
@@ -113,6 +115,7 @@ public class Afiliacion extends org.apache.avro.specific.SpecificRecordBase impl
     this.afiliacion_representante = afiliacion_representante;
     this.afiliacion_comite = afiliacion_comite;
     this.afiliacion_cancelacion = afiliacion_cancelacion;
+    this.cargos = cargos;
   }
 
   public org.apache.avro.specific.SpecificData getSpecificData() { return MODEL$; }
@@ -130,6 +133,7 @@ public class Afiliacion extends org.apache.avro.specific.SpecificRecordBase impl
     case 7: return afiliacion_representante;
     case 8: return afiliacion_comite;
     case 9: return afiliacion_cancelacion;
+    case 10: return cargos;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -148,6 +152,7 @@ public class Afiliacion extends org.apache.avro.specific.SpecificRecordBase impl
     case 7: afiliacion_representante = value$ != null ? value$.toString() : null; break;
     case 8: afiliacion_comite = value$ != null ? value$.toString() : null; break;
     case 9: afiliacion_cancelacion = value$ != null ? value$.toString() : null; break;
+    case 10: cargos = (java.util.List<openpolitica.jne.infogob.data.Cargo>)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -323,6 +328,23 @@ public class Afiliacion extends org.apache.avro.specific.SpecificRecordBase impl
   }
 
   /**
+   * Gets the value of the 'cargos' field.
+   * @return The value of the 'cargos' field.
+   */
+  public java.util.List<openpolitica.jne.infogob.data.Cargo> getCargos() {
+    return cargos;
+  }
+
+
+  /**
+   * Sets the value of the 'cargos' field.
+   * @param value the value to set.
+   */
+  public void setCargos(java.util.List<openpolitica.jne.infogob.data.Cargo> value) {
+    this.cargos = value;
+  }
+
+  /**
    * Creates a new Afiliacion RecordBuilder.
    * @return A new Afiliacion RecordBuilder
    */
@@ -373,6 +395,7 @@ public class Afiliacion extends org.apache.avro.specific.SpecificRecordBase impl
     private java.lang.String afiliacion_representante;
     private java.lang.String afiliacion_comite;
     private java.lang.String afiliacion_cancelacion;
+    private java.util.List<openpolitica.jne.infogob.data.Cargo> cargos;
 
     /** Creates a new Builder */
     private Builder() {
@@ -425,6 +448,10 @@ public class Afiliacion extends org.apache.avro.specific.SpecificRecordBase impl
         this.afiliacion_cancelacion = data().deepCopy(fields()[9].schema(), other.afiliacion_cancelacion);
         fieldSetFlags()[9] = other.fieldSetFlags()[9];
       }
+      if (isValidValue(fields()[10], other.cargos)) {
+        this.cargos = data().deepCopy(fields()[10].schema(), other.cargos);
+        fieldSetFlags()[10] = other.fieldSetFlags()[10];
+      }
     }
 
     /**
@@ -472,6 +499,10 @@ public class Afiliacion extends org.apache.avro.specific.SpecificRecordBase impl
       if (isValidValue(fields()[9], other.afiliacion_cancelacion)) {
         this.afiliacion_cancelacion = data().deepCopy(fields()[9].schema(), other.afiliacion_cancelacion);
         fieldSetFlags()[9] = true;
+      }
+      if (isValidValue(fields()[10], other.cargos)) {
+        this.cargos = data().deepCopy(fields()[10].schema(), other.cargos);
+        fieldSetFlags()[10] = true;
       }
     }
 
@@ -875,6 +906,46 @@ public class Afiliacion extends org.apache.avro.specific.SpecificRecordBase impl
       return this;
     }
 
+    /**
+      * Gets the value of the 'cargos' field.
+      * @return The value.
+      */
+    public java.util.List<openpolitica.jne.infogob.data.Cargo> getCargos() {
+      return cargos;
+    }
+
+
+    /**
+      * Sets the value of the 'cargos' field.
+      * @param value The value of 'cargos'.
+      * @return This builder.
+      */
+    public openpolitica.jne.infogob.data.Afiliacion.Builder setCargos(java.util.List<openpolitica.jne.infogob.data.Cargo> value) {
+      validate(fields()[10], value);
+      this.cargos = value;
+      fieldSetFlags()[10] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'cargos' field has been set.
+      * @return True if the 'cargos' field has been set, false otherwise.
+      */
+    public boolean hasCargos() {
+      return fieldSetFlags()[10];
+    }
+
+
+    /**
+      * Clears the value of the 'cargos' field.
+      * @return This builder.
+      */
+    public openpolitica.jne.infogob.data.Afiliacion.Builder clearCargos() {
+      cargos = null;
+      fieldSetFlags()[10] = false;
+      return this;
+    }
+
     @Override
     @SuppressWarnings("unchecked")
     public Afiliacion build() {
@@ -890,6 +961,7 @@ public class Afiliacion extends org.apache.avro.specific.SpecificRecordBase impl
         record.afiliacion_representante = fieldSetFlags()[7] ? this.afiliacion_representante : (java.lang.String) defaultValue(fields()[7]);
         record.afiliacion_comite = fieldSetFlags()[8] ? this.afiliacion_comite : (java.lang.String) defaultValue(fields()[8]);
         record.afiliacion_cancelacion = fieldSetFlags()[9] ? this.afiliacion_cancelacion : (java.lang.String) defaultValue(fields()[9]);
+        record.cargos = fieldSetFlags()[10] ? this.cargos : (java.util.List<openpolitica.jne.infogob.data.Cargo>) defaultValue(fields()[10]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
@@ -960,6 +1032,19 @@ public class Afiliacion extends org.apache.avro.specific.SpecificRecordBase impl
       out.writeString(this.afiliacion_cancelacion);
     }
 
+    long size0 = this.cargos.size();
+    out.writeArrayStart();
+    out.setItemCount(size0);
+    long actualSize0 = 0;
+    for (openpolitica.jne.infogob.data.Cargo e0: this.cargos) {
+      actualSize0++;
+      out.startItem();
+      e0.customEncode(out);
+    }
+    out.writeArrayEnd();
+    if (actualSize0 != size0)
+      throw new java.util.ConcurrentModificationException("Array-size written was " + size0 + ", but element count was " + actualSize0 + ".");
+
   }
 
   @Override public void customDecode(org.apache.avro.io.ResolvingDecoder in)
@@ -1002,8 +1087,26 @@ public class Afiliacion extends org.apache.avro.specific.SpecificRecordBase impl
         this.afiliacion_cancelacion = in.readString();
       }
 
+      long size0 = in.readArrayStart();
+      java.util.List<openpolitica.jne.infogob.data.Cargo> a0 = this.cargos;
+      if (a0 == null) {
+        a0 = new SpecificData.Array<openpolitica.jne.infogob.data.Cargo>((int)size0, SCHEMA$.getField("cargos").schema());
+        this.cargos = a0;
+      } else a0.clear();
+      SpecificData.Array<openpolitica.jne.infogob.data.Cargo> ga0 = (a0 instanceof SpecificData.Array ? (SpecificData.Array<openpolitica.jne.infogob.data.Cargo>)a0 : null);
+      for ( ; 0 < size0; size0 = in.arrayNext()) {
+        for ( ; size0 != 0; size0--) {
+          openpolitica.jne.infogob.data.Cargo e0 = (ga0 != null ? ga0.peek() : null);
+          if (e0 == null) {
+            e0 = new openpolitica.jne.infogob.data.Cargo();
+          }
+          e0.customDecode(in);
+          a0.add(e0);
+        }
+      }
+
     } else {
-      for (int i = 0; i < 10; i++) {
+      for (int i = 0; i < 11; i++) {
         switch (fieldOrder[i].pos()) {
         case 0:
           this.org_politica = in.readString();
@@ -1057,6 +1160,26 @@ public class Afiliacion extends org.apache.avro.specific.SpecificRecordBase impl
             this.afiliacion_cancelacion = null;
           } else {
             this.afiliacion_cancelacion = in.readString();
+          }
+          break;
+
+        case 10:
+          long size0 = in.readArrayStart();
+          java.util.List<openpolitica.jne.infogob.data.Cargo> a0 = this.cargos;
+          if (a0 == null) {
+            a0 = new SpecificData.Array<openpolitica.jne.infogob.data.Cargo>((int)size0, SCHEMA$.getField("cargos").schema());
+            this.cargos = a0;
+          } else a0.clear();
+          SpecificData.Array<openpolitica.jne.infogob.data.Cargo> ga0 = (a0 instanceof SpecificData.Array ? (SpecificData.Array<openpolitica.jne.infogob.data.Cargo>)a0 : null);
+          for ( ; 0 < size0; size0 = in.arrayNext()) {
+            for ( ; size0 != 0; size0--) {
+              openpolitica.jne.infogob.data.Cargo e0 = (ga0 != null ? ga0.peek() : null);
+              if (e0 == null) {
+                e0 = new openpolitica.jne.infogob.data.Cargo();
+              }
+              e0.customDecode(in);
+              a0.add(e0);
+            }
           }
           break;
 

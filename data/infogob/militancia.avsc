@@ -2,6 +2,21 @@
   {
     "namespace": "openpolitica.jne.infogob.data",
     "type": "record",
+    "name": "Cargo",
+    "fields": [
+      {
+        "name": "cargo_nombre",
+        "type": "string"
+      },
+      {
+        "name": "cargo_periodo",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "namespace": "openpolitica.jne.infogob.data",
+    "type": "record",
     "name": "ProcesoElectoral",
     "fields": [
       {
@@ -79,6 +94,13 @@
           "null"
         ],
         "default": "null"
+      },
+      {
+        "name": "cargos",
+        "type": {
+          "type": "array",
+          "items": "Cargo"
+        }
       }
     ]
   },
