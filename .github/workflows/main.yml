@@ -37,6 +37,7 @@ jobs:
           message: 'workflow: datos actualizados'
           github_token: ${{ secrets.GITHUB_TOKEN }}
           
+      - uses: actions/checkout@v2
       - uses: actions/setup-python@v1
       - name: publishes to datasette
         uses: BSFishy/pip-action@v1
