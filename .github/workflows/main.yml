@@ -55,5 +55,9 @@ jobs:
         run: |-
           datasette publish vercel data/plataformaelectoral/*.db data/infogob/*.db \
             --token $VERCEL_TOKEN \
-            --project jne-elecciones \
-            --install datasette-vega
+            --project jne-elecciones \            
+            --install datasette-vega \
+            --install datasette-export-notebook \
+            --install datasette-copyable \
+            --install datasette-block-robots
+
