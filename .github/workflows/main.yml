@@ -54,11 +54,10 @@ jobs:
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |-
-          datasette publish vercel data/plataformaelectoral/*.db data/infogob/*.db \
+          datasette publish vercel data/plataformaelectoral/2021-*.db data/infogob/2021-*.db \
             --token $VERCEL_TOKEN \
-            --project jne-elecciones \            
+            --project jne-elecciones \
             --install datasette-vega \
             --install datasette-export-notebook \
             --install datasette-copyable \
             --install datasette-block-robots
-
